@@ -3,28 +3,166 @@ using Adw 1;
 
 template $LunaWindow : Adw.ApplicationWindow {
     title: _("Luna");
-    default-width: 800;
-    default-height: 600;
+    default-width: 460;
+    default-height: 520;
+    width-request: 360;
+    height-request: 360;
 
-    content: Gtk.Box {
-        orientation: vertical;
+    Adw.Breakpoint {
+        condition ("max-width: 700sp")
 
-        Adw.HeaderBar {
-            [end]
-            Gtk.MenuButton {
-                primary: true;
-                icon-name: "open-menu-symbolic";
-                tooltip-text: _("Main Menu");
-                menu-model: primary_menu;
-            }
+        setters {
+            split_view.collapsed: true;
         }
+    }
 
-        Adw.PreferencesPage {
-            Adw.PreferencesGroup {
-                vexpand: true;
-                valign: center;
-            }
-        }
+    content: Adw.ToastOverlay toast_overlay {
+        child: Adw.NavigationSplitView split_view {
+            min-sidebar-width: 340;
+            max-sidebar-width: 420;
+
+            sidebar: Adw.NavigationPage {
+                title: bind template.title;
+
+                child: Adw.ToolbarView {
+                    [top]
+                    Adw.HeaderBar {
+                        centering-policy: strict;
+
+                        title-widget: Adw.WindowTitle {
+                            title: bind template.title;
+                            subtitle: _("Period Tracker");
+                        };
+
+                        [end]
+                        Gtk.MenuButton {
+                            primary: true;
+                            icon-name: "open-menu-symbolic";
+                            tooltip-text: _("Main Menu");
+                            menu-model: primary_menu;
+                        }
+                        [end]
+                        Gtk.Button new_period_button {
+                            icon-name: "list-add-symbolic";
+                            tooltip-text: _("Add New Period");
+                        }
+                    }
+
+                    content: ScrolledWindow main_content {
+                        hscrollbar-policy: never;
+                        vscrollbar-policy: automatic;
+
+                        child: Adw.Clamp {
+                            maximum-size: 420;
+
+                            child: Box {
+                                orientation: vertical;
+                                spacing: 16;
+                                margin-top: 24;
+                                margin-bottom: 24;
+                                margin-start: 16;
+                                margin-end: 16;
+
+                                Adw.PreferencesGroup {
+                                    title: _("Predictions");
+
+                                    Adw.ActionRow predicted_period {
+                                        title: _("Next Predicted Period");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+                                    Adw.ActionRow ovulation {
+                                        title: _("Predicted Ovulation Date");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+                                }
+
+                                Adw.PreferencesGroup {
+                                    title: _("Cycle Statistics");
+                                    Adw.ActionRow cycle_length {
+                                        title: _("Average Length");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+
+                                    Adw.ActionRow cycle_range {
+                                        title: _("Range");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+
+                                    Adw.ActionRow cycle_std_dev {
+                                        title: _("Standard Deviation");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+                                }
+
+                                Adw.PreferencesGroup history_group_main {
+                                    title: _("History");
+                                    visible: false;
+
+                                    ListBox history_box_main {
+                                        styles ["boxed-list"]
+                                    }
+                                }
+                            };
+                        };
+                    };
+                };
+            };
+
+            content: Adw.NavigationPage {
+                title: _("History");
+
+                child: Adw.ToolbarView {
+                    [top]
+                    Adw.HeaderBar {}
+
+                    content: Stack history_stack {
+                        transition-type: crossfade;
+                        StackPage {
+                            name: "empty";
+                            child: Adw.StatusPage empty_results {
+                                title: _("Empty History");
+                                description: _("Your history is empty. Press the '+' icon, or Ctl+N to create a new entry.");
+                                can-focus: false;
+                            };
+                        }
+
+                        StackPage {
+                            name: "results";
+                            child: ScrolledWindow {
+                                hscrollbar-policy: never;
+                                vscrollbar-policy: automatic;
+
+                                child: Adw.Clamp {
+                                    maximum-size: 420;
+
+                                    child: Box {
+                                        orientation: vertical;
+                                        spacing: 16;
+                                        margin-top: 24;
+                                        margin-bottom: 24;
+                                        margin-start: 16;
+                                        margin-end: 16;
+
+                                        Adw.PreferencesGroup history_group {
+                                            visible: true;
+
+                                            ListBox results_box {
+                                                styles ["boxed-list"]
+                                            }
+                                        }
+                                    };
+                                };
+                            };
+                        }
+                    };
+                };
+            };
+        };
     };
 }
 
