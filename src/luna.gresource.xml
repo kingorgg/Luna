@@ -2,6 +2,5 @@
 <gresources>
   <gresource prefix="/io/github/kingorgg/Luna">
     <file preprocess="xml-stripblanks">window.ui</file>
-    <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
   </gresource>
 </gresources>
