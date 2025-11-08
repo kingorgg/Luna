@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="org.codeberg.kingorgg.Luna-symbolic.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="25.632621"
+     inkscape:cx="14.044604"
+     inkscape:cy="8.6218261"
+     inkscape:window-width="2560"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     id="path1-3"
+     style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.0542226;enable-background:new"
+     d="m 9.7757463,1.0599884 a 7.5155942,6.9000579 0 0 0 -7.5158,6.90025 7.5155942,6.9000579 0 0 0 7.5158,6.8998396 7.5155942,6.9000579 0 0 0 1.3422397,-0.11081 7.2163781,6.6253481 0 0 1 -5.9007897,-6.5146496 7.2163781,6.6253481 0 0 1 7.2160497,-6.62505 7.2163781,6.6253481 0 0 1 0.29533,0.005 7.5155942,6.9000579 0 0 0 -2.9528297,-0.55486 z" />
+  <path
+     style="display:inline;fill:#000000;fill-opacity:1;stroke-width:0.0324293;enable-background:new"
+     d="m 12.169596,2.3039584 c 0,0 -1.49038,2.26643 -1.26082,3.0562 0.22957,0.78977 0.78438,0.94952 1.33142,0.93805 0.54705,-0.0115 1.11472,-0.2084 1.31125,-1.00865 0.19652,-0.80026 -1.38185,-2.9856 -1.38185,-2.9856 z"
+     id="path2-5"
+     sodipodi:nodetypes="cczcc" />
+</svg>
