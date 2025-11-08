@@ -2,11 +2,21 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir = pkgdatadir / 'luna'
 gnome = import('gnome')
 
+blueprint = custom_target('blueprint',
+    input: 'window.blp',
+    output: 'window.ui',
+    command: [
+        find_program('blueprint-compiler', required: true),
+        'compile', '--output', '@OUTPUT@', '@INPUT@'
+    ]
+)
+
 gnome.compile_resources('luna',
-  'luna.gresource.xml',
-  gresource_bundle: true,
-  install: true,
-  install_dir: pkgdatadir,
+    'luna.gresource.xml',
+     gresource_bundle: true,
+     install: true,
+     install_dir: pkgdatadir,
+     dependencies: blueprint
 )
 
 python = import('python')
@@ -18,18 +28,18 @@ conf.set('localedir', get_option('prefix') / get_option('localedir'))
 conf.set('pkgdatadir', pkgdatadir)
 
 configure_file(
-  input: 'luna.in',
-  output: 'luna',
-  configuration: conf,
-  install: true,
-  install_dir: get_option('bindir'),
-  install_mode: 'rwxr-xr-x'
+     input: 'luna.in',
+     output: 'luna',
+     configuration: conf,
+     install: true,
+     install_dir: get_option('bindir'),
+     install_mode: 'r-xr-xr-x'
 )
 
 luna_sources = [
-  '__init__.py',
-  'main.py',
-  'window.py',
+     '__init__.py',
+     'main.py',
+     'window.py',
 ]
 
 install_data(luna_sources, install_dir: moduledir)

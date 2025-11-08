@@ -1,0 +1,40 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $LunaWindow : Adw.ApplicationWindow {
+    title: _("Luna");
+    default-width: 800;
+    default-height: 600;
+
+    content: Gtk.Box {
+        orientation: vertical;
+
+        Adw.HeaderBar {
+            [end]
+            Gtk.MenuButton {
+                primary: true;
+                icon-name: "open-menu-symbolic";
+                tooltip-text: _("Main Menu");
+                menu-model: primary_menu;
+            }
+        }
+
+        Adw.PreferencesPage {
+            Adw.PreferencesGroup {
+                vexpand: true;
+                valign: center;
+            }
+        }
+    };
+}
+
+menu primary_menu {
+    item {
+        label: _("Preferences");
+        action: "app.preferences";
+    }
+    item {
+        label: _("About Luna");
+        action: "app.about";
+    }
+}
