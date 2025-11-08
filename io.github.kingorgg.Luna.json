@@ -28,9 +28,12 @@
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://github.com/kingorgg/Luna.git"
+                    "type" : "dir",
+                    "url" : "."
                 }
+            ],
+            "build-commands" : [
+            	"pip3 install --prefix=/app python-gnupg"
             ]
         }
     ]
