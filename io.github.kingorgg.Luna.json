@@ -30,7 +30,7 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///var/home/kingorgg/Projects"
+                    "url" : "https://github.com/kingorgg/Luna.git"
                 }
             ]
         }
