@@ -17,6 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+import gettext
 import sys
 import gi
 
@@ -37,6 +38,7 @@ class LunaApplication(Adw.Application):
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
         self.version = version
+        self.settings = Gio.Settings.new("io.github.kingorgg.Luna")
 
     def do_activate(self):
         self.new_window()
@@ -59,7 +61,42 @@ class LunaApplication(Adw.Application):
 
     def on_preferences_action(self, widget, _):
         """Callback for the app.preferences action."""
-        print('app.preferences action activated')
+        preferences = Adw.PreferencesDialog()
+
+        settings_page = Adw.PreferencesPage()
+        settings_page.set_icon_name("applications-system-symbolic")
+        preferences.add(settings_page)
+
+        gpg_group = Adw.PreferencesGroup(title=gettext.gettext("GPG Settings"))
+        settings_page.add(gpg_group)
+
+        gpg_key = Adw.EntryRow(title=gettext.gettext("GPG Public Key"))
+        gpg_group.add(gpg_key)
+
+        self.settings.bind(
+            "gpg-public-key",
+            gpg_key,
+            "text",
+            Gio.SettingsBindFlags.DEFAULT
+        )
+
+        cycle_group = Adw.PreferencesGroup(title=gettext.gettext("Cycle Settings"))
+        settings_page.add(cycle_group)
+
+        luteal_phase = Adw.SpinRow.new_with_range(9,16,1)
+        luteal_phase.set_title(gettext.gettext("Luteal Phase Length (days)"))
+        luteal_phase.set_value(14)
+        luteal_phase.set_numeric(True)
+        cycle_group.add(luteal_phase)
+
+        self.settings.bind(
+            "luteal-phase-length",
+            luteal_phase,
+            "value",
+            Gio.SettingsBindFlags.DEFAULT
+        )
+
+        preferences.present(self.props.active_window)
 
     def create_action(self, name, callback, shortcuts=None):
         action = Gio.SimpleAction.new(name, None)
@@ -67,7 +104,6 @@ class LunaApplication(Adw.Application):
         self.add_action(action)
         if shortcuts:
             self.set_accels_for_action(f"app.{name}", shortcuts)
-
 
 def main(version):
     """The application's entry point."""
