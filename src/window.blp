@@ -124,7 +124,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                         transition-type: crossfade;
                         StackPage {
                             name: "empty";
-                            child: Adw.StatusPage empty_results {
+                            child: Adw.StatusPage empty_history {
                                 title: _("Empty History");
                                 description: _("Your history is empty. Press the '+' icon, or Ctl+N to create a new entry.");
                                 can-focus: false;
@@ -132,7 +132,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                         }
 
                         StackPage {
-                            name: "results";
+                            name: "history";
                             child: ScrolledWindow {
                                 hscrollbar-policy: never;
                                 vscrollbar-policy: automatic;
@@ -151,7 +151,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                                         Adw.PreferencesGroup history_group {
                                             visible: true;
 
-                                            ListBox results_box {
+                                            ListBox history_box {
                                                 styles ["boxed-list"]
                                             }
                                         }

@@ -24,7 +24,24 @@ from gi.repository import Gtk
 class LunaWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'LunaWindow'
 
-    label = Gtk.Template.Child()
+    predicted_period = Gtk.Template.Child()
+    ovulation = Gtk.Template.Child()
+    cycle_length = Gtk.Template.Child()
+    cycle_range = Gtk.Template.Child()
+    cycle_std_dev = Gtk.Template.Child()
+
+    history_group_main = Gtk.Template.Child()
+    history_box_main = Gtk.Template.Child()
+    history_stack = Gtk.Template.Child()
+    history_box = Gtk.Template.Child()
+    history_group = Gtk.Template.Child()
+    empty_history = Gtk.Template.Child()
+
+    new_period_button = Gtk.Template.Child()
+
+    main_content = Gtk.Template.Child()
+    split_view = Gtk.Template.Child()
+    toast_overlay = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
