@@ -31,9 +31,6 @@
                     "type" : "dir",
                     "url" : "."
                 }
-            ],
-            "build-commands" : [
-            	"pip3 install --prefix=/app python-gnupg"
             ]
         }
     ]
