@@ -17,7 +17,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import gettext
 import sys
 import gi
 
@@ -59,7 +58,7 @@ class LunaApplication(Adw.Application):
         about.set_translator_credits(_('translator-credits'))
         about.present(self.props.active_window)
 
-    def on_preferences_action(self, widget, _):
+    def on_preferences_action(self, *args):
         """Callback for the app.preferences action."""
         preferences = Adw.PreferencesDialog()
 
@@ -67,34 +66,30 @@ class LunaApplication(Adw.Application):
         settings_page.set_icon_name("applications-system-symbolic")
         preferences.add(settings_page)
 
-        gpg_group = Adw.PreferencesGroup(title=gettext.gettext("GPG Settings"))
-        settings_page.add(gpg_group)
-
-        gpg_key = Adw.EntryRow(title=gettext.gettext("GPG Public Key"))
-        gpg_group.add(gpg_key)
-
-        self.settings.bind(
-            "gpg-public-key",
-            gpg_key,
-            "text",
-            Gio.SettingsBindFlags.DEFAULT
-        )
-
-        cycle_group = Adw.PreferencesGroup(title=gettext.gettext("Cycle Settings"))
+        cycle_group = Adw.PreferencesGroup(title=_("Cycle Tracking"))
         settings_page.add(cycle_group)
 
         luteal_phase = Adw.SpinRow.new_with_range(9,16,1)
-        luteal_phase.set_title(gettext.gettext("Luteal Phase Length (days)"))
+        luteal_phase.set_title(_("Luteal Phase Length (days)"))
         luteal_phase.set_value(14)
         luteal_phase.set_numeric(True)
         cycle_group.add(luteal_phase)
 
-        self.settings.bind(
-            "luteal-phase-length",
-            luteal_phase,
-            "value",
-            Gio.SettingsBindFlags.DEFAULT
-        )
+        cycle_length = Adw.SpinRow.new_with_range(21,35,1)
+        cycle_length.set_title(_("Cycle Length (days)"))
+        cycle_length.set_value(28)
+        cycle_length.set_numeric(True)
+        cycle_group.add(cycle_length)
+
+        period_length = Adw.SpinRow.new_with_range(2, 8, 1)
+        period_length.set_title(_("Period Length (days)"))
+        period_length.set_value(5)
+        period_length.set_numeric(True)
+        cycle_group.add(period_length)
+
+        self.settings.bind("luteal-phase-length", luteal_phase, "value", Gio.SettingsBindFlags.DEFAULT)
+        self.settings.bind("cycle-length", cycle_length, "value", Gio.SettingsBindFlags.DEFAULT)
+        self.settings.bind("period-length", period_length, "value", Gio.SettingsBindFlags.DEFAULT)
 
         preferences.present(self.props.active_window)
 

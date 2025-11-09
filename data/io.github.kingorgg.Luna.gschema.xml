@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="luna">
 	<schema id="io.github.kingorgg.Luna" path="/io/github/kingorgg/Luna/">
+	  <key name="luteal-phase-length" type="i">
+      <default>14</default>
+      <summary>Luteal phase length</summary>
+      <description>Number of days for the luteal phase (9–16 typical)</description>
+    </key>
+
+	  <key name="cycle-length" type="i">
+      <default>28</default>
+      <summary>Default menstrual cycle length (21-35 typical)</summary>
+    </key>
+
+    <key name="period-length" type="i">
+      <default>5</default>
+      <summary>Average duration of period bleeding (2-8 typical)</summary>
+      <description>Used for predictions and initial estimates before enough data is collected.</description>
+    </key>
 	</schema>
 </schemalist>
