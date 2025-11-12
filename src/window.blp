@@ -3,7 +3,7 @@ using Adw 1;
 
 template $LunaWindow : Adw.ApplicationWindow {
     title: _("Luna");
-    default-width: 460;
+    default-width: 780;
     default-height: 520;
     width-request: 360;
     height-request: 360;
@@ -45,6 +45,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                         Gtk.Button new_period_button {
                             icon-name: "list-add-symbolic";
                             tooltip-text: _("Add New Period");
+                            clicked => $on_new_period_button_clicked();
                         }
                     }
 

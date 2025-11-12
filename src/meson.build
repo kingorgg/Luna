@@ -2,21 +2,28 @@ pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 moduledir = pkgdatadir / 'luna'
 gnome = import('gnome')
 
-blueprint = custom_target('blueprint',
-    input: 'window.blp',
-    output: 'window.ui',
+blueprints = custom_target('blueprints',
+    input: files(
+        'window.blp',
+	),
+    output: [
+        'window.ui',
+    ],
     command: [
-        find_program('blueprint-compiler', required: true),
-        'compile', '--output', '@OUTPUT@', '@INPUT@'
-    ]
+    find_program('blueprint-compiler'),
+    'batch-compile',
+    meson.current_build_dir(),
+    meson.current_source_dir(),
+    '@INPUT@'
+  ],
 )
 
 gnome.compile_resources('luna',
     'luna.gresource.xml',
      gresource_bundle: true,
+     dependencies: blueprints,
      install: true,
      install_dir: pkgdatadir,
-     dependencies: blueprint
 )
 
 python = import('python')
