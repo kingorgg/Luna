@@ -17,31 +17,30 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from gi.repository import Adw
-from gi.repository import Gtk
+from __future__ import annotations
+from typing import Any
+from gi.repository import Adw, Gtk # type: ignore
 
 @Gtk.Template(resource_path='/io/github/kingorgg/Luna/window.ui')
 class LunaWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'LunaWindow'
 
-    predicted_period = Gtk.Template.Child()
-    ovulation = Gtk.Template.Child()
-    cycle_length = Gtk.Template.Child()
-    cycle_range = Gtk.Template.Child()
-    cycle_std_dev = Gtk.Template.Child()
+    # Template children (GTK widgets defined in window.ui)
+    predicted_period: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    ovulation: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    cycle_length: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    cycle_range: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    cycle_std_dev: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    history_group_main: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    history_box_main: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    history_stack: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    history_box: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    history_group: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    empty_history: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    new_period_button: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    main_content: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    split_view: Gtk.Widget = Gtk.Template.Child() # type: ignore
+    toast_overlay: Gtk.Widget = Gtk.Template.Child() # type: ignore
 
-    history_group_main = Gtk.Template.Child()
-    history_box_main = Gtk.Template.Child()
-    history_stack = Gtk.Template.Child()
-    history_box = Gtk.Template.Child()
-    history_group = Gtk.Template.Child()
-    empty_history = Gtk.Template.Child()
-
-    new_period_button = Gtk.Template.Child()
-
-    main_content = Gtk.Template.Child()
-    split_view = Gtk.Template.Child()
-    toast_overlay = Gtk.Template.Child()
-
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: Any) -> None:
         super().__init__(**kwargs)
