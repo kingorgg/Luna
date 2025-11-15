@@ -52,8 +52,17 @@
   </screenshots>
 
   <releases>
+    <release version="49.1" date="2025-11-15">
+      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.1</url>
+      <description translate="no">
+        <p>Changes</p>
+        <ul>
+          <li>Just some small house keeping changes.</li>
+        </ul>
+      </description>
+    </release>
     <release version="49.0" date="2025-11-15">
-      <url type="details">https://example.org/changelog.html#version_1.0.1</url>
+      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.0</url>
       <description translate="no">
         <p>Initial Release</p>
         <ul>
