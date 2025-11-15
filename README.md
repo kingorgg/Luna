@@ -14,7 +14,7 @@ A simple menstrual cycle and pregnancy tracker <br> built with Python, GTK 4, an
   <a href="https://github.com/kingorgg/Luna">
     <img src="https://img.shields.io/badge/Project-Luna-6a00f4?style=for-the-badge&logo=gnome&logoColor=white" alt="Luna">
   </a>
-  <a href="https://github.com/kingorgg/Luna/blob/main/LICENSE">
+  <a href="https://github.com/kingorgg/Luna/blob/main/COPYING">
     <img src="https://img.shields.io/github/license/kingorgg/Luna?style=for-the-badge" alt="License: GPL-3.0">
   </a>
   <a href="https://github.com/kingorgg/Luna/issues">
@@ -61,9 +61,14 @@ Designed to look and feel at home on GNOME.
 ---
 
 ## Installation
-### Flatpak (Recommended)
+### Flatpak - Flathub (Recommended)
+- Coming soon
 
-### Flatpak Builder
+### Flatpak - Manual
+- Go to [Releases](https://github.com/kingorgg/Luna/releases/latest)
+- Download `luna-x86_64.flatpak`
+- Install with: `flatpak install luna-x86_64.flatpak`
+- Run with: `flatpak run io.github.kingorgg.Luna`
 
 ---
 
