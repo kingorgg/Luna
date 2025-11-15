@@ -1,0 +1,52 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $NewPeriodPage : Adw.NavigationPage {
+    title: _("New Period");
+
+    child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+            show-back-button: true;
+
+            [end]
+            Gtk.Button save_button {
+                icon-name: "document-save-symbolic";
+                tooltip-text: _("Save Period");
+                clicked => $on_save_button_clicked();
+            }
+        }
+
+        content: Adw.Clamp {
+            maximum-size: 420;
+
+            child: Box {
+                orientation: vertical;
+                spacing: 12;
+                margin-start: 12;
+                margin-end: 12;
+                margin-top: 12;
+                margin-bottom: 12;
+
+                Adw.PreferencesGroup {
+                    title: _("Period Details");
+
+                    Adw.EntryRow start_date {
+                        title: _("Start Date (YYYY-MM-DD)");
+                    }
+
+                    Adw.SpinRow duration {
+                        title: _("Duration (days)");
+                        subtitle: _("Number of days your period lasted");
+                        adjustment: Gtk.Adjustment {
+                            lower: 1;
+                            upper: 8;
+                            step-increment: 1;
+                            value: 5;
+                        };
+                    }
+                }
+            };
+        };
+    };
+}

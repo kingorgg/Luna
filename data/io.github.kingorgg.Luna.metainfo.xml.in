@@ -7,10 +7,10 @@
   <name>Luna</name>
   <summary>Period Tracker</summary>
   <description>
-    <p>A simple utility to keep track of your menstrual cycle and to predict ovulation dates.</p>
+    <p>A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant.</p>
   </description>
 
-  <developer id="tld.vendor">
+  <developer id="io.github.kingorgg">
     <name>Daniel Taylor</name>
   </developer>
 
@@ -24,29 +24,40 @@
   <content_rating type="oars-1.1" />
 
   <branding>
-    <color type="primary" scheme_preference="light">#ff00ff</color>
-    <color type="primary" scheme_preference="dark">#993d3d</color>
+    <color type="primary" scheme_preference="light">#fafafb</color>
+    <color type="primary" scheme_preference="dark">#222226</color>
   </branding>
 
   <screenshots>
     <screenshot type="default">
-      <image>https://example.org/example1.png</image>
-      <caption>A caption</caption>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/main_window.png</image>
+      <caption>Main Window</caption>
     </screenshot>
     <screenshot>
-      <image>https://example.org/example2.png</image>
-      <caption>A caption</caption>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/preferences.png</image>
+      <caption>Preferences</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/new_period.png</image>
+      <caption>New Period</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/edit_period.png</image>
+      <caption>Edit Period</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/pregnancy_mode.png</image>
+      <caption>Pregnancy Mode</caption>
     </screenshot>
   </screenshots>
 
   <releases>
-    <release version="1.0.1" date="2024-01-18">
+    <release version="49.0" date="2025-11-15">
       <url type="details">https://example.org/changelog.html#version_1.0.1</url>
       <description translate="no">
-        <p>Release description</p>
+        <p>Initial Release</p>
         <ul>
-          <li>List of changes</li>
-          <li>List of changes</li>
+          <li>First release, so no changes.</li>
         </ul>
       </description>
     </release>

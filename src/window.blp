@@ -67,20 +67,21 @@ template $LunaWindow : Adw.ApplicationWindow {
                                 Adw.PreferencesGroup {
                                     title: _("Predictions");
 
-                                    Adw.ActionRow predicted_period {
-                                        title: _("Next Predicted Period");
+                                    Adw.ActionRow ovulation {
+                                        title: _("Ovulation Date");
                                         subtitle: "-";
                                         can-focus: false;
                                     }
-                                    Adw.ActionRow ovulation {
-                                        title: _("Predicted Ovulation Date");
+
+                                    Adw.ActionRow predicted_period {
+                                        title: _("Next Period");
                                         subtitle: "-";
                                         can-focus: false;
                                     }
                                 }
 
                                 Adw.PreferencesGroup {
-                                    title: _("Cycle Statistics");
+                                    title: _("Statistics");
                                     Adw.ActionRow cycle_length {
                                         title: _("Average Length");
                                         subtitle: "-";
@@ -113,54 +114,62 @@ template $LunaWindow : Adw.ApplicationWindow {
                     };
                 };
             };
-
+        
             content: Adw.NavigationPage {
                 title: _("History");
 
-                child: Adw.ToolbarView {
-                    [top]
-                    Adw.HeaderBar {}
+                child: Adw.NavigationView content_view {
+                    Adw.NavigationPage {
+                        title: _("History");
 
-                    content: Stack history_stack {
-                        transition-type: crossfade;
-                        StackPage {
-                            name: "empty";
-                            child: Adw.StatusPage empty_history {
-                                title: _("Empty History");
-                                description: _("Your history is empty. Press the '+' icon, or Ctl+N to create a new entry.");
-                                can-focus: false;
-                            };
-                        }
+                        child: Adw.ToolbarView {
+                            [top]
+                            Adw.HeaderBar {}
 
-                        StackPage {
-                            name: "history";
-                            child: ScrolledWindow {
-                                hscrollbar-policy: never;
-                                vscrollbar-policy: automatic;
-
-                                child: Adw.Clamp {
-                                    maximum-size: 420;
-
-                                    child: Box {
-                                        orientation: vertical;
-                                        spacing: 16;
-                                        margin-top: 24;
-                                        margin-bottom: 24;
-                                        margin-start: 16;
-                                        margin-end: 16;
-
-                                        Adw.PreferencesGroup history_group {
-                                            visible: true;
-
-                                            ListBox history_box {
-                                                styles ["boxed-list"]
-                                            }
-                                        }
+                            content: Stack history_stack {
+                                transition-type: crossfade;
+                                StackPage {
+                                    name: "empty";
+                                    child: Adw.StatusPage empty_history {
+                                        title: _("Empty History");
+                                        description: _("Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry.");
+                                        can-focus: false;
                                     };
-                                };
+                                }
+
+                                StackPage {
+                                    name: "history";
+                                    child: ScrolledWindow {
+                                        hscrollbar-policy: never;
+                                        vscrollbar-policy: automatic;
+
+                                        child: Adw.Clamp {
+                                            maximum-size: 420;
+
+                                            child: Box {
+                                                orientation: vertical;
+                                                spacing: 16;
+                                                margin-top: 24;
+                                                margin-bottom: 24;
+                                                margin-start: 16;
+                                                margin-end: 16;
+
+                                                
+
+                                                Adw.PreferencesGroup history_group {
+                                                    visible: true;
+
+                                                    ListBox history_box {
+                                                        styles ["boxed-list"]
+                                                    }
+                                                }
+                                            };
+                                        };
+                                    };
+                                }
                             };
-                        }
-                    };
+                        };
+                    }
                 };
             };
         };

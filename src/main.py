@@ -29,21 +29,28 @@ gi.require_version('Adw', '1')
 from gi.repository import Gtk, Gio, Adw #type: ignore
 from .window import LunaWindow
 
+from gettext import gettext as _
 
 class LunaApplication(Adw.Application):
     """The main application singleton class."""
 
-    def __init__(self, version: str) -> None:
-        super().__init__(
-            application_id='io.github.kingorgg.Luna',
-            flags=Gio.ApplicationFlags.DEFAULT_FLAGS
+    def __init__(self, application_id: str, version: str) -> None:
+        super().__init__(flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
+        
+        self.application_id = application_id
+        self.version = version
+        self.settings = Gio.Settings.new(self.application_id)
+        
+        self.apply_color_scheme()
+        
+        self.settings.connect(
+            "changed::color-scheme",
+            lambda *_: self.apply_color_scheme(),
         )
         
         self.create_action('quit', lambda *_: self.quit(), ['<control>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
-        self.version = version
-        self.settings = Gio.Settings.new("io.github.kingorgg.Luna")
 
     def do_activate(self) -> None:
         self.new_window()
@@ -56,14 +63,21 @@ class LunaApplication(Adw.Application):
         """Callback for the app.about action."""
         about = Adw.AboutDialog(
             application_name='luna',
-            application_icon='io.github.kingorgg.Luna',
+            application_icon=self.application_id,
             developer_name='Daniel Taylor',
             version=self.version,
+            website="https://github.com/kingorgg/Luna",
+            issue_url="https://github.com/kingorgg/Luna/issues",
+            license_type=Gtk.License.GPL_3_0,
+            comments=_("A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."), # type: ignore
             developers=['Daniel Taylor'],
-            copyright='© 2025 Daniel Taylor'
+            designers=["Daniel Taylor"],
+            copyright='© 2025 Daniel Taylor',
+            support_url="https://github.com/kingorgg/Luna/discussions",
         )
         
         about.set_translator_credits(_('translator-credits')) # type: ignore
+        about.set_artists(["Daniel Taylor"])
         about.present(self.props.active_window)
 
     def on_preferences_action(self, *args: Any) -> None:
@@ -73,6 +87,24 @@ class LunaApplication(Adw.Application):
         settings_page = Adw.PreferencesPage()
         settings_page.set_icon_name("applications-system-symbolic")
         preferences.add(settings_page)
+        
+        appearance_group = Adw.PreferencesGroup(title=_("Appearance"))
+        settings_page.add(appearance_group)
+
+        color_row = Adw.ComboRow(
+            title=_("Colour Scheme"),
+            subtitle=_("Choose light, dark, or follow system"), # type: ignore
+            model=Gtk.StringList.new(["System", "Light", "Dark"])
+        )
+        appearance_group.add(color_row)
+
+        # Bind GSettings <-> ComboRow
+        self.settings.bind(
+            "color-scheme",
+            color_row,
+            "selected",
+            Gio.SettingsBindFlags.DEFAULT,
+        )
 
         cycle_group = Adw.PreferencesGroup(title=_("Cycle Tracking")) # type: ignore
         settings_page.add(cycle_group)
@@ -118,9 +150,21 @@ class LunaApplication(Adw.Application):
         self.add_action(action)
         if shortcuts:
             self.set_accels_for_action(f"app.{name}", shortcuts)
+            
+    def apply_color_scheme(self):
+        style = Adw.StyleManager.get_default()
+        mode = self.settings.get_int("color-scheme")
+
+        if mode == 1:
+            style.set_color_scheme(Adw.ColorScheme.FORCE_LIGHT)
+        elif mode == 2:
+            style.set_color_scheme(Adw.ColorScheme.FORCE_DARK)
+        else:
+            style.set_color_scheme(Adw.ColorScheme.DEFAULT)
 
 
 def main(version: str) -> int:
     """The application's entry point."""
-    app = LunaApplication(version)
+    from .constants import APP_ID
+    app = LunaApplication(application_id=APP_ID, version=version)
     return app.run(sys.argv)

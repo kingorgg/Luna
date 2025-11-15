@@ -2,5 +2,7 @@
 <gresources>
   <gresource prefix="/io/github/kingorgg/Luna">
     <file preprocess="xml-stripblanks">window.ui</file>
+    <file preprocess="xml-stripblanks">new_period.ui</file>
+    <file preprocess="xml-stripblanks">period_page.ui</file>
   </gresource>
 </gresources>

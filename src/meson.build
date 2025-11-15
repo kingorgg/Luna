@@ -5,9 +5,13 @@ gnome = import('gnome')
 blueprints = custom_target('blueprints',
     input: files(
         'window.blp',
+        'new_period.blp',
+        'period_page.blp',
 	),
     output: [
         'window.ui',
+        'new_period.ui',
+        'period_page.ui',
     ],
     command: [
     find_program('blueprint-compiler'),
@@ -45,8 +49,15 @@ configure_file(
 
 luna_sources = [
      '__init__.py',
+     'constants.py',
+     'data_store.py',
+     'logic.py',
      'main.py',
-     'window.py',
+     'models.py',
+     'new_period.py',
+     'period_page.py',
+     'storage.py',
+     'window.py'
 ]
 
 install_data(luna_sources, install_dir: moduledir)

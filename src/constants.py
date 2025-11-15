@@ -1,0 +1,1 @@
+APP_ID = "io.github.kingorgg.Luna"

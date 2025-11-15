@@ -17,5 +17,15 @@
       <summary>Average duration of period bleeding (2-8 typical)</summary>
       <description>Used for predictions and initial estimates before enough data is collected.</description>
     </key>
+
+    <key name="color-scheme" type="i">
+      <summary>Preferred color scheme</summary>
+      <description>
+        0 = system default
+        1 = light
+        2 = dark
+      </description>
+      <default>0</default>
+    </key>
 	</schema>
 </schemalist>
