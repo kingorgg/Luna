@@ -1,19 +1,31 @@
+name: Release Flatpak
+
 on:
-  push:
-    branches: [main]
-  pull_request:
-name: Flatpak Builder
+	push:
+		tags:
+			- 'v*'
+
 jobs:
-  flatpak:
-    name: "Flatpak"
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
-      options: --privileged
-    steps:
-    - uses: actions/checkout@v4
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
-      with:
-        bundle: luna.flatpak
-        manifest-path: io.github.kingorgg.Luna.json
-        cache-key: flatpak-builder-${{ github.sha }}
+	build-and-release:
+		runs-on: ubuntu-latest
+		container:
+			image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
+			options: --privileged
+
+		steps:
+			- uses: actions/checkout@v4
+
+			- name: Build Flatpak
+				uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+				with:
+					bundle: luna.flatpak
+					manifest-path: io.github.kingorgg.Luna.json
+					cache-key: flatpak-builder-${{ github.sha }}
+
+
+				- name: Upload to GitHub Release
+					uses: softprops/action-gh-release@v2
+					with:
+						files: luna.flatpak
+					env:
+						GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
