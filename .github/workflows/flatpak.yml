@@ -5,26 +5,36 @@ on:
         tags:
             - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
     build-and-release:
         runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                arch: [ 'x86_64', 'aarch64' ]
+
         container:
             image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-49
             options: --privileged
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout source
+              uses: actions/checkout@v4
 
-            - name: Build Flatpak
+            - name: Build (${{ matrix.arch }})
               uses: flatpak/flatpak-github-actions/flatpak-builder@v6
               with:
-                  bundle: luna.flatpak
+                  bundle: luna-${{ matrix.arch }}.flatpak
                   manifest-path: io.github.kingorgg.Luna.json
-                  cache-key: flatpak-builder-${{ github.sha }}
+                  arch: ${{ matrix.arch }}
+                  cache-key: flatpak-${{ matrix.arch }}-${{ github.sha }}
 
-            - name: Upload to GitHub Release
+            - name: Upload to GitHub Release (${{ matrix.arch }})
               uses: softprops/action-gh-release@v2
               with:
-                  files: luna.flatpak
+                  files: luna-${{ matrix.arch }}.flatpak
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
