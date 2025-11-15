@@ -28,7 +28,9 @@ jobs:
         id: vars
         run: |
           echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "sha_short=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_SHA: ${{ github.sha }}
 
       - name: Build (${{ matrix.arch }})
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
