@@ -1,8 +1,34 @@
-![luna icon](https://raw.githubusercontent.com/kingorgg/Luna/main/data/icons/hicolor/scalable/apps/io.github.kingorgg.Luna.svg)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kingorgg/Luna/main/data/icons/hicolor/scalable/apps/io.github.kingorgg.Luna.svg" 
+       alt="Luna Icon" 
+       width="160" />
+</p>
 
-# Luna
+<h1 align="center">Luna</h1>
 
-A simple menstrual cycle and pregnancy tracker built with Python, GTK 4, and Libadwaita.
+<p align="center">
+A simple menstrual cycle and pregnancy tracker <br> built with Python, GTK 4, and Libadwaita.
+</p>
+
+<p align="center">
+  <a href="https://github.com/kingorgg/Luna">
+    <img src="https://img.shields.io/badge/Project-Luna-6a00f4?style=for-the-badge&logo=gnome&logoColor=white" alt="Luna">
+  </a>
+  <a href="https://github.com/kingorgg/Luna/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/kingorgg/Luna?style=for-the-badge" alt="License: GPL-3.0">
+  </a>
+  <a href="https://github.com/kingorgg/Luna/issues">
+    <img src="https://img.shields.io/github/issues/kingorgg/Luna?style=for-the-badge" alt="Issues">
+  </a>
+  <a href="https://github.com/kingorgg/Luna/stargazers">
+    <img src="https://img.shields.io/github/stars/kingorgg/Luna?style=for-the-badge" alt="Stars">
+  </a>
+  <a href="https://flathub.org/apps/io.github.kingorgg.Luna">
+    <img src="https://img.shields.io/badge/Flatpak-Coming%20Soon-4a86cf?style=for-the-badge&logo=flatpak&logoColor=white" alt="Flatpak">
+  </a>
+</p>
+
+---
 
 Luna is an easy-to-use menstrual cycle and pregnancy tracker for Linux.
 It helps you log your periods, predict ovulation, view helpful cycle statistics, and - if applicable - track pregnancy progress including; gestational age and estimated due date.
