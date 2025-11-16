@@ -11,9 +11,6 @@ A simple menstrual cycle and pregnancy tracker <br> built with Python, GTK 4, an
 </p>
 
 <p align="center">
-  <a href="https://github.com/kingorgg/Luna">
-    <img src="https://img.shields.io/badge/Project-Luna-6a00f4?style=for-the-badge&logo=gnome&logoColor=white" alt="Luna">
-  </a>
   <a href="https://github.com/kingorgg/Luna/blob/main/COPYING">
     <img src="https://img.shields.io/github/license/kingorgg/Luna?style=for-the-badge" alt="License: GPL-3.0">
   </a>
@@ -24,7 +21,7 @@ A simple menstrual cycle and pregnancy tracker <br> built with Python, GTK 4, an
     <img src="https://img.shields.io/github/stars/kingorgg/Luna?style=for-the-badge" alt="Stars">
   </a>
   <a href="https://flathub.org/apps/io.github.kingorgg.Luna">
-    <img src="https://img.shields.io/badge/Flatpak-Coming%20Soon-4a86cf?style=for-the-badge&logo=flatpak&logoColor=white" alt="Flatpak">
+    <img alt="Flathub Downloads" src="https://img.shields.io/flathub/v/io.github.kingorgg.Luna?style=for-the-badge">
   </a>
 </p>
 
@@ -62,7 +59,16 @@ Designed to look and feel at home on GNOME.
 
 ## Installation
 ### Flatpak - Flathub (Recommended)
-- Coming soon
+
+<p align="center">
+  <a href='https://flathub.org/apps/io.github.kingorgg.Luna'>
+    <img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en-GB'/>
+  </a>
+</p>
+
+or
+
+- `flatpak install io.github.kingorgg.Luna`
 
 ### Flatpak - Manual
 - Go to [Releases](https://github.com/kingorgg/Luna/releases/latest)
