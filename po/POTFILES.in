@@ -4,9 +4,9 @@ data/io.github.kingorgg.Luna.desktop.in
 data/io.github.kingorgg.Luna.metainfo.xml.in
 data/io.github.kingorgg.Luna.gschema.xml
 src/main.py
+src/new_period.blp
 src/new_period.py
-src/new_period.ui
+src/period_page.blp
 src/period_page.py
-src/period_page.ui
+src/window.blp
 src/window.py
-src/window.ui
