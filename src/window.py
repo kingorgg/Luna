@@ -20,13 +20,13 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, List
 from datetime import date, timedelta
 from gi.repository import Adw, Gtk, GLib  # type: ignore
 
 from .logic import CycleStats
 from .data_store import DataStore
-from .models import Cycle
+from .models import Pregnancy, Cycle
 from .new_period import NewPeriodPage
 from .period_page import PeriodPage
 
@@ -192,7 +192,7 @@ class LunaWindow(Adw.ApplicationWindow):
 
         self.toast(_("Add your first period to see predictions."))
         
-    def _show_pregnancy_state(self, pregnancy, cycles):
+    def _show_pregnancy_state(self, pregnancy: Pregnancy, cycles: List[Cycle]) -> None:
         """Show pregnancy information and pause predictions."""
         weeks, days = get_gestation(pregnancy)
         due = get_due_date(pregnancy)
