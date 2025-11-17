@@ -27,13 +27,14 @@ import uuid
 @dataclass
 class DayEntry:
     """Represents a single day in a menstrual cycle."""
+
     date: date
     symptoms: List[str] = field(default_factory=list)
     mood: Optional[str] = None
     temperature: Optional[float] = None
     flow: Optional[str] = None
     notes: Optional[str] = None
-    
+
     def to_dict(self) -> Dict[str, Any]:
         """Convert this DayEntry instance into a serializable dictionary."""
         return {
@@ -44,7 +45,7 @@ class DayEntry:
             "flow": self.flow,
             "notes": self.notes,
         }
-        
+
     @staticmethod
     def from_dict(data: Dict[str, Any]) -> DayEntry:
         """Create a DayEntry instance from a dictionary representation."""
@@ -61,6 +62,7 @@ class DayEntry:
 @dataclass
 class Pregnancy:
     """Represents a pregnancy event."""
+
     start_date: date
     confirmed: bool = True
     end_date: Optional[date] = None
@@ -72,7 +74,7 @@ class Pregnancy:
     def is_active(self) -> bool:
         """Check if the pregnancy is currently active (not ended)."""
         return self.end_date is None
-    
+
     def to_dict(self) -> Dict[str, Any]:
         """Convert this Pregnancy instance into a serializable dictionary."""
         return {
@@ -82,12 +84,11 @@ class Pregnancy:
             "end_date": self.end_date.isoformat() if self.end_date else None,
             "notes": self.notes,
             "custom_due_date": (
-                self.custom_due_date.isoformat() 
-                if self.custom_due_date else None
+                self.custom_due_date.isoformat() if self.custom_due_date else None
             ),
         }
-    
-    @classmethod    
+
+    @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "Pregnancy":
         """Create a Pregnancy instance from a dictionary representation."""
         return cls(
@@ -95,13 +96,13 @@ class Pregnancy:
             start_date=date.fromisoformat(data["start_date"]),
             confirmed=data.get("confirmed", True),
             end_date=(
-                date.fromisoformat(data["end_date"]) 
-                if data.get("end_date") else None
+                date.fromisoformat(data["end_date"]) if data.get("end_date") else None
             ),
             notes=data.get("notes"),
             custom_due_date=(
-                date.fromisoformat(data["custom_due_date"]) 
-                if data.get("custom_due_date") else None
+                date.fromisoformat(data["custom_due_date"])
+                if data.get("custom_due_date")
+                else None
             ),
         )
 
@@ -109,8 +110,9 @@ class Pregnancy:
 @dataclass
 class Cycle:
     """Represents a complete menstrual cycle and its tracked data."""
+
     start_date: date
-    duration: int # bleeding days
+    duration: int  # bleeding days
     pregnancy_id: Optional[str] = None  # link to pregnancy
     days: List[DayEntry] = field(default_factory=list)
 
@@ -121,18 +123,18 @@ class Cycle:
                 DayEntry(date=self.start_date + timedelta(days=i))
                 for i in range(self.duration)
             ]
-            
+
     @property
     def pregnancy(self) -> Optional[Pregnancy]:
         """Get the linked Pregnancy object, if any."""
         return getattr(self, "_pregnancy_obj", None)
-    
+
     @pregnancy.setter
     def pregnancy(self, value: Optional[Pregnancy]) -> None:
         """Set the linked Pregnancy object and update pregnancy_id."""
         self._pregnancy_obj = value
         self.pregnancy_id = value.id if value else None
-        
+
     def to_dict(self) -> Dict[str, Any]:
         """Convert this Cycle instance into a serializable dictionary."""
         return {
@@ -141,7 +143,7 @@ class Cycle:
             "pregnancy_id": self.pregnancy_id,
             "days": [day.to_dict() for day in self.days],
         }
-        
+
     @staticmethod
     def from_dict(data: Dict[str, Any]) -> Cycle:
         """Create a Cycle instance from a dictionary representation."""

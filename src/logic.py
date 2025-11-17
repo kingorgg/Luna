@@ -24,6 +24,7 @@ from datetime import date, timedelta
 from typing import List, Optional
 from .models import Cycle
 
+
 class CycleStats:
     """
     Compute statistics and predictions for menstrual cycles
@@ -33,7 +34,7 @@ class CycleStats:
         self.cycles = [c for c in cycles if not c.pregnancy]
         self.cycle_len = cycle_len
         self.luteal_len = luteal_len
-        
+
     @property
     def intervals(self) -> List[int]:
         """Calculate the list of cycle lengths in days."""
@@ -49,19 +50,19 @@ class CycleStats:
         if not self.intervals:
             return float(self.cycle_len)
         return statistics.mean(self.intervals)
-    
+
     def cycle_length_std_dev(self) -> float:
         """Calculate the standard deviation of cycle lengths."""
         if len(self.intervals) < 2:
             return 0.0
         return statistics.stdev(self.intervals)
-    
+
     def cycle_length_range(self) -> str:
         """Calculate the min and max cycle lengths."""
         if not self.intervals:
             return "-"
         return f"{min(self.intervals)}-{max(self.intervals)} days"
-    
+
     @property
     def predicted_next_period(self) -> Optional[date]:
         """Predict the next period start date."""
@@ -70,7 +71,7 @@ class CycleStats:
         last_cycle = self.cycles[-1]
         avg_length = self.average_cycle_length() or self.cycle_len
         return last_cycle.start_date + timedelta(days=int(avg_length))
-    
+
     @property
     def predicted_ovulation(self) -> Optional[date]:
         """Predict the next ovulation date."""

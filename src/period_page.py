@@ -25,21 +25,14 @@ from .models import Cycle, DayEntry, Pregnancy
 
 from gettext import gettext as _
 
+
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/period_page.ui")
 class PeriodPage(Adw.NavigationPage):
     __gtype_name__ = "PeriodPage"
 
     __gsignals__ = {
-        "period-edited": (
-            GObject.SIGNAL_RUN_FIRST,
-            None,
-            (GObject.TYPE_PYOBJECT,)
-        ),
-        "period-deleted": (
-            GObject.SIGNAL_RUN_FIRST,
-            None,
-            (GObject.TYPE_PYOBJECT,)
-        ),
+        "period-edited": (GObject.SIGNAL_RUN_FIRST, None, (GObject.TYPE_PYOBJECT,)),
+        "period-deleted": (GObject.SIGNAL_RUN_FIRST, None, (GObject.TYPE_PYOBJECT,)),
     }
 
     # Template children
@@ -55,7 +48,7 @@ class PeriodPage(Adw.NavigationPage):
         super().__init__(**kwargs)
         self.cycle = cycle
         self.days = list(cycle.days)
-        
+
         self.connect("map", self.on_map)
 
     def on_map(self, *_):
@@ -70,7 +63,6 @@ class PeriodPage(Adw.NavigationPage):
 
         self.duration.connect("changed", self.on_duration_changed)
 
-
     def rebuild_days(self):
         """Rebuild the list of day entries in the UI."""
         self.days_list.remove_all()
@@ -81,22 +73,19 @@ class PeriodPage(Adw.NavigationPage):
 
     def build_day_row(self, index: int, day: DayEntry) -> Adw.ExpanderRow:
         """Build a single day entry row."""
-        expander = Adw.ExpanderRow(
-            title=day.date.isoformat(),
-            subtitle="Day details"
-        )
+        expander = Adw.ExpanderRow(title=day.date.isoformat(), subtitle="Day details")
 
         flow = Adw.ComboRow()
         flow.set_title("Flow")
         flow.options = ["None", "Light", "Medium", "Heavy"]
         model = Gtk.StringList.new(flow.options)
         flow.set_model(model)
-        
+
         if day.flow in flow.options:
             flow.set_selected(flow.options.index(day.flow))
         else:
             flow.set_selected(0)
-        
+
         expander.add_row(flow)
 
         mood = Adw.EntryRow()
@@ -130,7 +119,6 @@ class PeriodPage(Adw.NavigationPage):
 
         return expander
 
-
     def on_duration_changed(self, spin: Adw.SpinRow):
         """Handle changes to the duration spin row."""
         new_len = int(spin.get_value())
@@ -149,9 +137,7 @@ class PeriodPage(Adw.NavigationPage):
     def on_save_button_clicked(self, *_):
         """Callback for the save button click event."""
         try:
-            new_start = datetime.strptime(
-                self.start_date.get_text(), "%Y-%m-%d"
-            ).date()
+            new_start = datetime.strptime(self.start_date.get_text(), "%Y-%m-%d").date()
         except ValueError:
             toast = Adw.Toast.new("Invalid date format")
 
@@ -161,7 +147,7 @@ class PeriodPage(Adw.NavigationPage):
 
         self.cycle.start_date = new_start
         self.cycle.duration = int(self.duration.get_value())
-        
+
         latest_cycle = self.store.get_active_cycle()
 
         if self.cycle is not latest_cycle:
@@ -217,40 +203,34 @@ class PeriodPage(Adw.NavigationPage):
         if nav:
             nav.pop()
 
-
     @Gtk.Template.Callback()
     def on_delete_button_clicked(self, button: Gtk.Button) -> None:
         """Handle the delete button click event."""
         dialog = Adw.AlertDialog.new()
-        dialog.set_heading(_("Delete Period")) # type: ignore
-        dialog.set_body(_("Are you sure you want to delete this period? This action cannot be undone.")) # type: ignore
-        
-        dialog.add_response("cancel", _("Cancel")) # type: ignore
-        dialog.add_response("delete", _("Delete")) # type: ignore
-        
-        dialog.set_response_appearance(
-            "delete", 
-            Adw.ResponseAppearance.DESTRUCTIVE
-        )
-        
+        dialog.set_heading(_("Delete Period"))  # type: ignore
+        dialog.set_body(_("Are you sure you want to delete this period? This action cannot be undone."))  # type: ignore
+
+        dialog.add_response("cancel", _("Cancel"))  # type: ignore
+        dialog.add_response("delete", _("Delete"))  # type: ignore
+
+        dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
+
         dialog.set_default_response("cancel")
         dialog.set_close_response("cancel")
 
         dialog.connect("response", self._on_delete_dialog_response)
         dialog.present(self.get_root())
-        
+
     def _on_delete_dialog_response(self, dialog, response):
         """Handle the response from the delete confirmation dialog."""
         if response != "delete":
             return
 
         self.store.delete_cycle(self.cycle)
-        
+
         # Emit signal so the main window can refresh itself
         self.emit("period-deleted", self.cycle)
 
         nav = self.get_ancestor(Adw.NavigationView)
         if nav:
             nav.pop()
-
-

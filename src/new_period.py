@@ -25,42 +25,42 @@ from .models import Cycle
 
 from gettext import gettext as _
 
-@Gtk.Template(resource_path='/io/github/kingorgg/Luna/new_period.ui')
+
+@Gtk.Template(resource_path="/io/github/kingorgg/Luna/new_period.ui")
 class NewPeriodPage(Adw.NavigationPage):
-    __gtype_name__ = 'NewPeriodPage'
-    
+    __gtype_name__ = "NewPeriodPage"
+
     __gsignals__ = {
         # The signal will be emitted after a period is successfully saved
         "period-saved": (GObject.SIGNAL_RUN_FIRST, None, (GObject.TYPE_PYOBJECT,)),
     }
-    
+
     # Template children (auto-bound from UI)
-    start_date: Adw.EntryRow = Gtk.Template.Child() # type: ignore
+    start_date: Adw.EntryRow = Gtk.Template.Child()  # type: ignore
     duration: Adw.SpinRow = Gtk.Template.Child()  # type: ignore
     save_button: Gtk.Button = Gtk.Template.Child()  # type: ignore
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.connect("map", self.on_map)
-    
+
     def on_map(self, widget: Adw.NavigationPage) -> None:
         app = self.get_root().get_application()
         self.settings = app.settings
-        
+
         default_period_len = self.settings.get_int("period-length")
-        
+
         now = GLib.DateTime.new_now_local()
         self.start_date.set_text(now.format("%Y-%m-%d"))
         self.duration.set_value(default_period_len)
 
-    
     @Gtk.Template.Callback()
     def on_save_button_clicked(self, button: Gtk.Button) -> None:
         """Callback for the save button click event."""
         # Implement saving logic here
         start_date_str = self.start_date.get_text()
         duration = int(self.duration.get_value())
-        
+
         try:
             start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
         except ValueError:
@@ -68,10 +68,10 @@ class NewPeriodPage(Adw.NavigationPage):
             toast = Adw.Toast.new(_("Invalid date format (use YYYY-MM-DD)"))  # type: ignore
             toast_overlay.add_toast(toast)
             return
-        
+
         new_cycle = Cycle(start_date=start_date, duration=duration)
         self.emit("period-saved", new_cycle)
-        
+
         navigation_view = self.get_parent()
         if isinstance(navigation_view, Adw.NavigationView):
             navigation_view.pop()

@@ -27,35 +27,35 @@ from .models import Cycle, Pregnancy
 from .storage import CycleStore, PregnancyStore
 from .constants import APP_ID
 
-from gi.repository import GObject # type: ignore
+from gi.repository import GObject  # type: ignore
 
 
 class DataStore(GObject.GObject):
-    
+
     __gsignals__ = {
         "changed": (GObject.SIGNAL_RUN_FIRST, None, ()),
     }
-    
+
     def __init__(self) -> None:
         """Main data store managing cycles and pregnancies."""
         super().__init__()
         self.logger = logging.getLogger(__name__)
-        
+
         self.cycles = CycleStore(app_id=APP_ID)
         self.pregnancies = PregnancyStore(app_id=APP_ID)
-        
+
         self._restore_links()
-        
+
     def _restore_links(self) -> None:
         """Restore links between cycles and pregnancies after loading from storage."""
         preg_dict: Dict[str, Pregnancy] = {
             preg.id: preg for preg in self.pregnancies.items
         }
-        
+
         for cycle in self.cycles.items:
             if cycle.pregnancy_id:
                 cycle.pregnancy = preg_dict.get(cycle.pregnancy_id, None)
-    
+
     def _auto_link_all(self) -> None:
         """Automatically link all pregnancies to their appropriate cycles."""
         if not self.pregnancies.items or not self.cycles.items:
@@ -68,7 +68,7 @@ class DataStore(GObject.GObject):
 
         for preg in self.pregnancies.items:
             self._link_single_pregnancy(preg)
-            
+
     def _link_single_pregnancy(self, pregnancy: Pregnancy) -> None:
         """Link a single pregnancy to the appropriate cycle based on start dates."""
         if not self.cycles.items:
@@ -94,14 +94,14 @@ class DataStore(GObject.GObject):
     def get_cycles(self) -> List[Cycle]:
         """Return all stored cycles."""
         return self.cycles.items
-    
+
     def get_active_cycle(self) -> Optional[Cycle]:
         """Return the most recent (active) cycle, or None if none exist."""
         try:
             return self.cycles.get_active_cycle()
         except ValueError:
             return None
-        
+
     def add_cycle(self, cycle: Cycle) -> None:
         """Add a new cycle and update all links."""
         self.cycles.add_cycle(cycle)
@@ -111,7 +111,7 @@ class DataStore(GObject.GObject):
         self.cycles.save()
         self.pregnancies.save()
         self.emit("changed")
-        
+
     def delete_cycle(self, cycle: Cycle) -> None:
         """Delete a cycle and update all links."""
         self.cycles.delete_cycle(cycle)
@@ -124,15 +124,14 @@ class DataStore(GObject.GObject):
         self.pregnancies.save()
         self.emit("changed")
 
-        
     def get_pregnancies(self) -> List[Pregnancy]:
         """Return all stored pregnancies."""
         return self.pregnancies.items
-    
+
     def get_active_pregnancy(self) -> Optional[Pregnancy]:
         """Return the currently active pregnancy, if any."""
         return self.pregnancies.get_active_pregnancy()
-    
+
     def add_pregnancy(self, pregnancy: Pregnancy) -> None:
         """Add a new pregnancy and link it to the appropriate cycle."""
         self.pregnancies.add_pregnancy(pregnancy)
@@ -142,12 +141,12 @@ class DataStore(GObject.GObject):
         self.cycles.save()
         self.pregnancies.save()
         self.emit("changed")
-        
+
     def save_all(self) -> None:
         """Persist all data to storage."""
         self.cycles.save()
         self.pregnancies.save()
-        
+
     def reload(self) -> None:
         """Reload all data from storage."""
         self.cycles.load()

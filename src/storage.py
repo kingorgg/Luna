@@ -42,13 +42,14 @@ class BaseStore:
         - filename
         - model_class (Cycle or Pregnancy)
     """
+
     filename: str
     model_class: Type[T]
-    
+
     def __init__(self, app_id: str) -> None:
         self.app_id = app_id
         self.items: List[T] = []
-        
+
         self.logger = logging.getLogger(__name__)
 
         self.data_dir = Path(GLib.get_user_data_dir()) / app_id
@@ -58,7 +59,7 @@ class BaseStore:
         self.lock_path = self.data_dir / (self.filename + ".lock")
 
         self.load()
-            
+
     def load(self) -> None:
         """Loads JSON data from a gzip file. Corrupt files return empty list."""
         self.items = []
@@ -76,7 +77,7 @@ class BaseStore:
         except Exception as e:
             self.logger.error(f"Failed to load {self.filename}: {e}")
             self.items = []
-            
+
     def save(self) -> None:
         """Saves items atomically using flock + temp file + gzip."""
         tmp_path = self.file_path.with_name(self.file_path.name + ".tmp")
@@ -95,7 +96,7 @@ class BaseStore:
                     fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
                 except Exception:
                     pass
-                
+
     def add(self, item: T) -> None:
         self.items.append(item)
         self.save()
@@ -103,13 +104,14 @@ class BaseStore:
 
 class CycleStore(BaseStore):
     """Handles persistent storage of Cycle objects as JSON."""
+
     filename = "cycles.json.gz"
     model_class = Cycle
 
     def add_cycle(self, cycle: Cycle) -> None:
         """Add a new cycle and persist it."""
         self.add(cycle)
-        
+
     def delete_cycle(self, cycle: Cycle) -> None:
         """Delete a cycle and persist changes."""
         try:
@@ -125,24 +127,25 @@ class CycleStore(BaseStore):
         if not self.items:
             return None
         return max(self.items, key=lambda c: c.start_date)
-    
+
     def has_active_pregnancy(self) -> bool:
         """Return True if the active cycle has a linked pregnancy."""
         active_cycle = self.get_active_cycle()
         if not active_cycle:
             return False
         return active_cycle.pregnancy is not None
-    
+
     def get_active_pregnancy(self) -> Optional[Pregnancy]:
         """Return the pregnancy linked to the active cycle, if any."""
         active_cycle = self.get_active_cycle()
         if not active_cycle:
             return None
         return active_cycle.pregnancy
-    
+
 
 class PregnancyStore(BaseStore):
     """Handles persistent storage of Pregnancy objects as JSON."""
+
     filename = "pregnancies.json.gz"
     model_class = Pregnancy
 
