@@ -49,6 +49,7 @@ class PeriodPage(Adw.NavigationPage):
 
     days_list: Gtk.ListBox = Gtk.Template.Child()
     save_button: Gtk.Button = Gtk.Template.Child()
+    delete_button: Gtk.Button = Gtk.Template.Child()
 
     def __init__(self, cycle: Cycle, **kwargs):
         super().__init__(**kwargs)
