@@ -22,6 +22,7 @@ from __future__ import annotations
 import sys
 import gi
 from typing import Any, Callable, Iterable, Optional
+from .constants import ColorSchemeMode
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -155,9 +156,9 @@ class LunaApplication(Adw.Application):
         style = Adw.StyleManager.get_default()
         mode = self.settings.get_int("color-scheme")
 
-        if mode == 1:
+        if mode == ColorSchemeMode.LIGHT:
             style.set_color_scheme(Adw.ColorScheme.FORCE_LIGHT)
-        elif mode == 2:
+        elif mode == ColorSchemeMode.DARK:
             style.set_color_scheme(Adw.ColorScheme.FORCE_DARK)
         else:
             style.set_color_scheme(Adw.ColorScheme.DEFAULT)
