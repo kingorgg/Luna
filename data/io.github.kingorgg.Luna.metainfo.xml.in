@@ -5,9 +5,9 @@
   <project_license>GPL-3.0-or-later</project_license>
 
   <name>Luna</name>
-  <summary>Period Tracker</summary>
+  <summary>Menstrual cycle and pregnancy tracker</summary>
   <description>
-    <p>A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant.</p>
+    <p>Keep track of your menstrual cycle and predict your next period and ovulation dates. Calculate your due date and follow your pregnancy's progress.</p>
   </description>
 
   <developer id="io.github.kingorgg">
@@ -24,8 +24,8 @@
   <content_rating type="oars-1.1" />
 
   <branding>
-    <color type="primary" scheme_preference="light">#fafafb</color>
-    <color type="primary" scheme_preference="dark">#222226</color>
+    <color type="primary" scheme_preference="light">#e3b7e4</color>
+    <color type="primary" scheme_preference="dark">#9c3aa4</color>
   </branding>
 
   <screenshots>
@@ -49,9 +49,27 @@
       <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/pregnancy_mode.png</image>
       <caption>Pregnancy Mode</caption>
     </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/dark_mode.png</image>
+      <caption>Dark Mode</caption>
+    </screenshot>
   </screenshots>
 
   <releases>
+  <release version="49.2" date="2025-11-17">
+      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.2</url>
+      <description translate="no">
+        <p>Changes</p>
+        <ul>
+          <li>Refactored code</li>
+          <li>Updated metainfo.</li>
+        </ul>
+        <p>Removed</p>
+        <ul>
+          <li>Unused code</li>
+        </ul>
+      </description>
+    </release>
     <release version="49.1" date="2025-11-15">
       <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.1</url>
       <description translate="no">
