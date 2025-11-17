@@ -55,10 +55,6 @@ class DataStore(GObject.GObject):
         for cycle in self.cycles.items:
             if cycle.pregnancy_id:
                 cycle.pregnancy = preg_dict.get(cycle.pregnancy_id, None)
-                
-    def _auto_link(self, cycle: Cycle, pregnancy: Pregnancy) -> None:
-        """Automatically link a single pregnancy to its appropriate cycle."""
-        self._link_single_pregnancy(pregnancy)
     
     def _auto_link_all(self) -> None:
         """Automatically link all pregnancies to their appropriate cycles."""
