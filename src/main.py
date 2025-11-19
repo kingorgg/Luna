@@ -71,14 +71,14 @@ class LunaApplication(Adw.Application):
             website="https://github.com/kingorgg/Luna",
             issue_url="https://github.com/kingorgg/Luna/issues",
             license_type=Gtk.License.GPL_3_0,
-            comments=_("A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."),  # type: ignore
+            comments=_("A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."),
             developers=["Daniel Taylor"],
             designers=["Daniel Taylor"],
             copyright="© 2025 Daniel Taylor",
             support_url="https://github.com/kingorgg/Luna/discussions",
         )
 
-        about.set_translator_credits(_("translator-credits"))  # type: ignore
+        about.set_translator_credits(_("translator-credits"))
         about.set_artists(["Daniel Taylor"])
         about.present(self.props.active_window)
 
@@ -95,7 +95,7 @@ class LunaApplication(Adw.Application):
 
         color_row = Adw.ComboRow(
             title=_("Colour Scheme"),
-            subtitle=_("Choose light, dark, or follow system"),  # type: ignore
+            subtitle=_("Choose light, dark, or follow system"),
             model=Gtk.StringList.new(["System", "Light", "Dark"]),
         )
         appearance_group.add(color_row)
@@ -108,23 +108,23 @@ class LunaApplication(Adw.Application):
             Gio.SettingsBindFlags.DEFAULT,
         )
 
-        cycle_group = Adw.PreferencesGroup(title=_("Cycle Tracking"))  # type: ignore
+        cycle_group = Adw.PreferencesGroup(title=_("Cycle Tracking"))
         settings_page.add(cycle_group)
 
         luteal_phase = Adw.SpinRow.new_with_range(9, 16, 1)
-        luteal_phase.set_title(_("Luteal Phase Length (days)"))  # type: ignore
+        luteal_phase.set_title(_("Luteal Phase Length (days)"))
         luteal_phase.set_value(14)
         luteal_phase.set_numeric(True)
         cycle_group.add(luteal_phase)
 
         cycle_length = Adw.SpinRow.new_with_range(21, 35, 1)
-        cycle_length.set_title(_("Cycle Length (days)"))  # type: ignore
+        cycle_length.set_title(_("Cycle Length (days)"))
         cycle_length.set_value(28)
         cycle_length.set_numeric(True)
         cycle_group.add(cycle_length)
 
         period_length = Adw.SpinRow.new_with_range(2, 8, 1)
-        period_length.set_title(_("Period Length (days)"))  # type: ignore
+        period_length.set_title(_("Period Length (days)"))
         period_length.set_value(5)
         period_length.set_numeric(True)
         cycle_group.add(period_length)

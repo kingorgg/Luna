@@ -81,7 +81,7 @@ class LunaWindow(Adw.ApplicationWindow):
                 self.store.reload()
             except Exception as e:
                 self.toast_overlay.add_toast(
-                    Adw.Toast.new(_("Error reloading data."))  # type: ignore
+                    Adw.Toast.new(_("Error reloading data."))
                 )
                 self.logger.error(f"Error reloading data: {e}")
                 return
@@ -119,14 +119,14 @@ class LunaWindow(Adw.ApplicationWindow):
 
         subtitle = f"→ {end_str} ({cycle.duration} days)"
         if cycle.pregnancy:
-            subtitle += " - Pregnancy started"
+            subtitle += _(" - Pregnancy started")
 
         row = Adw.ActionRow(title=start_str, subtitle=subtitle)
         row.set_activatable(False)
 
         # Add an edit button to the right
         edit_button = Gtk.Button(icon_name="go-next-symbolic")
-        edit_button.set_tooltip_text(_("View Period"))  # type: ignore
+        edit_button.set_tooltip_text(_("View Period"))
         edit_button.set_valign(Gtk.Align.CENTER)
         edit_button.add_css_class("flat")
         edit_button.connect("clicked", self.on_view_period_clicked, cycle)
@@ -155,7 +155,7 @@ class LunaWindow(Adw.ApplicationWindow):
         self.store.add_cycle(new_cycle)
         self.store.save_all()
 
-        self.toast_overlay.add_toast(Adw.Toast.new(_("New period saved")))  # type: ignore
+        self.toast_overlay.add_toast(Adw.Toast.new(_("New period saved")))
 
         self.update_ui()
 
@@ -166,7 +166,7 @@ class LunaWindow(Adw.ApplicationWindow):
 
     def on_period_deleted(self, page, cycle):
         """Handle the 'period-deleted' signal from PeriodPage."""
-        self.toast_overlay.add_toast(Adw.Toast.new(_("Period deleted")))  # type: ignore
+        self.toast_overlay.add_toast(Adw.Toast.new(_("Period deleted")))
         self.update_ui(refresh=True)
 
     def _on_store_changed(self, *_):

@@ -73,11 +73,11 @@ class PeriodPage(Adw.NavigationPage):
 
     def build_day_row(self, index: int, day: DayEntry) -> Adw.ExpanderRow:
         """Build a single day entry row."""
-        expander = Adw.ExpanderRow(title=day.date.isoformat(), subtitle="Day details")
+        expander = Adw.ExpanderRow(title=day.date.isoformat(), subtitle=_("Day details"))
 
         flow = Adw.ComboRow()
-        flow.set_title("Flow")
-        flow.options = ["None", "Light", "Medium", "Heavy"]
+        flow.set_title(_("Flow"))
+        flow.options = [_("None"), _("Light"), _("Medium"), _("Heavy")]
         model = Gtk.StringList.new(flow.options)
         flow.set_model(model)
 
@@ -89,23 +89,23 @@ class PeriodPage(Adw.NavigationPage):
         expander.add_row(flow)
 
         mood = Adw.EntryRow()
-        mood.set_title("Mood")
+        mood.set_title(_("Mood"))
         mood.set_text(day.mood or "")
         expander.add_row(mood)
 
         temp = Adw.EntryRow()
-        temp.set_title("Temperature (°C)")
+        temp.set_title(_("Temperature (°C)"))
         temp.set_input_purpose(Gtk.InputPurpose.NUMBER)
         temp.set_text("" if day.temperature is None else str(day.temperature))
         expander.add_row(temp)
 
         symptoms = Adw.EntryRow()
-        symptoms.set_title("Symptoms (comma-separated)")
+        symptoms.set_title(_("Symptoms (comma-separated)"))
         symptoms.set_text(", ".join(day.symptoms))
         expander.add_row(symptoms)
 
         notes = Adw.EntryRow()
-        notes.set_title("Notes")
+        notes.set_title(_("Notes"))
         notes.set_text(day.notes or "")
         expander.add_row(notes)
 
@@ -139,7 +139,7 @@ class PeriodPage(Adw.NavigationPage):
         try:
             new_start = datetime.strptime(self.start_date.get_text(), "%Y-%m-%d").date()
         except ValueError:
-            toast = Adw.Toast.new("Invalid date format")
+            toast = Adw.Toast.new(_("Invalid date format"))
 
             window = self.get_native()
             window.toast_overlay.add_toast(toast)
@@ -207,11 +207,11 @@ class PeriodPage(Adw.NavigationPage):
     def on_delete_button_clicked(self, button: Gtk.Button) -> None:
         """Handle the delete button click event."""
         dialog = Adw.AlertDialog.new()
-        dialog.set_heading(_("Delete Period"))  # type: ignore
-        dialog.set_body(_("Are you sure you want to delete this period? This action cannot be undone."))  # type: ignore
+        dialog.set_heading(_("Delete Period"))
+        dialog.set_body(_("Are you sure you want to delete this period? This action cannot be undone."))
 
-        dialog.add_response("cancel", _("Cancel"))  # type: ignore
-        dialog.add_response("delete", _("Delete"))  # type: ignore
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("delete", _("Delete"))
 
         dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
 

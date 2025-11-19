@@ -65,7 +65,7 @@ class NewPeriodPage(Adw.NavigationPage):
             start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
         except ValueError:
             toast_overlay = self.get_root().get_content()
-            toast = Adw.Toast.new(_("Invalid date format (use YYYY-MM-DD)"))  # type: ignore
+            toast = Adw.Toast.new(_("Invalid date format (use YYYY-MM-DD)"))
             toast_overlay.add_toast(toast)
             return
 
