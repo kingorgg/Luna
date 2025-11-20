@@ -56,6 +56,21 @@
   </screenshots>
 
   <releases>
+  <release version="49.3" date="2025-11-20">
+      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.3</url>
+      <description translate="no">
+        <p>Added</p>
+        <ul>
+          <li>A pot file for translators to work from.</li>
+          <li>Spanish Translation - Thanks to Marcos Sánchez (haggen88)</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>period_page.py: to better handle translations, as it was creating a Tuple error.</li>
+          <li>brand colours for metainfo and the summary to make it shorter.</li>
+        </ul>
+      </description>
+  </release>
   <release version="49.2" date="2025-11-17">
       <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.2</url>
       <description translate="no">
