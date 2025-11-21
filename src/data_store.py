@@ -75,6 +75,11 @@ class DataStore(GObject.GObject):
             return
 
         self.cycles.items.sort(key=lambda c: c.start_date)
+        
+        # link to the first cycle if pregnancy starts before it
+        if pregnancy.start_date < self.cycles.items[0].start_date:
+            self.cycles.items[0].pregnancy = pregnancy
+            return
 
         for i, cycle in enumerate(self.cycles.items):
             start = cycle.start_date
