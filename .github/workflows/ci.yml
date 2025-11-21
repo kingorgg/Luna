@@ -25,4 +25,4 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: |
-          xvfb-run -s "-screen 0 1024x768x24" python -m unittest discover -s tests -p "test_*.py" -v
+          xvfb-run -s "-screen 0 1024x768x24" python3 -m unittest discover -s tests -p "test_*.py" -v
