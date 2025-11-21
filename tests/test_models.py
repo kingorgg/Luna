@@ -222,7 +222,7 @@ class TestCycle(unittest.TestCase):
         """Test setting and getting pregnancy on a cycle."""
         cycle = Cycle(start_date=self.start_date, duration=self.duration)
         pregnancy = Pregnancy(start_date=self.start_date)
-        
+
         cycle.pregnancy = pregnancy
         self.assertEqual(cycle.pregnancy, pregnancy)
         self.assertEqual(cycle.pregnancy_id, pregnancy.id)
@@ -232,7 +232,7 @@ class TestCycle(unittest.TestCase):
         cycle = Cycle(start_date=self.start_date, duration=self.duration)
         pregnancy = Pregnancy(start_date=self.start_date)
         cycle.pregnancy = pregnancy
-        
+
         cycle.pregnancy = None
         self.assertIsNone(cycle.pregnancy)
         self.assertIsNone(cycle.pregnancy_id)
@@ -246,7 +246,7 @@ class TestCycle(unittest.TestCase):
         )
         cycle.generate_days()
         result = cycle.to_dict()
-        
+
         self.assertEqual(result["start_date"], self.start_date.isoformat())
         self.assertEqual(result["duration"], self.duration)
         self.assertEqual(result["pregnancy_id"], "preg-123")
@@ -285,7 +285,7 @@ class TestCycle(unittest.TestCase):
         )
         original.generate_days()
         restored = Cycle.from_dict(original.to_dict())
-        
+
         self.assertEqual(restored.start_date, original.start_date)
         self.assertEqual(restored.duration, original.duration)
         self.assertEqual(restored.pregnancy_id, original.pregnancy_id)
