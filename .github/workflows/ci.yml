@@ -11,22 +11,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
-      - name: Install system packages (GObject Introspection / GTK4 runtime)
+      - name: Install system packages for PyGObject
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            python3-gi python3-gi-cairo \
-            gir1.2-gtk-4.0 gir1.2-adw-1 \
-            xvfb
+            libcairo2-dev \
+            libgirepository1.0-dev \
+            gir1.2-gtk-4.0 \
+            gir1.2-adw-1 \
+            xvfb \
+            pkg-config \
+            python3-dev
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install PyGObject
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run unittest discovery (headless)
