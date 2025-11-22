@@ -51,6 +51,7 @@ class LunaApplication(Adw.Application):
         )
 
         self.create_action("quit", lambda *_: self.quit(), ["<control>q"])
+        self.create_action("add_period", self.on_add_period_action, ["<control>n"])
         self.create_action("about", self.on_about_action)
         self.create_action("preferences", self.on_preferences_action)
 
@@ -60,6 +61,12 @@ class LunaApplication(Adw.Application):
     def new_window(self) -> None:
         win = LunaWindow(application=self)
         win.present()
+
+    def on_add_period_action(self, *args: Any) -> None:
+        """Callback for the app.add_period action."""
+        win = self.props.active_window
+        if win and isinstance(win, LunaWindow):
+            win.on_new_period_button_clicked()
 
     def on_about_action(self, *args: Any) -> None:
         """Callback for the app.about action."""
