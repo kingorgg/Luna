@@ -4,9 +4,9 @@ gnome = import('gnome')
 
 blueprints = custom_target('blueprints',
     input: files(
-        'window.blp',
-        'new_period.blp',
-        'period_page.blp',
+        '../data/ui/window.blp',
+        '../data/ui/new_period.blp',
+        '../data/ui/period_page.blp',
 	),
     output: [
         'window.ui',
@@ -17,7 +17,7 @@ blueprints = custom_target('blueprints',
     find_program('blueprint-compiler'),
     'batch-compile',
     meson.current_build_dir(),
-    meson.current_source_dir(),
+    meson.current_source_dir() / 'data' / 'ui',
     '@INPUT@'
   ],
 )
