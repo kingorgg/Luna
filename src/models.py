@@ -18,10 +18,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from __future__ import annotations
+
+import uuid
 from dataclasses import dataclass, field
 from datetime import date, timedelta
-from typing import Optional, List, Dict, Any
-import uuid
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

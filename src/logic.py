@@ -19,9 +19,11 @@
 
 
 from __future__ import annotations
+
 import statistics
 from datetime import date, timedelta
 from typing import List, Optional
+
 from .models import Cycle
 
 

@@ -18,12 +18,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from __future__ import annotations
-from gi.repository import Adw, Gtk, GLib, GObject  # type: ignore
+
 from datetime import datetime
+from gettext import gettext as _
+
+from gi.repository import Adw, GLib, GObject, Gtk  # type: ignore
 
 from .models import Cycle
-
-from gettext import gettext as _
 
 
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/new_period.ui")

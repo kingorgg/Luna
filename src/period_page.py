@@ -18,12 +18,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from __future__ import annotations
-from gi.repository import Adw, Gtk, GObject # type: ignore
+
 from datetime import datetime, timedelta
+from gettext import gettext as gettext_
+
+from gi.repository import Adw, GObject, Gtk  # type: ignore
 
 from .models import Cycle, DayEntry, Pregnancy
-
-from gettext import gettext as gettext_
 
 
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/period_page.ui")
@@ -73,11 +74,18 @@ class PeriodPage(Adw.NavigationPage):
 
     def build_day_row(self, index: int, day: DayEntry) -> Adw.ExpanderRow:
         """Build a single day entry row."""
-        expander = Adw.ExpanderRow(title=day.date.isoformat(), subtitle=gettext_("Day details"))
+        expander = Adw.ExpanderRow(
+            title=day.date.isoformat(), subtitle=gettext_("Day details")
+        )
 
         flow = Adw.ComboRow()
         flow.set_title(gettext_("Flow"))
-        flow.options = [gettext_("None"), gettext_("Light"), gettext_("Medium"), gettext_("Heavy")]
+        flow.options = [
+            gettext_("None"),
+            gettext_("Light"),
+            gettext_("Medium"),
+            gettext_("Heavy"),
+        ]
         model = Gtk.StringList.new(flow.options)
         flow.set_model(model)
 
@@ -208,7 +216,11 @@ class PeriodPage(Adw.NavigationPage):
         """Handle the delete button click event."""
         dialog = Adw.AlertDialog.new()
         dialog.set_heading(gettext_("Delete Period"))
-        dialog.set_body(gettext_("Are you sure you want to delete this period? This action cannot be undone."))
+        dialog.set_body(
+            gettext_(
+                "Are you sure you want to delete this period? This action cannot be undone."
+            )
+        )
 
         dialog.add_response("cancel", gettext_("Cancel"))
         dialog.add_response("delete", gettext_("Delete"))

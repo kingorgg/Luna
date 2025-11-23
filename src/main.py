@@ -20,17 +20,20 @@
 from __future__ import annotations
 
 import sys
-import gi
 from typing import Any, Callable, Iterable, Optional
+
+import gi
+
 from .constants import ColorSchemeMode
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
-from gi.repository import Gtk, Gio, Adw  # type: ignore
-from .window import LunaWindow
-
 from gettext import gettext as _
+
+from gi.repository import Adw, Gio, Gtk  # type: ignore
+
+from .window import LunaWindow
 
 
 class LunaApplication(Adw.Application):
@@ -78,7 +81,9 @@ class LunaApplication(Adw.Application):
             website="https://github.com/kingorgg/Luna",
             issue_url="https://github.com/kingorgg/Luna/issues",
             license_type=Gtk.License.GPL_3_0,
-            comments=_("A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."),
+            comments=_(
+                "A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."
+            ),
             developers=["Daniel Taylor"],
             designers=["Daniel Taylor"],
             copyright="© 2025 Daniel Taylor",

@@ -19,15 +19,15 @@
 
 from __future__ import annotations
 
-from datetime import date
-from typing import List, Optional, Dict
 import logging
-
-from .models import Cycle, Pregnancy
-from .storage import CycleStore, PregnancyStore
-from .constants import APP_ID
+from datetime import date
+from typing import Dict, List, Optional
 
 from gi.repository import GObject  # type: ignore
+
+from .constants import APP_ID
+from .models import Cycle, Pregnancy
+from .storage import CycleStore, PregnancyStore
 
 
 class DataStore(GObject.GObject):
@@ -75,7 +75,7 @@ class DataStore(GObject.GObject):
             return
 
         self.cycles.items.sort(key=lambda c: c.start_date)
-        
+
         # link to the first cycle if pregnancy starts before it
         if pregnancy.start_date < self.cycles.items[0].start_date:
             self.cycles.items[0].pregnancy = pregnancy

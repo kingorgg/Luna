@@ -20,17 +20,17 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, List
 from datetime import date, timedelta
-from gi.repository import Adw, Gtk, GLib  # type: ignore
+from gettext import gettext as _
+from typing import Any, List
 
-from .logic import CycleStats
+from gi.repository import Adw, GLib, Gtk  # type: ignore
+
 from .data_store import DataStore
-from .models import Pregnancy, Cycle
+from .logic import CycleStats
+from .models import Cycle, Pregnancy
 from .new_period import NewPeriodPage
 from .period_page import PeriodPage
-
-from gettext import gettext as _
 
 
 def get_gestation(preg):
@@ -80,9 +80,7 @@ class LunaWindow(Adw.ApplicationWindow):
             try:
                 self.store.reload()
             except Exception as e:
-                self.toast_overlay.add_toast(
-                    Adw.Toast.new(_("Error reloading data."))
-                )
+                self.toast_overlay.add_toast(Adw.Toast.new(_("Error reloading data.")))
                 self.logger.error(f"Error reloading data: {e}")
                 return
 

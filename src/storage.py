@@ -19,17 +19,17 @@
 
 from __future__ import annotations
 
-import json
+import fcntl
 import gzip
+import json
 import logging
 import os
-import fcntl
 from pathlib import Path
-from typing import List, Type, TypeVar, Optional
-
-from .models import Cycle, Pregnancy
+from typing import List, Optional, Type, TypeVar
 
 from gi.repository import GLib  # type: ignore
+
+from .models import Cycle, Pregnancy
 
 T = TypeVar("T")  # model type (Cycle, Pregnancy)
 
