@@ -1,32 +1,47 @@
-.PHONY: setup compile install run uninstall clean distclean
+.PHONY: all setup compile install run uninstall clean distclean format lint test rebuild dist help
+
+BUILD_DIR = build
+APP = luna
 
 all: setup compile install run
 
 setup:
-	meson setup --reconfigure build
+	mkdir -p $(BUILD_DIR)
+	meson setup --reconfigure $(BUILD_DIR)
 
 compile:
-	meson compile -C build
+	meson compile -C $(BUILD_DIR) --verbose
 
 install:
-	meson install -C build
+	meson install -C $(BUILD_DIR)
 
 run:
-	luna
+	@if [ -x "$(BUILD_DIR)/$(APP)" ]; then \
+		$(BUILD_DIR)/$(APP); \
+	elif command -v $(APP) >/dev/null 2>&1; then \
+		$(APP); \
+	else \
+		echo "Error: $(APP) not built or installed"; \
+		exit 1; \
+	fi
 
 uninstall:
-	sudo rm /usr/local/share/metainfo/io.github.kingorgg.Luna.metainfo.xml
-	sudo rm /usr/local/share/glib-2.0/schemas/io.github.kingorgg.Luna.gschema.xml
-	sudo rm /usr/local/share/applications/io.github.kingorgg.Luna.desktop
-	sudo rm -rf /usr/local/share/luna/
-	sudo rm /usr/local/share/dbus-1/services/io.github.kingorgg.Luna.service
-	sudo rm /usr/local/bin/luna
+	@for f in \
+		/usr/local/share/metainfo/io.github.kingorgg.Luna.metainfo.xml \
+		/usr/local/share/glib-2.0/schemas/io.github.kingorgg.Luna.gschema.xml \
+		/usr/local/share/applications/io.github.kingorgg.Luna.desktop \
+		/usr/local/share/$(APP)/ \
+		/usr/local/share/dbus-1/services/io.github.kingorgg.Luna.service \
+		/usr/local/bin/$(APP); do \
+		if [ -e $$f ]; then sudo rm -rf $$f; fi; \
+	done
+	@echo "Uninstallation complete."
 
 clean:
-	meson compile -C build --clean
+	meson compile -C $(BUILD_DIR) --clean
 
 distclean:
-	rm -rf build
+	rm -rf $(BUILD_DIR)
 
 format:
 	black src
@@ -37,3 +52,28 @@ lint:
 
 test:
 	python3 -m unittest discover -s tests -v
+
+dist:
+	meson dist -C $(BUILD_DIR)
+
+rebuild: distclean setup compile
+
+rebuild-install: distclean setup compile install
+
+help:
+	@echo "Makefile commands:"
+	@echo "  setup      		- Set up the build directory"
+	@echo "  compile    		- Compile the application"
+	@echo "  install    		- Install the application"
+	@echo "  run        		- Run the application"
+	@echo "  uninstall  		- Uninstall the application"
+	@echo "  clean      		- Clean build files"
+	@echo "  distclean  		- Remove build directory"
+	@echo "  format     		- Format the source code"
+	@echo "  lint       		- Lint the source code"
+	@echo "  test       		- Run unit tests"
+	@echo "  dist       		- Create a distribution package"
+	@echo "  rebuild    		- Clean, set up, and compile the application"
+	@echo "  rebuild-install 	- Rebuild and install the application"
+	@echo "  help      		- Show this help message"
+	
