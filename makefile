@@ -1,4 +1,4 @@
-.PHONY: setup compile install run uninstall
+.PHONY: setup compile install run uninstall clean distclean
 
 all: setup compile install run
 
@@ -21,3 +21,19 @@ uninstall:
 	sudo rm -rf /usr/local/share/luna/
 	sudo rm /usr/local/share/dbus-1/services/io.github.kingorgg.Luna.service
 	sudo rm /usr/local/bin/luna
+
+clean:
+	meson compile -C build --clean
+
+distclean:
+	rm -rf build
+
+format:
+	black src
+	isort src
+
+lint:
+	flake8 src
+
+test:
+	python3 -m unittest discover -s tests -v
