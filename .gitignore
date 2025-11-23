@@ -52,3 +52,6 @@ venv.bak/
 builddir/
 builddir/var/run/
 repo/
+
+# blueprint compiler
+subprojects/blueprint-compiler/
