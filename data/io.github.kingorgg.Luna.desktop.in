@@ -5,6 +5,7 @@ Icon=io.github.kingorgg.Luna
 Terminal=false
 Type=Application
 Categories=Utility;
-Keywords=GTK;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Luna;Menstrual;Pregnancy;Ovulation;Cycle;Tracker;
 StartupNotify=true
 DBusActivatable=false
