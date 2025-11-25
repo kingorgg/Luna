@@ -56,6 +56,24 @@
   </screenshots>
 
   <releases>
+    <release version="49.4" date="2025-11-25">
+      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.4</url>
+      <description translate="no">
+        <p>Added</p>
+        <ul>
+          <li>Turkish Translation - Thanks to Sabri Ünal (yakushabb)</li>
+          <li>keywords to desktop.in - Thanks to Sabri Ünal (yakushabb)</li>
+          <li>a makefile</li>
+          <li>unittests</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>fixed the way translations work, as some strings were not translating.</li>
+          <li>fixed it so ctrl+n now works.</li>
+          <li>moved ui files to data/ui</li>
+        </ul>
+      </description>
+  </release>
   <release version="49.3" date="2025-11-20">
       <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.3</url>
       <description translate="no">
