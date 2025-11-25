@@ -7,7 +7,7 @@ project('luna',
 i18n = import('i18n')
 gnome = import('gnome')
 
-
+APPLICATION_ID = 'io.github.kingorgg.Luna'
 
 subdir('data')
 subdir('src')
