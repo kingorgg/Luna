@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 13:22+0000\n"
+"POT-Creation-Date: 2025-11-24 23:35+0000\n"
 "PO-Revision-Date: 2025-11-19 11:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,45 +18,139 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.8\n"
 
-#: data/io.github.kingorgg.Luna.desktop.in:2
-msgid "luna"
-msgstr "luna"
+#: data/ui/new_period.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:42
+msgid "New Period"
+msgstr "Nuevo período"
 
-#: data/io.github.kingorgg.Luna.desktop.in:8
-msgid "GTK;"
-msgstr "GTK;"
+#: data/ui/new_period.blp:15 data/ui/period_page.blp:15
+msgid "Save Period"
+msgstr "Guardar periodo"
 
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:7 src/window.blp:5
+#: data/ui/new_period.blp:32 data/ui/period_page.blp:44
+msgid "Period Details"
+msgstr "Detalles del periodo"
+
+#: data/ui/new_period.blp:35 data/ui/period_page.blp:47
+msgid "Start Date (YYYY-MM-DD)"
+msgstr "Fecha de inicio (AAAA-MM-DD)"
+
+#: data/ui/new_period.blp:39 data/ui/period_page.blp:51
+msgid "Duration (days)"
+msgstr "Duración (días)"
+
+#: data/ui/new_period.blp:40 data/ui/period_page.blp:52
+msgid "Number of days your period lasted"
+msgstr "Número de días que duró tu periodo"
+
+#: data/ui/period_page.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:46
+msgid "Edit Period"
+msgstr "Editar período"
+
+#: data/ui/period_page.blp:22 src/period_page.py:218
+msgid "Delete Period"
+msgstr "Borrar periodo"
+
+#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+msgid "Pregnancy Mode"
+msgstr "Modo embarazo"
+
+#: data/ui/period_page.blp:63
+msgid "Mark as the last period before pregnancy"
+msgstr "Marcar como el último período antes del embarazo"
+
+#: data/ui/period_page.blp:68
+msgid "Daily Details"
+msgstr "Detalles diarios"
+
+#: data/ui/window.blp:5 data/io.github.kingorgg.Luna.desktop.in:2
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:7
 msgid "Luna"
 msgstr "Luna"
+
+#: data/ui/window.blp:34
+msgid "Period Tracker"
+msgstr "Seguimiento del ciclo menstrual"
+
+#: data/ui/window.blp:41
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: data/ui/window.blp:47
+msgid "Add New Period"
+msgstr "Añadir nuevo período"
+
+#: data/ui/window.blp:68
+msgid "Predictions"
+msgstr "Predicciones"
+
+#: data/ui/window.blp:71 src/window.py:228
+msgid "Ovulation Date"
+msgstr "Fecha de ovulación"
+
+#: data/ui/window.blp:77 src/window.py:178 src/window.py:227
+msgid "Next Period"
+msgstr "Próximo período"
+
+#: data/ui/window.blp:84
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#: data/ui/window.blp:86 src/window.py:180 src/window.py:229
+msgid "Average Length"
+msgstr "Longitud media"
+
+#: data/ui/window.blp:92
+msgid "Range"
+msgstr "Rango"
+
+#: data/ui/window.blp:98
+msgid "Standard Deviation"
+msgstr "Desviación estándar"
+
+#: data/ui/window.blp:105 data/ui/window.blp:119 data/ui/window.blp:123
+msgid "History"
+msgstr "Historial"
+
+#: data/ui/window.blp:134
+msgid "Empty History"
+msgstr "Historial vacío"
+
+#: data/ui/window.blp:135
+msgid ""
+"Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
+msgstr ""
+"Tu historial está vacío. Pulsa el icono '+' o Ctrl+N para crear una nueva "
+"entrada."
+
+#: data/ui/window.blp:181 data/io.github.kingorgg.Luna.metainfo.xml.in:38
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: data/ui/window.blp:185
+msgid "About Luna"
+msgstr "Acerca de Luna"
+
+#: data/io.github.kingorgg.Luna.desktop.in:9
+msgid "Luna;Menstrual;Pregnancy;Ovulation;Cycle;Tracker;"
+msgstr ""
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:8
 msgid "Period and pregnancy tracker"
 msgstr "Seguimiento del ciclo menstrual y del embarazo"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:10
-msgid "Keep track of your menstrual cycle and predict your next period and ovulation dates. Calculate your due date and follow your pregnancy's progress."
-msgstr "Lleva un registro de tu ciclo menstrual y predice las fechas de tu próxima menstruación y ovulación. Calcula la fecha prevista del parto y sigue el progreso de tu embarazo."
+msgid ""
+"Keep track of your menstrual cycle and predict your next period and "
+"ovulation dates. Calculate your due date and follow your pregnancy's "
+"progress."
+msgstr ""
+"Lleva un registro de tu ciclo menstrual y predice las fechas de tu próxima "
+"menstruación y ovulación. Calcula la fecha prevista del parto y sigue el "
+"progreso de tu embarazo."
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:34
 msgid "Main Window"
 msgstr "Ventana principal"
-
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:38 src/window.blp:181
-msgid "Preferences"
-msgstr "Preferencias"
-
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:42 src/new_period.blp:5
-msgid "New Period"
-msgstr "Nuevo período"
-
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:46 src/period_page.blp:5
-msgid "Edit Period"
-msgstr "Editar período"
-
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:50 src/period_page.blp:62
-msgid "Pregnancy Mode"
-msgstr "Modo embarazo"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:54
 msgid "Dark Mode"
@@ -79,8 +173,11 @@ msgid "Average duration of period bleeding (2-8 typical)"
 msgstr "Duración media del sangrado menstrual (2-8 días típicos)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:18
-msgid "Used for predictions and initial estimates before enough data is collected."
-msgstr "Se utiliza para realizar predicciones y estimaciones iniciales antes de recopilar datos suficientes."
+msgid ""
+"Used for predictions and initial estimates before enough data is collected."
+msgstr ""
+"Se utiliza para realizar predicciones y estimaciones iniciales antes de "
+"recopilar datos suficientes."
 
 #: data/io.github.kingorgg.Luna.gschema.xml:22
 msgid "Preferred color scheme"
@@ -90,246 +187,173 @@ msgstr "Combinación de colores preferida"
 msgid "0 = system default 1 = light 2 = dark"
 msgstr "0 = predeterminado del sistema 1 = claro 2 = oscuro"
 
-#: src/main.py:74
-msgid "A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."
-msgstr "Una sencilla herramienta para llevar un registro de tu ciclo menstrual y predecir las fechas de ovulación. También te ayuda a calcular la fecha prevista del parto y el trimestre, si estás embarazada."
+#: src/main.py:85
+msgid ""
+"A simple utility to keep track of your menstrual cycle and to predict "
+"ovulation dates. Also helps track your estimated due date and trimester, if "
+"you are pregnant."
+msgstr ""
+"Una sencilla herramienta para llevar un registro de tu ciclo menstrual y "
+"predecir las fechas de ovulación. También te ayuda a calcular la fecha "
+"prevista del parto y el trimestre, si estás embarazada."
 
-#: src/main.py:81
+#: src/main.py:93
 msgid "translator-credits"
 msgstr "haggen88"
 
-#: src/main.py:93
+#: src/main.py:105
 msgid "Appearance"
 msgstr "Apariencia"
 
-#: src/main.py:97
+#: src/main.py:109
 msgid "Colour Scheme"
 msgstr "Esquema de color"
 
-#: src/main.py:98
+#: src/main.py:110
 msgid "Choose light, dark, or follow system"
 msgstr "Elige claro, oscuro o sigue el color del sistema"
 
-#: src/main.py:111
+#: src/main.py:123
 msgid "Cycle Tracking"
 msgstr "Seguimiento del ciclo"
 
-#: src/main.py:115
+#: src/main.py:127
 msgid "Luteal Phase Length (days)"
 msgstr "Duración de la fase lútea (días)"
 
-#: src/main.py:121
+#: src/main.py:133
 msgid "Cycle Length (days)"
 msgstr "Duración del ciclo (días)"
 
-#: src/main.py:127
+#: src/main.py:139
 msgid "Period Length (days)"
 msgstr "Duración del período (días)"
 
-#: src/new_period.blp:15 src/period_page.blp:15
-msgid "Save Period"
-msgstr "Guardar periodo"
-
-#: src/new_period.blp:32 src/period_page.blp:44
-msgid "Period Details"
-msgstr "Detalles del periodo"
-
-#: src/new_period.blp:35 src/period_page.blp:47
-msgid "Start Date (YYYY-MM-DD)"
-msgstr "Fecha de inicio (AAAA-MM-DD)"
-
-#: src/new_period.blp:39 src/period_page.blp:51
-msgid "Duration (days)"
-msgstr "Duración (días)"
-
-#: src/new_period.blp:40 src/period_page.blp:52
-msgid "Number of days your period lasted"
-msgstr "Número de días que duró tu periodo"
-
-#: src/new_period.py:68
+#: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Formato de fecha no válido (utilice AAAA-MM-DD)"
 
-#: src/period_page.blp:22 src/period_page.py:210
-msgid "Delete Period"
-msgstr "Borrar periodo"
-
-#: src/period_page.blp:63
-msgid "Mark as the last period before pregnancy"
-msgstr "Marcar como el último período antes del embarazo"
-
-#: src/period_page.blp:68
-msgid "Daily Details"
-msgstr "Detalles diarios"
-
-#: src/period_page.py:76
+#: src/period_page.py:78
 msgid "Day details"
 msgstr "Detalles del día"
 
-#: src/period_page.py:79
+#: src/period_page.py:82
 msgid "Flow"
 msgstr "Flujo"
 
-#: src/period_page.py:80
+#: src/period_page.py:84
 msgid "None"
 msgstr "Ninguno"
 
-#: src/period_page.py:80
+#: src/period_page.py:85
 msgid "Light"
 msgstr "Claro"
 
-#: src/period_page.py:80
+#: src/period_page.py:86
 msgid "Medium"
 msgstr "Medio"
 
-#: src/period_page.py:80
+#: src/period_page.py:87
 msgid "Heavy"
 msgstr "Intenso"
 
-#: src/period_page.py:92
+#: src/period_page.py:100
 msgid "Mood"
 msgstr "Estado de ánimo"
 
-#: src/period_page.py:97
+#: src/period_page.py:105
 msgid "Temperature (°C)"
 msgstr "Temperatura (°C)"
 
-#: src/period_page.py:103
+#: src/period_page.py:111
 msgid "Symptoms (comma-separated)"
 msgstr "Síntomas (separados por comas)"
 
-#: src/period_page.py:108
+#: src/period_page.py:116
 msgid "Notes"
 msgstr "Notas"
 
-#: src/period_page.py:142
+#: src/period_page.py:150
 msgid "Invalid date format"
 msgstr "Formato de fecha no válido"
 
-#: src/period_page.py:211
-msgid "Are you sure you want to delete this period? This action cannot be undone."
-msgstr "¿Está seguro de que desea eliminar este período? Esta acción no se puede deshacer."
+#: src/period_page.py:221
+msgid ""
+"Are you sure you want to delete this period? This action cannot be undone."
+msgstr ""
+"¿Está seguro de que desea eliminar este período? Esta acción no se puede "
+"deshacer."
 
-#: src/period_page.py:213
+#: src/period_page.py:225
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/period_page.py:214
+#: src/period_page.py:226
 msgid "Delete"
 msgstr "Borrar"
 
-#: src/window.blp:34
-msgid "Period Tracker"
-msgstr "Seguimiento del ciclo menstrual"
-
-#: src/window.blp:41
-msgid "Main Menu"
-msgstr "Menú principal"
-
-#: src/window.blp:47
-msgid "Add New Period"
-msgstr "Añadir nuevo período"
-
-#: src/window.blp:68
-msgid "Predictions"
-msgstr "Predicciones"
-
-#: src/window.blp:71 src/window.py:230
-msgid "Ovulation Date"
-msgstr "Fecha de ovulación"
-
-#: src/window.blp:77 src/window.py:180 src/window.py:229
-msgid "Next Period"
-msgstr "Próximo período"
-
-#: src/window.blp:84
-msgid "Statistics"
-msgstr "Estadísticas"
-
-#: src/window.blp:86 src/window.py:182 src/window.py:231
-msgid "Average Length"
-msgstr "Longitud media"
-
-#: src/window.blp:92
-msgid "Range"
-msgstr "Rango"
-
-#: src/window.blp:98
-msgid "Standard Deviation"
-msgstr "Desviación estándar"
-
-#: src/window.blp:105 src/window.blp:119 src/window.blp:123
-msgid "History"
-msgstr "Historial"
-
-#: src/window.blp:134
-msgid "Empty History"
-msgstr "Historial vacío"
-
-#: src/window.blp:135
-msgid "Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
-msgstr "Tu historial está vacío. Pulsa el icono '+' o Ctrl+N para crear una nueva entrada."
-
-#: src/window.blp:185
-msgid "About Luna"
-msgstr "Acerca de Luna"
-
-#: src/window.py:84
+#: src/window.py:83
 msgid "Error reloading data."
 msgstr "Error al recargar los datos."
 
-#: src/window.py:122
+#: src/window.py:120
 msgid " - Pregnancy started"
 msgstr " - Comienzo del embarazo"
 
-#: src/window.py:129
+#: src/window.py:127
 msgid "View Period"
 msgstr "Ver periodo"
 
-#: src/window.py:158
+#: src/window.py:156
 msgid "New period saved"
 msgstr "Nuevo periodo guardado"
 
-#: src/window.py:169
+#: src/window.py:167
 msgid "Period deleted"
 msgstr "Periodo eliminado"
 
-#: src/window.py:181
+#: src/window.py:179
 msgid "Ovulation"
 msgstr "Ovulación"
 
-#: src/window.py:184 src/window.py:185
+#: src/window.py:182 src/window.py:183
 msgid "No data yet"
 msgstr "Aún no hay datos"
 
-#: src/window.py:193
+#: src/window.py:191
 msgid "Add your first period to see predictions."
 msgstr "Añade tu primer periodo para ver las predicciones."
 
-#: src/window.py:200
+#: src/window.py:198
 msgid "Due Date"
 msgstr "Fecha de parto"
 
-#: src/window.py:203
+#: src/window.py:201
 msgid "Pregnancy Progress"
 msgstr "Progreso del embarazo"
 
-#: src/window.py:206
+#: src/window.py:204
 msgid "Trimester"
 msgstr "Trimestre"
 
-#: src/window.py:208
+#: src/window.py:206
 msgid "1st trimester"
 msgstr "1er trimestre"
 
-#: src/window.py:210
+#: src/window.py:208
 msgid "2nd trimester"
 msgstr "2do trimestre"
 
-#: src/window.py:212
+#: src/window.py:210
 msgid "3rd trimester"
 msgstr "3er trimestre"
 
-#: src/window.py:244 src/window.py:247
+#: src/window.py:242 src/window.py:245
 msgid "Not Available"
 msgstr "No disponible"
+
+#~ msgid "luna"
+#~ msgstr "luna"
+
+#~ msgid "GTK;"
+#~ msgstr "GTK;"
