@@ -188,7 +188,9 @@ class LunaWindow(Adw.ApplicationWindow):
         self.cycle_range.set_visible(True)
         self.cycle_std_dev.set_visible(True)
 
-        self.toast(_("Add your first period to see predictions."))
+        self.toast_overlay.add_toast(
+            Adw.Toast.new(_("Add your first period to see predictions."))
+        )
 
     def _show_pregnancy_state(self, pregnancy: Pregnancy, cycles: List[Cycle]) -> None:
         """Show pregnancy information and pause predictions."""
