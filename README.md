@@ -93,6 +93,14 @@ https://github.com/kingorgg/Luna/issues
 
 ---
 
+## Translations
+
+Translations are done via [weblate.org](https://hosted.weblate.org/engage/luna).
+
+[![Translation status](https://hosted.weblate.org/widget/luna/multi-auto.svg)](https://hosted.weblate.org/engage/luna/)
+
+---
+
 ## License
 Luna is licensed under the GPL-3.0 or later.
 See [COPYING](https://raw.githubusercontent.com/kingorgg/Luna/main/COPYING) for details.
