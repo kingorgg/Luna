@@ -1,0 +1,15 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $DeletePeriodDialog : Adw.AlertDialog {
+    responses [
+      cancel: _("Cancel") suggested,
+      delete: _("Delete") destructive,
+    ]
+
+    heading: _("Delete Period");
+    body: _("Are you sure you want to delete this period? This action cannot be undone.");
+
+    default-response: "cancel";
+    close-response: "cancel";
+}

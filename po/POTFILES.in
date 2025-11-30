@@ -1,5 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+data/ui/day_row.blp
+data/ui/delete_period_dialog.blp
 data/ui/new_period.blp
 data/ui/period_page.blp
 data/ui/window.blp
@@ -8,6 +10,8 @@ data/io.github.kingorgg.Luna.desktop.in
 data/io.github.kingorgg.Luna.metainfo.xml.in
 data/io.github.kingorgg.Luna.gschema.xml
 
+src/day_row.py
+src/delete_period_dialog.py
 src/main.py
 src/new_period.py
 src/period_page.py

@@ -4,5 +4,7 @@
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">new_period.ui</file>
     <file preprocess="xml-stripblanks">period_page.ui</file>
+    <file preprocess="xml-stripblanks">day_row.ui</file>
+    <file preprocess="xml-stripblanks">delete_period_dialog.ui</file>
   </gresource>
 </gresources>

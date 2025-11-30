@@ -25,6 +25,8 @@ from gettext import gettext as gettext_
 from gi.repository import Adw, GObject, Gtk  # type: ignore
 
 from .models import Cycle, DayEntry, Pregnancy
+from .day_row import DayRow
+from .delete_period_dialog import DeletePeriodDialog
 
 
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/period_page.ui")
@@ -73,59 +75,7 @@ class PeriodPage(Adw.NavigationPage):
             self.days_list.append(row)
 
     def build_day_row(self, index: int, day: DayEntry) -> Adw.ExpanderRow:
-        """Build a single day entry row."""
-        expander = Adw.ExpanderRow(
-            title=day.date.isoformat(), subtitle=gettext_("Day details")
-        )
-
-        flow = Adw.ComboRow()
-        flow.set_title(gettext_("Flow"))
-        flow.options = [
-            gettext_("None"),
-            gettext_("Light"),
-            gettext_("Medium"),
-            gettext_("Heavy"),
-        ]
-        model = Gtk.StringList.new(flow.options)
-        flow.set_model(model)
-
-        if day.flow in flow.options:
-            flow.set_selected(flow.options.index(day.flow))
-        else:
-            flow.set_selected(0)
-
-        expander.add_row(flow)
-
-        mood = Adw.EntryRow()
-        mood.set_title(gettext_("Mood"))
-        mood.set_text(day.mood or "")
-        expander.add_row(mood)
-
-        temp = Adw.EntryRow()
-        temp.set_title(gettext_("Temperature (°C)"))
-        temp.set_input_purpose(Gtk.InputPurpose.NUMBER)
-        temp.set_text("" if day.temperature is None else str(day.temperature))
-        expander.add_row(temp)
-
-        symptoms = Adw.EntryRow()
-        symptoms.set_title(gettext_("Symptoms (comma-separated)"))
-        symptoms.set_text(", ".join(day.symptoms))
-        expander.add_row(symptoms)
-
-        notes = Adw.EntryRow()
-        notes.set_title(gettext_("Notes"))
-        notes.set_text(day.notes or "")
-        expander.add_row(notes)
-
-        expander.day_widgets = {
-            "flow": flow,
-            "mood": mood,
-            "temp": temp,
-            "symptoms": symptoms,
-            "notes": notes,
-        }
-
-        return expander
+        return DayRow(day)
 
     def on_duration_changed(self, spin: Adw.SpinRow):
         """Handle changes to the duration spin row."""
@@ -183,23 +133,22 @@ class PeriodPage(Adw.NavigationPage):
                 self.cycle.pregnancy_id = None
 
         new_days = []
-        for expander, day in zip(self.days_list, self.days):
-            widget = expander.day_widgets
+        for i, day in enumerate(self.days):
+            row = self.days_list.get_row_at_index(i)
 
-            flow_row = widget["flow"]
-            model = flow_row.get_model()
-            idx = flow_row.get_selected()
+            flow_model = row.flow.get_model()
+            day.flow = flow_model.get_string(row.flow.get_selected())
 
-            day.flow = model.get_string(idx) if idx >= 0 else None
-            day.mood = widget["mood"].get_text() or None
+            mood_model = row.mood.get_model()
+            day.mood = mood_model.get_string(row.mood.get_selected())
 
-            t = widget["temp"].get_text().strip()
+            t = row.temp.get_text().strip()
             day.temperature = float(t) if t else None
 
-            sym = widget["symptoms"].get_text().strip()
+            sym = row.symptoms.get_text().strip()
             day.symptoms = [s.strip() for s in sym.split(",")] if sym else []
 
-            day.notes = widget["notes"].get_text().strip() or None
+            day.notes = row.notes.get_text().strip() or None
 
             new_days.append(day)
 
@@ -214,22 +163,7 @@ class PeriodPage(Adw.NavigationPage):
     @Gtk.Template.Callback()
     def on_delete_button_clicked(self, button: Gtk.Button) -> None:
         """Handle the delete button click event."""
-        dialog = Adw.AlertDialog.new()
-        dialog.set_heading(gettext_("Delete Period"))
-        dialog.set_body(
-            gettext_(
-                "Are you sure you want to delete this period? This action cannot be undone."
-            )
-        )
-
-        dialog.add_response("cancel", gettext_("Cancel"))
-        dialog.add_response("delete", gettext_("Delete"))
-
-        dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
-
-        dialog.set_default_response("cancel")
-        dialog.set_close_response("cancel")
-
+        dialog = DeletePeriodDialog()
         dialog.connect("response", self._on_delete_dialog_response)
         dialog.present(self.get_root())
 
