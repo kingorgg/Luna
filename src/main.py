@@ -108,7 +108,7 @@ class LunaApplication(Adw.Application):
         color_row = Adw.ComboRow(
             title=_("Colour Scheme"),
             subtitle=_("Choose light, dark, or follow system"),
-            model=Gtk.StringList.new(["System", "Light", "Dark"]),
+            model=Gtk.StringList.new([_("System"), _("Light"), _("Dark")]),
         )
         appearance_group.add(color_row)
 
