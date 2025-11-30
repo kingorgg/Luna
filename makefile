@@ -1,7 +1,11 @@
-.PHONY: all setup compile install run uninstall clean distclean format lint test rebuild dist help
+.PHONY: all setup compile install run uninstall clean distclean format lint test rebuild dist generate-pot merge-translations help
 
 BUILD_DIR = build
 APP = luna
+
+PODIR = po
+POT = $(PODIR)/io.github.kingorgg.Luna.pot
+POFILES = $(wildcard $(PODIR)/*.po)
 
 all: setup compile install run
 
@@ -60,6 +64,14 @@ rebuild: distclean setup compile
 
 rebuild-install: distclean setup compile install
 
+generate-pot:
+	xgettext -c -k_ -kgettext_ --from-code=UTF-8 -f po/POTFILES.in -o po/io.github.kingorgg.Luna.pot
+
+merge-translations:
+	for pofile in $(POFILES); do \
+		msgmerge --update --backup=none $$pofile $(POT); \
+	done
+
 help:
 	@echo "Makefile commands:"
 	@echo "  setup      		- Set up the build directory"
@@ -75,5 +87,7 @@ help:
 	@echo "  dist       		- Create a distribution package"
 	@echo "  rebuild    		- Clean, set up, and compile the application"
 	@echo "  rebuild-install 	- Rebuild and install the application"
+	@echo "  generate-pot 		- Generates the pot file with new strings"
+	@echo "  merge-translations 	- Updates translation files"
 	@echo "  help      		- Show this help message"
-	
+
