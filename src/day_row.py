@@ -23,6 +23,7 @@ from gettext import gettext as _
 
 from gi.repository import Adw, GLib, GObject, Gtk  # type: ignore
 
+
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/day_row.ui")
 class DayRow(Adw.ExpanderRow):
     __gtype_name__ = "DayRow"

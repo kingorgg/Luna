@@ -24,9 +24,9 @@ from gettext import gettext as gettext_
 
 from gi.repository import Adw, GObject, Gtk  # type: ignore
 
-from .models import Cycle, DayEntry, Pregnancy
 from .day_row import DayRow
 from .delete_period_dialog import DeletePeriodDialog
+from .models import Cycle, DayEntry, Pregnancy
 
 
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/period_page.ui")
