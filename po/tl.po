@@ -8,23 +8,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-30 15:23+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-12-01 11:30+0000\n"
+"Last-Translator: Daniel Taylor <kingorgg@gmail.com>\n"
+"Language-Team: Tagalog <https://hosted.weblate.org/projects/luna/luna/tl/>\n"
 "Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && "
 "(n % 10 == 4 || n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: data/ui/day_row.blp:5
 msgid "Day details"
-msgstr ""
+msgstr "Mga detalye ng araw"
 
 #: data/ui/day_row.blp:8
 msgid "Flow"
-msgstr ""
+msgstr "Daloy"
 
 #: data/ui/day_row.blp:12
 msgid "Mood"
@@ -32,72 +33,74 @@ msgstr ""
 
 #: data/ui/day_row.blp:16
 msgid "Temperature (°C)"
-msgstr ""
+msgstr "Temperatura (°C)"
 
 #: data/ui/day_row.blp:21
 msgid "Symptoms (comma-separated)"
-msgstr ""
+msgstr "Mga sintomas (hinihiwalay ng kuwit)"
 
 #: data/ui/day_row.blp:25
 msgid "Notes"
-msgstr ""
+msgstr "Mga tala"
 
 #: data/ui/delete_period_dialog.blp:6
 msgid "Cancel"
-msgstr ""
+msgstr "Kanselahin"
 
 #: data/ui/delete_period_dialog.blp:7
 msgid "Delete"
-msgstr ""
+msgstr "Tanggalin"
 
 #: data/ui/delete_period_dialog.blp:10 data/ui/period_page.blp:22
 msgid "Delete Period"
-msgstr ""
+msgstr "Tanggalin ang Period"
 
 #: data/ui/delete_period_dialog.blp:11
 msgid ""
 "Are you sure you want to delete this period? This action cannot be undone."
 msgstr ""
+"Sigurado ka bang gusto mong tanggalin ang period na ito? Hindi maaaring "
+"bawiin ang aksyong ito."
 
 #: data/ui/new_period.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:42
 msgid "New Period"
-msgstr ""
+msgstr "Bagong Period"
 
 #: data/ui/new_period.blp:15 data/ui/period_page.blp:15
 msgid "Save Period"
-msgstr ""
+msgstr "I-save ang Period"
 
 #: data/ui/new_period.blp:32 data/ui/period_page.blp:44
 msgid "Period Details"
-msgstr ""
+msgstr "Mga Detalye ng Period"
 
 #: data/ui/new_period.blp:35 data/ui/period_page.blp:47
 msgid "Start Date (YYYY-MM-DD)"
-msgstr ""
+msgstr "Petsa ng Simula (YYYY-MM-DD)"
 
 #: data/ui/new_period.blp:39 data/ui/period_page.blp:51
 msgid "Duration (days)"
-msgstr ""
+msgstr "Tagal (mga araw)"
 
 #: data/ui/new_period.blp:40 data/ui/period_page.blp:52
 msgid "Number of days your period lasted"
-msgstr ""
+msgstr "Bilang ng araw na tumagal ang iyong period"
 
 #: data/ui/period_page.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:46
 msgid "Edit Period"
-msgstr ""
+msgstr "I-edit ang Period"
 
 #: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
-msgstr ""
+msgstr "Mode ng Pagbubuntis"
 
 #: data/ui/period_page.blp:63
 msgid "Mark as the last period before pregnancy"
-msgstr ""
+msgstr "Markahan bilang huling period bago ang pagbubuntis"
 
 #: data/ui/period_page.blp:68
 msgid "Daily Details"
-msgstr ""
+msgstr "Pang-araw-araw na Detalye"
 
 #: data/ui/window.blp:5 data/io.github.kingorgg.Luna.desktop.in:2
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:7
@@ -110,35 +113,35 @@ msgstr ""
 
 #: data/ui/window.blp:41
 msgid "Main Menu"
-msgstr ""
+msgstr "Pangunahing Menu"
 
 #: data/ui/window.blp:47
 msgid "Add New Period"
-msgstr ""
+msgstr "Magdagdag ng Bagong Period"
 
 #: data/ui/window.blp:68
 msgid "Predictions"
-msgstr ""
+msgstr "Mga Prediksiyon"
 
 #: data/ui/window.blp:71 src/window.py:230
 msgid "Ovulation Date"
-msgstr ""
+msgstr "Petsa ng Obulasyon"
 
 #: data/ui/window.blp:77 src/window.py:178 src/window.py:229
 msgid "Next Period"
-msgstr ""
+msgstr "Susunod na Period"
 
 #: data/ui/window.blp:84
 msgid "Statistics"
-msgstr ""
+msgstr "Istatisitika"
 
 #: data/ui/window.blp:86 src/window.py:180 src/window.py:231
 msgid "Average Length"
-msgstr ""
+msgstr "Karaniwang Haba"
 
 #: data/ui/window.blp:92
 msgid "Range"
-msgstr ""
+msgstr "Saklaw"
 
 #: data/ui/window.blp:98
 msgid "Standard Deviation"
@@ -146,33 +149,35 @@ msgstr ""
 
 #: data/ui/window.blp:105 data/ui/window.blp:119 data/ui/window.blp:123
 msgid "History"
-msgstr ""
+msgstr "Kasaysayan"
 
 #: data/ui/window.blp:134
 msgid "Empty History"
-msgstr ""
+msgstr "Walang Kasaysayan"
 
 #: data/ui/window.blp:135
 msgid ""
 "Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
 msgstr ""
+"Wala pang kasaysayan. Pindutin ang '+' icon o Ctrl+N upang lumikha ng bagong "
+"entry."
 
 #: data/ui/window.blp:181 data/io.github.kingorgg.Luna.metainfo.xml.in:38
 msgid "Preferences"
-msgstr ""
+msgstr "Mga Kagustuhan"
 
 #: data/ui/window.blp:185
 msgid "About Luna"
-msgstr ""
+msgstr "Tungkol sa Luna"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.kingorgg.Luna.desktop.in:9
 msgid "Luna;Menstrual;Pregnancy;Ovulation;Cycle;Tracker;"
-msgstr ""
+msgstr "Luna;Menstrual;Pagbubuntis;Obulasyon;Siklo;Tracker;"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:8
 msgid "Period and pregnancy tracker"
-msgstr ""
+msgstr "Period at pregnancy tracker"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:10
 msgid ""
@@ -180,6 +185,9 @@ msgid ""
 "ovulation dates. Calculate your due date and follow your pregnancy's "
 "progress."
 msgstr ""
+"Subaybayan ang iyong menstrual cycle at hulaan ang susunod na period at "
+"petsa ng obulasyon. Kalkulahin ang iyong due date at sundan ang progreso ng "
+"iyong pagbubuntis."
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:14
 msgid "Daniel Taylor"
@@ -187,7 +195,7 @@ msgstr ""
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:34
 msgid "Main Window"
-msgstr ""
+msgstr "Pangunahing Window"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:54
 msgid "Dark Mode"
@@ -195,28 +203,30 @@ msgstr ""
 
 #: data/io.github.kingorgg.Luna.gschema.xml:6
 msgid "Luteal phase length"
-msgstr ""
+msgstr "Haba ng luteal phase"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:7
 msgid "Number of days for the luteal phase (9–16 typical)"
-msgstr ""
+msgstr "Bilang ng araw para sa luteal phase (karaniwang 9–16)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:12
 msgid "Default menstrual cycle length (21-35 typical)"
-msgstr ""
+msgstr "Default na haba ng menstrual cycle (karaniwang 21–35)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:17
 msgid "Average duration of period bleeding (2-8 typical)"
-msgstr ""
+msgstr "Karaniwang tagal ng pagdurugo sa period (karaniwang 2–8)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:18
 msgid ""
 "Used for predictions and initial estimates before enough data is collected."
 msgstr ""
+"Used para sa mga prediksiyon at paunang pagtatantiya bago makalikom ng sapat "
+"na datos."
 
 #: data/io.github.kingorgg.Luna.gschema.xml:22
 msgid "Preferred color scheme"
-msgstr ""
+msgstr "Ninanais na color scheme"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:23
 msgid "0 = system default 1 = light 2 = dark"
@@ -224,19 +234,19 @@ msgstr ""
 
 #: src/day_row.py:53
 msgid "None"
-msgstr ""
+msgstr "Wala"
 
 #: src/day_row.py:54 src/main.py:111
 msgid "Light"
-msgstr ""
+msgstr "Magaan"
 
 #: src/day_row.py:55
 msgid "Medium"
-msgstr ""
+msgstr "Katamtaman"
 
 #: src/day_row.py:56
 msgid "Heavy"
-msgstr ""
+msgstr "Malakas"
 
 #: src/day_row.py:68
 msgid "Neutral"
@@ -244,23 +254,23 @@ msgstr ""
 
 #: src/day_row.py:69
 msgid "Calm"
-msgstr ""
+msgstr "Kalma"
 
 #: src/day_row.py:70
 msgid "Sad"
-msgstr ""
+msgstr "Malungkot"
 
 #: src/day_row.py:71
 msgid "Irritable"
-msgstr ""
+msgstr "Iritable"
 
 #: src/day_row.py:72
 msgid "Tired"
-msgstr ""
+msgstr "Pagod"
 
 #: src/day_row.py:73
 msgid "Sensitive"
-msgstr ""
+msgstr "Sensitibo"
 
 #: src/main.py:85
 msgid ""
@@ -268,22 +278,25 @@ msgid ""
 "ovulation dates. Also helps track your estimated due date and trimester, if "
 "you are pregnant."
 msgstr ""
+"Isang simpleng utility upang subaybayan ang iyong menstrual cycle at hulaan "
+"ang petsa ng obulasyon. Tumutulong din itong subaybayan ang tinatayang due "
+"date at trimester kung ikaw ay buntis."
 
 #: src/main.py:93
 msgid "translator-credits"
-msgstr ""
+msgstr "Valerie Taylor"
 
 #: src/main.py:105
 msgid "Appearance"
-msgstr ""
+msgstr "Hitsura"
 
 #: src/main.py:109
 msgid "Colour Scheme"
-msgstr ""
+msgstr "Color Scheme"
 
 #: src/main.py:110
 msgid "Choose light, dark, or follow system"
-msgstr ""
+msgstr "Pumili ng light, dark, o sundin ang system"
 
 #: src/main.py:111
 msgid "System"
@@ -295,59 +308,59 @@ msgstr ""
 
 #: src/main.py:123
 msgid "Cycle Tracking"
-msgstr ""
+msgstr "Pagsubaybay sa Siklo"
 
 #: src/main.py:127
 msgid "Luteal Phase Length (days)"
-msgstr ""
+msgstr "Haba ng Luteal Phase (mga araw)"
 
 #: src/main.py:133
 msgid "Cycle Length (days)"
-msgstr ""
+msgstr "Haba ng Siklo (mga araw)"
 
 #: src/main.py:139
 msgid "Period Length (days)"
-msgstr ""
+msgstr "Haba ng Period (mga araw)"
 
 #: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
-msgstr ""
+msgstr "Maling format ng petsa (gamitin ang YYYY-MM-DD)"
 
 #: src/period_page.py:100
 msgid "Invalid date format"
-msgstr ""
+msgstr "Maling format ng petsa"
 
 #: src/window.py:83
 msgid "Error reloading data."
-msgstr ""
+msgstr "May error sa pag-reload ng datos."
 
 #: src/window.py:120
 msgid " - Pregnancy started"
-msgstr ""
+msgstr " - Nagsimula ang pagbubuntis"
 
 #: src/window.py:127
 msgid "View Period"
-msgstr ""
+msgstr "Tingnan ang Period"
 
 #: src/window.py:156
 msgid "New period saved"
-msgstr ""
+msgstr "Na-save ang bagong period"
 
 #: src/window.py:167
 msgid "Period deleted"
-msgstr ""
+msgstr "Natanggal ang period"
 
 #: src/window.py:179
 msgid "Ovulation"
-msgstr ""
+msgstr "Obulasyon"
 
 #: src/window.py:182 src/window.py:183
 msgid "No data yet"
-msgstr ""
+msgstr "Wala pang datos"
 
 #: src/window.py:192
 msgid "Add your first period to see predictions."
-msgstr ""
+msgstr "Magdagdag ng iyong unang period upang makita ang mga prediksiyon."
 
 #: src/window.py:200
 msgid "Due Date"
@@ -355,7 +368,7 @@ msgstr ""
 
 #: src/window.py:203
 msgid "Pregnancy Progress"
-msgstr ""
+msgstr "Progreso ng Pagbubuntis"
 
 #: src/window.py:206
 msgid "Trimester"
@@ -363,16 +376,16 @@ msgstr ""
 
 #: src/window.py:208
 msgid "1st trimester"
-msgstr ""
+msgstr "Unang trimester"
 
 #: src/window.py:210
 msgid "2nd trimester"
-msgstr ""
+msgstr "Ikalawang trimester"
 
 #: src/window.py:212
 msgid "3rd trimester"
-msgstr ""
+msgstr "Ikatlong trimester"
 
 #: src/window.py:244 src/window.py:247
 msgid "Not Available"
-msgstr ""
+msgstr "Hindi Available"
