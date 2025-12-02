@@ -1,0 +1,52 @@
+name: Build RPM
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+
+    container:
+      image: fedora:latest
+
+    steps:
+      - name: Install build tools
+        run: |
+          dnf install -y git rpm-build rpmdevtools meson ninja-build jq python3-gobject gtk4 blueprint-compiler gettext desktop-file-utils
+
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Extract version from Meson
+        id: version
+        run: |
+          VER=$(meson introspect meson.build --projectinfo | jq -r '.version')
+          echo "version=$VER" >> $GITHUB_OUTPUT
+
+      - name: Prepare RPM build tree
+        run: |
+          rpmdev-setuptree
+          VERSION="${{ steps.version.outputs.version }}"
+          # Create tarball
+          git archive --prefix=luna-$VERSION/ -o ~/rpmbuild/SOURCES/luna-$VERSION.tar.xz HEAD
+
+      - name: Generate spec file
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          sed "s/@VERSION@/$VERSION/g" packaging/luna.spec.in > ~/rpmbuild/SPECS/luna.spec
+
+      - name: Build RPM
+        run: |
+          rpmbuild -ba ~/rpmbuild/SPECS/luna.spec
+
+      - name: Upload RPM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: luna-rpm
+          path: |
+            ~/rpmbuild/RPMS/**/*rpm
+            ~/rpmbuild/SRPMS/**/*src.rpm

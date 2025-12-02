@@ -1,0 +1,65 @@
+Name:           luna
+Version:        @VERSION@
+Release:        1%{?dist}
+Summary:        Period and pregnancy tracker
+
+License:        GPLv3+
+URL:            https://github.com/kingorgg/Luna
+Source0:        %{name}-%{version}.tar.xz
+
+BuildArch:      noarch
+
+BuildRequires:  meson
+BuildRequires:  ninja-build
+BuildRequires:  blueprint-compiler
+BuildRequires:  python3
+BuildRequires:  python3-gobject
+BuildRequires:  gtk4
+BuildRequires:  gettext
+BuildRequires:  desktop-file-utils
+
+Requires:       glib2
+Requires:       gsettings-desktop-schemas
+Requires:       python3
+Requires:       python3-gobject
+Requires:       gtk4
+
+%description
+Keep track of your menstrual cycle and predict your next period and ovulation dates. Calculate your due date and follow your pregnancy's progress.
+
+%prep
+%autosetup
+
+%build
+%meson
+%meson_build
+
+%install
+%meson_install
+
+%files
+%doc README.md
+%license COPYING
+
+# Desktop, service, and metadata
+%{_datadir}/applications/io.github.kingorgg.Luna.desktop
+%{_datadir}/metainfo/io.github.kingorgg.Luna.metainfo.xml
+%{_datadir}/dbus-1/services/io.github.kingorgg.Luna.service
+
+# Icons
+%{_datadir}/icons/hicolor/*/apps/io.github.kingorgg.Luna*.svg
+
+# GSettings schemas
+%{_datadir}/glib-2.0/schemas/io.github.kingorgg.Luna.gschema.xml
+
+# Executable
+%{_bindir}/%{name}
+
+# Python app files
+%{_datadir}/%{name}/
+
+# Translations
+%{_datadir}/locale/*/LC_MESSAGES/io.github.kingorgg.Luna.mo
+
+%changelog
+%autochangelog
