@@ -9,7 +9,6 @@ on:
 jobs:
   build-rpm:
     runs-on: ubuntu-latest
-
     container:
       image: fedora:latest
 
@@ -44,7 +43,8 @@ jobs:
           rpmdev-setuptree
           VERSION="${{ steps.version.outputs.version }}"
           mkdir -p ~/rpmbuild/SOURCES
-          # Create tarball
+          # Fedora-style NVR requires .fc<version> suffix for %dist
+          export DIST=".fc$(rpm -E %fedora)"
           git archive --prefix=luna-$VERSION/ -o ~/rpmbuild/SOURCES/luna-$VERSION.tar.xz HEAD
 
       - name: Generate spec file
@@ -56,10 +56,23 @@ jobs:
         run: |
           rpmbuild -ba ~/rpmbuild/SPECS/luna.spec
 
-      - name: Upload RPM artifacts
-        uses: actions/upload-artifact@v4
+      - name: Detect RPM filename and NVR
+        id: detect
+        run: |
+          BIN=$(ls ~/rpmbuild/RPMS/*/*.rpm | grep -v src | head -n 1)
+          SRC=$(ls ~/rpmbuild/SRPMS/*.src.rpm | head -n 1)
+          echo "bin=$BIN" >> $GITHUB_OUTPUT
+          echo "src=$SRC" >> $GITHUB_OUTPUT
+
+          # Extract basename → NVR form
+          echo "bin_name=$(basename "$BIN")" >> $GITHUB_OUTPUT
+          echo "src_name=$(basename "$SRC")" >> $GITHUB_OUTPUT
+
+      - name: Attach RPMs to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: luna-rpm
-          path: |
-            ~/rpmbuild/RPMS/**/*rpm
-            ~/rpmbuild/SRPMS/**/*src.rpm
+          files: |
+            ${{ steps.detect.outputs.bin }}
+            ${{ steps.detect.outputs.src }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
