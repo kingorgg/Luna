@@ -20,7 +20,8 @@ jobs:
             git rpm-build rpmdevtools redhat-rpm-config \
             meson ninja-build jq \
             python3 python3-gobject gtk4 \
-            blueprint-compiler gettext desktop-file-utils
+            libadwaita libadwaita-devel \
+            blueprint-compiler gettext desktop-file-utils appstream
 
       - name: Checkout source
         uses: actions/checkout@v4
