@@ -16,21 +16,33 @@ jobs:
     steps:
       - name: Install build tools
         run: |
-          dnf install -y git rpm-build rpmdevtools meson ninja-build jq python3-gobject gtk4 blueprint-compiler gettext desktop-file-utils
+          dnf install -y \
+            git rpm-build rpmdevtools redhat-rpm-config \
+            meson ninja-build jq \
+            python3 python3-gobject gtk4 \
+            blueprint-compiler gettext desktop-file-utils
 
       - name: Checkout source
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fix Git safe directory (container required)
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Extract version from Meson
         id: version
         run: |
           VER=$(meson introspect meson.build --projectinfo | jq -r '.version')
           echo "version=$VER" >> $GITHUB_OUTPUT
+          echo "Detected version: $VER"
 
       - name: Prepare RPM build tree
         run: |
           rpmdev-setuptree
           VERSION="${{ steps.version.outputs.version }}"
+          mkdir -p ~/rpmbuild/SOURCES
           # Create tarball
           git archive --prefix=luna-$VERSION/ -o ~/rpmbuild/SOURCES/luna-$VERSION.tar.xz HEAD
 
