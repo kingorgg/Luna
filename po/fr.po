@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-30 15:23+0000\n"
-"PO-Revision-Date: 2025-12-04 14:40+0000\n"
+"PO-Revision-Date: 2025-12-04 14:53+0000\n"
 "Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/luna/luna/fr/>\n"
 "Language: fr\n"
@@ -213,24 +213,26 @@ msgstr "Durée du cycle menstruel par défaut (typiquement de 21 à 35)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:17
 msgid "Average duration of period bleeding (2-8 typical)"
-msgstr ""
+msgstr "Durée moyenne des saignements du cycle (typiquement de 2 à 8 jours)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:18
 msgid ""
 "Used for predictions and initial estimates before enough data is collected."
 msgstr ""
+"Utilisé pour les prévisions et les estimations initiales avant qu'assez de "
+"données aient été collectées."
 
 #: data/io.github.kingorgg.Luna.gschema.xml:22
 msgid "Preferred color scheme"
-msgstr ""
+msgstr "Schéma de couleur préféré"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:23
 msgid "0 = system default 1 = light 2 = dark"
-msgstr ""
+msgstr "0 = selon le système 1 = clair 2 = sombre"
 
 #: src/day_row.py:53
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: src/day_row.py:54 src/main.py:111
 msgid "Light"
@@ -356,32 +358,32 @@ msgstr "Encore aucune donnée"
 
 #: src/window.py:192
 msgid "Add your first period to see predictions."
-msgstr ""
+msgstr "Ajoutez votre premier cycle pour voir les prévisions."
 
 #: src/window.py:200
 msgid "Due Date"
-msgstr ""
+msgstr "Date du terme"
 
 #: src/window.py:203
 msgid "Pregnancy Progress"
-msgstr ""
+msgstr "Progression de la grossesse"
 
 #: src/window.py:206
 msgid "Trimester"
-msgstr ""
+msgstr "Trimestre"
 
 #: src/window.py:208
 msgid "1st trimester"
-msgstr ""
+msgstr "1er trimestre"
 
 #: src/window.py:210
 msgid "2nd trimester"
-msgstr ""
+msgstr "2e trimestre"
 
 #: src/window.py:212
 msgid "3rd trimester"
-msgstr ""
+msgstr "3e trimestre"
 
 #: src/window.py:244 src/window.py:247
 msgid "Not Available"
-msgstr ""
+msgstr "Non disponible"
