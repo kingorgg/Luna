@@ -56,6 +56,15 @@
   </screenshots>
 
   <releases>
+    <release version="49.6" date="2025-12-04">
+        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.6</url>
+        <description translate="no">
+          <p>Added</p>
+          <ul>
+            <li>French Translation - Thanks to J. Lavoie via Weblate</li>
+          </ul>
+        </description>
+    </release>
     <release version="49.5" date="2025-12-04">
         <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.5</url>
         <description translate="no">
