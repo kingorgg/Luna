@@ -17,7 +17,7 @@
   <url type="homepage">https://github.com/kingorgg/Luna</url>
   <url type="vcs-browser">https://github.com/kingorgg/Luna</url>
   <url type="bugtracker">https://github.com/kingorgg/Luna/issues</url>
-  <url type="translate">https://github.com/kingorgg/Luna/tree/main/po</url>
+  <url type="translate">https://hosted.weblate.org/engage/luna/</url>
 
   <translation type="gettext">luna</translation>
   <launchable type="desktop-id">io.github.kingorgg.Luna.desktop</launchable>
