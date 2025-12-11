@@ -56,92 +56,15 @@
   </screenshots>
 
   <releases>
-    <release version="49.6" date="2025-12-04">
-        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.6</url>
+    <release version="49.6.1" date="2025-12-11">
+        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.6.1</url>
         <description translate="no">
-          <p>Added</p>
-          <ul>
-            <li>French Translation - Thanks to J. Lavoie via Weblate</li>
-          </ul>
-        </description>
-    </release>
-    <release version="49.5" date="2025-12-04">
-        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.5</url>
-        <description translate="no">
-          <p>Added</p>
-          <ul>
-            <li>Tagalog Translation</li>
-          </ul>
           <p>Changed</p>
           <ul>
-            <li>Refactored code</li>
+            <li>Updated Turkish Translation - Thanks to Sabri Ünal (yakushabb)</li>
+            <li>Updated translate url in metainfo to weblate - Thanks to Sabri Ünal (yakushabb)</li>
           </ul>
         </description>
-    </release>
-    <release version="49.4" date="2025-11-25">
-      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.4</url>
-      <description translate="no">
-        <p>Added</p>
-        <ul>
-          <li>Turkish Translation - Thanks to Sabri Ünal (yakushabb)</li>
-          <li>keywords to desktop.in - Thanks to Sabri Ünal (yakushabb)</li>
-          <li>a makefile</li>
-          <li>unittests</li>
-        </ul>
-        <p>Changed</p>
-        <ul>
-          <li>fixed the way translations work, as some strings were not translating.</li>
-          <li>fixed it so ctrl+n now works.</li>
-          <li>moved ui files to data/ui</li>
-        </ul>
-      </description>
-  </release>
-  <release version="49.3" date="2025-11-20">
-      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.3</url>
-      <description translate="no">
-        <p>Added</p>
-        <ul>
-          <li>A pot file for translators to work from.</li>
-          <li>Spanish Translation - Thanks to Marcos Sánchez (haggen88)</li>
-        </ul>
-        <p>Changed</p>
-        <ul>
-          <li>period_page.py: to better handle translations, as it was creating a Tuple error.</li>
-          <li>brand colours for metainfo and the summary to make it shorter.</li>
-        </ul>
-      </description>
-  </release>
-  <release version="49.2" date="2025-11-17">
-      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.2</url>
-      <description translate="no">
-        <p>Changes</p>
-        <ul>
-          <li>Refactored code</li>
-          <li>Updated metainfo.</li>
-        </ul>
-        <p>Removed</p>
-        <ul>
-          <li>Unused code</li>
-        </ul>
-      </description>
-    </release>
-    <release version="49.1" date="2025-11-15">
-      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.1</url>
-      <description translate="no">
-        <p>Changes</p>
-        <ul>
-          <li>Just some small house keeping changes.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="49.0" date="2025-11-15">
-      <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.0</url>
-      <description translate="no">
-        <p>Initial Release</p>
-        <ul>
-          <li>First release, so no changes.</li>
-        </ul>
-      </description>
     </release>
   </releases>
 
