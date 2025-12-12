@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import statistics
 from datetime import date, timedelta
+from gettext import gettext as _
 from typing import List, Optional
 
 from .models import Cycle
@@ -81,3 +82,46 @@ class CycleStats:
         if not next_period:
             return None
         return next_period - timedelta(days=self.luteal_len)
+
+    def is_ovulating(self) -> bool:
+        """Check if the user is currently ovulating."""
+        ovulation_day = self.predicted_ovulation
+        if not ovulation_day:
+            return False
+
+        today = date.today()
+
+        # Define the ovulation window (2 days before and 2 days after)
+        ovulation_start = ovulation_day - timedelta(days=2)
+        ovulation_end = ovulation_day + timedelta(days=2)
+
+        return ovulation_start <= today <= ovulation_end
+
+    def get_current_phase(self) -> str:
+        """Determine the current phase of the cycle."""
+        if not self.cycles:
+            # No cycles recorded, phase is unknown
+            return _("Unknown")
+
+        today = date.today()
+        last_cycle = self.cycles[-1]
+        bleeding_days = last_cycle.duration
+        avg_length = int(self.average_cycle_length()) or self.cycle_len
+        ovulation_day = self.predicted_ovulation
+
+        # Calculate the current day in the cycle
+        day_in_cycle = (today - last_cycle.start_date).days + 1
+
+        # If the current day is outside the cycle length, phase is unknown
+        if day_in_cycle < 1 or day_in_cycle > avg_length:
+            return _("Unknown")
+
+        # Determine the phase based on the current day in the cycle
+        if day_in_cycle <= bleeding_days:
+            return _("Menstruation")
+        elif ovulation_day and today < ovulation_day - timedelta(days=self.luteal_len):
+            return _("Follicular")
+        elif self.is_ovulating():
+            return _("Ovulation")
+        else:
+            return _("Luteal")

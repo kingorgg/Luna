@@ -53,6 +53,7 @@ class LunaWindow(Adw.ApplicationWindow):
     content_view: Adw.NavigationView = Gtk.Template.Child()  # type: ignore
     predicted_period: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
     ovulation: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
+    current_phase: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
     cycle_length: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
     cycle_range: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
     cycle_std_dev: Adw.ActionRow = Gtk.Template.Child()  # type: ignore
@@ -212,6 +213,8 @@ class LunaWindow(Adw.ApplicationWindow):
             tri = _("3rd trimester")
         self.cycle_length.set_subtitle(tri)
 
+        self.current_phase.set_subtitle(_("Pregnancy"))
+
         # Hide stats irrelevant during pregnancy
         self.cycle_range.set_visible(False)
         self.cycle_std_dev.set_visible(False)
@@ -250,5 +253,7 @@ class LunaWindow(Adw.ApplicationWindow):
         self.cycle_length.set_subtitle(f"{avg:.1f} days")
         self.cycle_range.set_subtitle(crange)
         self.cycle_std_dev.set_subtitle(f"{std_dev:.1f} days" if std_dev > 0 else "-")
+
+        self.current_phase.set_subtitle(stats.get_current_phase())
 
         self.populate_history_list(cycles)

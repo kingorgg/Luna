@@ -4,7 +4,7 @@ using Adw 1;
 template $LunaWindow : Adw.ApplicationWindow {
     title: _("Luna");
     default-width: 780;
-    default-height: 520;
+    default-height: 550;
     width-request: 360;
     height-request: 360;
 
@@ -65,6 +65,14 @@ template $LunaWindow : Adw.ApplicationWindow {
                                 margin-end: 16;
 
                                 Adw.PreferencesGroup {
+                                    Adw.ActionRow current_phase {
+                                        title: _("Current Phase");
+                                        subtitle: "-";
+                                        can-focus: false;
+                                    }
+                                }
+
+                                Adw.PreferencesGroup {
                                     title: _("Predictions");
 
                                     Adw.ActionRow ovulation {
@@ -114,7 +122,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                     };
                 };
             };
-        
+
             content: Adw.NavigationPage {
                 title: _("History");
 
@@ -154,7 +162,7 @@ template $LunaWindow : Adw.ApplicationWindow {
                                                 margin-start: 16;
                                                 margin-end: 16;
 
-                                                
+
 
                                                 Adw.PreferencesGroup history_group {
                                                     visible: true;
