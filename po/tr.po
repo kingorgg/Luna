@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.kingorgg.Luna master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 15:23+0000\n"
+"POT-Creation-Date: 2025-12-12 23:04+0000\n"
 "PO-Revision-Date: 2025-12-06 15:10+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/luna/luna/tr/>\n"
@@ -118,54 +118,58 @@ msgstr "Ana Menü"
 msgid "Add New Period"
 msgstr "Yeni Adet Ekle"
 
-#: data/ui/window.blp:68
+#: data/ui/window.blp:69
+msgid "Current Phase"
+msgstr ""
+
+#: data/ui/window.blp:76
 msgid "Predictions"
 msgstr "Tahminler"
 
-#: data/ui/window.blp:71 src/window.py:230
+#: data/ui/window.blp:79 src/window.py:233
 msgid "Ovulation Date"
 msgstr "Yumurtlama Tarihi"
 
-#: data/ui/window.blp:77 src/window.py:178 src/window.py:229
+#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
 msgid "Next Period"
 msgstr "Sonraki Adet"
 
-#: data/ui/window.blp:84
+#: data/ui/window.blp:92
 msgid "Statistics"
 msgstr "İstatistikler"
 
-#: data/ui/window.blp:86 src/window.py:180 src/window.py:231
+#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
 msgid "Average Length"
 msgstr "Ortalama Uzunluk"
 
-#: data/ui/window.blp:92
+#: data/ui/window.blp:100
 msgid "Range"
 msgstr "Aralık"
 
-#: data/ui/window.blp:98
+#: data/ui/window.blp:106
 msgid "Standard Deviation"
 msgstr "Standart Sapma"
 
-#: data/ui/window.blp:105 data/ui/window.blp:119 data/ui/window.blp:123
+#: data/ui/window.blp:113 data/ui/window.blp:127 data/ui/window.blp:131
 msgid "History"
 msgstr "Geçmiş"
 
-#: data/ui/window.blp:134
+#: data/ui/window.blp:142
 msgid "Empty History"
 msgstr "Geçmiş Boş"
 
-#: data/ui/window.blp:135
+#: data/ui/window.blp:143
 msgid ""
 "Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
 msgstr ""
 "Geçmiş boş. Yeni giriş oluşturmak için '+' simgesine tıklayın ya da Ctrl+N "
 "kısayolunu kullanın."
 
-#: data/ui/window.blp:181 data/io.github.kingorgg.Luna.metainfo.xml.in:38
+#: data/ui/window.blp:189 data/io.github.kingorgg.Luna.metainfo.xml.in:38
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: data/ui/window.blp:185
+#: data/ui/window.blp:193
 msgid "About Luna"
 msgstr "Luna Hakkında"
 
@@ -188,17 +192,34 @@ msgstr ""
 "tahmin edin. Doğum tarihini hesaplayın ve hamileliğinizin ilerleyişini takip "
 "edin."
 
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:14
-msgid "Daniel Taylor"
-msgstr "Daniel Taylor"
-
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:34
 msgid "Main Window"
 msgstr "Ana Pencere"
 
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:54
-msgid "Dark Mode"
-msgstr "Koyu Kip"
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:55
+#, fuzzy
+msgid "Main Window (Dark Mode)"
+msgstr "Ana Pencere"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:59
+#, fuzzy
+msgid "Preferences (Dark Mode)"
+msgstr "Tercihler"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:63
+#, fuzzy
+msgid "New Period (Dark Mode)"
+msgstr "Yeni adet kaydedildi"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:67
+#, fuzzy
+msgid "Edit Period (Dark Mode)"
+msgstr "Adeti Düzenle"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:71
+#, fuzzy
+msgid "Pregnancy Mode (Dark Mode)"
+msgstr "Hamilelik Kipi"
 
 # Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
 #: data/io.github.kingorgg.Luna.gschema.xml:6
@@ -323,6 +344,27 @@ msgstr "Döngü Uzunluğu (gün)"
 msgid "Period Length (days)"
 msgstr "Adet Uzunluğu (gün)"
 
+#. No cycles recorded, phase is unknown
+#: src/logic.py:104 src/logic.py:117
+msgid "Unknown"
+msgstr ""
+
+#: src/logic.py:121
+msgid "Menstruation"
+msgstr ""
+
+#: src/logic.py:123
+msgid "Follicular"
+msgstr ""
+
+#: src/logic.py:125 src/window.py:180
+msgid "Ovulation"
+msgstr "Yumurtlama"
+
+#: src/logic.py:127
+msgid "Luteal"
+msgstr ""
+
 #: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Geçersiz tarih biçimi(YYYY-AA-GG kullan)"
@@ -331,65 +373,72 @@ msgstr "Geçersiz tarih biçimi(YYYY-AA-GG kullan)"
 msgid "Invalid date format"
 msgstr "Geçersiz tarih biçimi"
 
-#: src/window.py:83
+#: src/window.py:84
 msgid "Error reloading data."
 msgstr "Veriler yeniden yüklenirken hata."
 
-#: src/window.py:120
+#: src/window.py:121
 msgid " - Pregnancy started"
 msgstr " - Hamilelik başladı"
 
-#: src/window.py:127
+#: src/window.py:128
 msgid "View Period"
 msgstr "Adeti Görüntüle"
 
-#: src/window.py:156
+#: src/window.py:157
 msgid "New period saved"
 msgstr "Yeni adet kaydedildi"
 
-#: src/window.py:167
+#: src/window.py:168
 msgid "Period deleted"
 msgstr "Adet silindi"
 
-#: src/window.py:179
-msgid "Ovulation"
-msgstr "Yumurtlama"
-
-#: src/window.py:182 src/window.py:183
+#: src/window.py:183 src/window.py:184
 msgid "No data yet"
 msgstr "Henüz tarih yok"
 
-#: src/window.py:192
+#: src/window.py:193
 msgid "Add your first period to see predictions."
 msgstr "Tahminleri görmek için ilk adeti ekleyin."
 
-#: src/window.py:200
+#: src/window.py:201
 msgid "Due Date"
 msgstr "Doğum Tarihi"
 
-#: src/window.py:203
+#: src/window.py:204
 msgid "Pregnancy Progress"
 msgstr "Hamilelik Süreci"
 
-#: src/window.py:206
+#: src/window.py:207
 msgid "Trimester"
 msgstr "Üç aylık dönem"
 
-#: src/window.py:208
+#: src/window.py:209
 msgid "1st trimester"
 msgstr "Birinci, üç aylık dönem"
 
-#: src/window.py:210
+#: src/window.py:211
 msgid "2nd trimester"
 msgstr "İkinci, üç aylık dönem"
 
-#: src/window.py:212
+#: src/window.py:213
 msgid "3rd trimester"
 msgstr "Üçüncü, üç aylık dönem"
 
-#: src/window.py:244 src/window.py:247
+#: src/window.py:216
+#, fuzzy
+msgid "Pregnancy"
+msgstr "Hamilelik Kipi"
+
+#: src/window.py:247 src/window.py:250
 msgid "Not Available"
 msgstr "Kullanılabilir Değil"
+
+#~ msgid "Daniel Taylor"
+#~ msgstr "Daniel Taylor"
+
+#~ msgid "Dark Mode"
+#~ msgstr "Koyu Kip"
 
 #~ msgid "luna"
 #~ msgstr "luna"

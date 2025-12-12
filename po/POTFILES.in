@@ -13,6 +13,7 @@ data/io.github.kingorgg.Luna.gschema.xml
 src/day_row.py
 src/delete_period_dialog.py
 src/main.py
+src/logic.py
 src/new_period.py
 src/period_page.py
 src/window.py

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-30 15:23+0000\n"
+"POT-Creation-Date: 2025-12-12 23:04+0000\n"
 "PO-Revision-Date: 2025-11-19 11:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -118,54 +118,58 @@ msgstr "Menú principal"
 msgid "Add New Period"
 msgstr "Añadir nuevo período"
 
-#: data/ui/window.blp:68
+#: data/ui/window.blp:69
+msgid "Current Phase"
+msgstr ""
+
+#: data/ui/window.blp:76
 msgid "Predictions"
 msgstr "Predicciones"
 
-#: data/ui/window.blp:71 src/window.py:230
+#: data/ui/window.blp:79 src/window.py:233
 msgid "Ovulation Date"
 msgstr "Fecha de ovulación"
 
-#: data/ui/window.blp:77 src/window.py:178 src/window.py:229
+#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
 msgid "Next Period"
 msgstr "Próximo período"
 
-#: data/ui/window.blp:84
+#: data/ui/window.blp:92
 msgid "Statistics"
 msgstr "Estadísticas"
 
-#: data/ui/window.blp:86 src/window.py:180 src/window.py:231
+#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
 msgid "Average Length"
 msgstr "Longitud media"
 
-#: data/ui/window.blp:92
+#: data/ui/window.blp:100
 msgid "Range"
 msgstr "Rango"
 
-#: data/ui/window.blp:98
+#: data/ui/window.blp:106
 msgid "Standard Deviation"
 msgstr "Desviación estándar"
 
-#: data/ui/window.blp:105 data/ui/window.blp:119 data/ui/window.blp:123
+#: data/ui/window.blp:113 data/ui/window.blp:127 data/ui/window.blp:131
 msgid "History"
 msgstr "Historial"
 
-#: data/ui/window.blp:134
+#: data/ui/window.blp:142
 msgid "Empty History"
 msgstr "Historial vacío"
 
-#: data/ui/window.blp:135
+#: data/ui/window.blp:143
 msgid ""
 "Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
 msgstr ""
 "Tu historial está vacío. Pulsa el icono '+' o Ctrl+N para crear una nueva "
 "entrada."
 
-#: data/ui/window.blp:181 data/io.github.kingorgg.Luna.metainfo.xml.in:38
+#: data/ui/window.blp:189 data/io.github.kingorgg.Luna.metainfo.xml.in:38
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: data/ui/window.blp:185
+#: data/ui/window.blp:193
 msgid "About Luna"
 msgstr "Acerca de Luna"
 
@@ -188,17 +192,34 @@ msgstr ""
 "menstruación y ovulación. Calcula la fecha prevista del parto y sigue el "
 "progreso de tu embarazo."
 
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:14
-msgid "Daniel Taylor"
-msgstr ""
-
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:34
 msgid "Main Window"
 msgstr "Ventana principal"
 
-#: data/io.github.kingorgg.Luna.metainfo.xml.in:54
-msgid "Dark Mode"
-msgstr "Modo oscuro"
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:55
+#, fuzzy
+msgid "Main Window (Dark Mode)"
+msgstr "Ventana principal"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:59
+#, fuzzy
+msgid "Preferences (Dark Mode)"
+msgstr "Preferencias"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:63
+#, fuzzy
+msgid "New Period (Dark Mode)"
+msgstr "Nuevo periodo guardado"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:67
+#, fuzzy
+msgid "Edit Period (Dark Mode)"
+msgstr "Editar período"
+
+#: data/io.github.kingorgg.Luna.metainfo.xml.in:71
+#, fuzzy
+msgid "Pregnancy Mode (Dark Mode)"
+msgstr "Modo embarazo"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:6
 msgid "Luteal phase length"
@@ -322,6 +343,27 @@ msgstr "Duración del ciclo (días)"
 msgid "Period Length (days)"
 msgstr "Duración del período (días)"
 
+#. No cycles recorded, phase is unknown
+#: src/logic.py:104 src/logic.py:117
+msgid "Unknown"
+msgstr ""
+
+#: src/logic.py:121
+msgid "Menstruation"
+msgstr ""
+
+#: src/logic.py:123
+msgid "Follicular"
+msgstr ""
+
+#: src/logic.py:125 src/window.py:180
+msgid "Ovulation"
+msgstr "Ovulación"
+
+#: src/logic.py:127
+msgid "Luteal"
+msgstr ""
+
 #: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Formato de fecha no válido (utilice AAAA-MM-DD)"
@@ -330,65 +372,69 @@ msgstr "Formato de fecha no válido (utilice AAAA-MM-DD)"
 msgid "Invalid date format"
 msgstr "Formato de fecha no válido"
 
-#: src/window.py:83
+#: src/window.py:84
 msgid "Error reloading data."
 msgstr "Error al recargar los datos."
 
-#: src/window.py:120
+#: src/window.py:121
 msgid " - Pregnancy started"
 msgstr " - Comienzo del embarazo"
 
-#: src/window.py:127
+#: src/window.py:128
 msgid "View Period"
 msgstr "Ver periodo"
 
-#: src/window.py:156
+#: src/window.py:157
 msgid "New period saved"
 msgstr "Nuevo periodo guardado"
 
-#: src/window.py:167
+#: src/window.py:168
 msgid "Period deleted"
 msgstr "Periodo eliminado"
 
-#: src/window.py:179
-msgid "Ovulation"
-msgstr "Ovulación"
-
-#: src/window.py:182 src/window.py:183
+#: src/window.py:183 src/window.py:184
 msgid "No data yet"
 msgstr "Aún no hay datos"
 
-#: src/window.py:192
+#: src/window.py:193
 msgid "Add your first period to see predictions."
 msgstr "Añade tu primer periodo para ver las predicciones."
 
-#: src/window.py:200
+#: src/window.py:201
 msgid "Due Date"
 msgstr "Fecha de parto"
 
-#: src/window.py:203
+#: src/window.py:204
 msgid "Pregnancy Progress"
 msgstr "Progreso del embarazo"
 
-#: src/window.py:206
+#: src/window.py:207
 msgid "Trimester"
 msgstr "Trimestre"
 
-#: src/window.py:208
+#: src/window.py:209
 msgid "1st trimester"
 msgstr "1er trimestre"
 
-#: src/window.py:210
+#: src/window.py:211
 msgid "2nd trimester"
 msgstr "2do trimestre"
 
-#: src/window.py:212
+#: src/window.py:213
 msgid "3rd trimester"
 msgstr "3er trimestre"
 
-#: src/window.py:244 src/window.py:247
+#: src/window.py:216
+#, fuzzy
+msgid "Pregnancy"
+msgstr "Modo embarazo"
+
+#: src/window.py:247 src/window.py:250
 msgid "Not Available"
 msgstr "No disponible"
+
+#~ msgid "Dark Mode"
+#~ msgstr "Modo oscuro"
 
 #~ msgid "luna"
 #~ msgstr "luna"
