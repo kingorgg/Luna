@@ -49,9 +49,26 @@
       <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/pregnancy_mode.png</image>
       <caption>Pregnancy Mode</caption>
     </screenshot>
+
     <screenshot>
-      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/dark_mode.png</image>
-      <caption>Dark Mode</caption>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/main_window_dark.png</image>
+      <caption>Main Window (Dark Mode)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/preferences_dark.png</image>
+      <caption>Preferences (Dark Mode)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/new_period_dark.png</image>
+      <caption>New Period (Dark Mode)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/edit_period_dark.png</image>
+      <caption>Edit Period (Dark Mode)</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/kingorgg/Luna/main/data/screenshots/pregnancy_mode_dark.png</image>
+      <caption>Pregnancy Mode (Dark Mode)</caption>
     </screenshot>
   </screenshots>
 
