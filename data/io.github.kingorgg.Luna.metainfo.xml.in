@@ -73,13 +73,17 @@
   </screenshots>
 
   <releases>
-    <release version="49.6.1" date="2025-12-11">
-        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.6.1</url>
+    <release version="49.7" date="2025-12-12">
+        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.7</url>
         <description translate="no">
+          <p>Added</p>
+          <ul>
+            <li>The current phase of the cycle to the UI and logic.</li>
+          </ul>
           <p>Changed</p>
           <ul>
-            <li>Updated Turkish Translation - Thanks to Sabri Ünal (yakushabb)</li>
-            <li>Updated translate url in metainfo to weblate - Thanks to Sabri Ünal (yakushabb)</li>
+            <li>Updated all screenshots to show current UI and added some more dark mode screenshots.</li>
+            <li>Updated all translations to add the new strings.</li>
           </ul>
         </description>
     </release>
