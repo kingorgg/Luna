@@ -19,19 +19,22 @@
 
 from __future__ import annotations
 
+import json
 import logging
 from datetime import date
+from pathlib import Path
 from typing import Dict, List, Optional
 
-from gi.repository import GObject  # type: ignore
+from gi.repository import GLib, GObject  # type: ignore
 
 from .constants import APP_ID
+from .migration import migrate_json_to_sqlite
 from .models import Cycle, Pregnancy
+from .sqlite_store import SQLiteStore
 from .storage import CycleStore, PregnancyStore
 
 
 class DataStore(GObject.GObject):
-
     __gsignals__ = {
         "changed": (GObject.SIGNAL_RUN_FIRST, None, ()),
     }
@@ -41,6 +44,21 @@ class DataStore(GObject.GObject):
         super().__init__()
         self.logger = logging.getLogger(__name__)
 
+        self.data_dir = Path(GLib.get_user_data_dir()) / APP_ID
+        self.data_dir.mkdir(parents=True, exist_ok=True)
+
+        version = self._get_storage_version()
+
+        if version == 1:
+            self.cycles = CycleStore(app_id=APP_ID)
+            self.pregnancies = PregnancyStore(app_id=APP_ID)
+
+            sqlite = SQLiteStore(app_id=APP_ID)
+            migrate_json_to_sqlite(self.cycles.items, self.pregnancies.items, sqlite)
+
+            self._set_storage_version(2)
+
+        # Always initialize stores
         self.cycles = CycleStore(app_id=APP_ID)
         self.pregnancies = PregnancyStore(app_id=APP_ID)
 
@@ -157,3 +175,15 @@ class DataStore(GObject.GObject):
         self.cycles.load()
         self.pregnancies.load()
         self._restore_links()
+
+    def _metadata_path(self) -> Path:
+        return self.data_dir / "metadata.json"
+
+    def _get_storage_version(self) -> int:
+        path = self._metadata_path()
+        if not path.exists():
+            return 1
+        return json.loads(path.read_text()).get("storage_version", 1)
+
+    def _set_storage_version(self, version: int) -> None:
+        self._metadata_path().write_text(json.dumps({"storage_version": version}))
