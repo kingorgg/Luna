@@ -79,7 +79,7 @@ or
 ---
 
 ## Privacy
-- All data is stored locally on your device in a simple JSON-based format.
+- All data is stored locally on your device in an sqlite database.
 - No data is sent anywhere.
 - No analytics, tracking, accounts, or network access.
 
