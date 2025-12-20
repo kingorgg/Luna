@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-12 23:04+0000\n"
+"POT-Creation-Date: 2025-12-20 17:44+0000\n"
 "PO-Revision-Date: 2025-11-19 11:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -256,7 +256,7 @@ msgstr "0 = predeterminado del sistema 1 = claro 2 = oscuro"
 msgid "None"
 msgstr "Ninguno"
 
-#: src/day_row.py:54 src/main.py:111
+#: src/day_row.py:54 src/main.py:127
 msgid "Light"
 msgstr "Claro"
 
@@ -292,7 +292,7 @@ msgstr ""
 msgid "Sensitive"
 msgstr ""
 
-#: src/main.py:85
+#: src/main.py:101
 msgid ""
 "A simple utility to keep track of your menstrual cycle and to predict "
 "ovulation dates. Also helps track your estimated due date and trimester, if "
@@ -302,44 +302,44 @@ msgstr ""
 "predecir las fechas de ovulación. También te ayuda a calcular la fecha "
 "prevista del parto y el trimestre, si estás embarazada."
 
-#: src/main.py:93
+#: src/main.py:109
 msgid "translator-credits"
 msgstr "haggen88"
 
-#: src/main.py:105
+#: src/main.py:121
 msgid "Appearance"
 msgstr "Apariencia"
 
-#: src/main.py:109
+#: src/main.py:125
 msgid "Colour Scheme"
 msgstr "Esquema de color"
 
-#: src/main.py:110
+#: src/main.py:126
 msgid "Choose light, dark, or follow system"
 msgstr "Elige claro, oscuro o sigue el color del sistema"
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "System"
 msgstr ""
 
-#: src/main.py:111
+#: src/main.py:127
 #, fuzzy
 msgid "Dark"
 msgstr "Modo oscuro"
 
-#: src/main.py:123
+#: src/main.py:139
 msgid "Cycle Tracking"
 msgstr "Seguimiento del ciclo"
 
-#: src/main.py:127
+#: src/main.py:143
 msgid "Luteal Phase Length (days)"
 msgstr "Duración de la fase lútea (días)"
 
-#: src/main.py:133
+#: src/main.py:149
 msgid "Cycle Length (days)"
 msgstr "Duración del ciclo (días)"
 
-#: src/main.py:139
+#: src/main.py:155
 msgid "Period Length (days)"
 msgstr "Duración del período (días)"
 

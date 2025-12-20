@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.kingorgg.Luna master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-12 23:04+0000\n"
+"POT-Creation-Date: 2025-12-20 17:44+0000\n"
 "PO-Revision-Date: 2025-12-06 15:10+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/luna/luna/tr/>\n"
@@ -257,7 +257,7 @@ msgstr "0 = sistem öntanımlısı, 1 = açık, 2 = koyu"
 msgid "None"
 msgstr "Hiçbiri"
 
-#: src/day_row.py:54 src/main.py:111
+#: src/day_row.py:54 src/main.py:127
 msgid "Light"
 msgstr "Açık"
 
@@ -293,7 +293,7 @@ msgstr "Yorgun"
 msgid "Sensitive"
 msgstr "Alıngan"
 
-#: src/main.py:85
+#: src/main.py:101
 msgid ""
 "A simple utility to keep track of your menstrual cycle and to predict "
 "ovulation dates. Also helps track your estimated due date and trimester, if "
@@ -303,44 +303,44 @@ msgstr ""
 "bir araç. Hamileyseniz, tahmini doğum tarihini ve üç aylık dönemleri takip "
 "etmenizi de sağlar."
 
-#: src/main.py:93
+#: src/main.py:109
 msgid "translator-credits"
 msgstr "Sabri Ünal <yakushabb@gmail.com>"
 
-#: src/main.py:105
+#: src/main.py:121
 msgid "Appearance"
 msgstr "Görünüm"
 
-#: src/main.py:109
+#: src/main.py:125
 msgid "Colour Scheme"
 msgstr "Renk Şeması"
 
-#: src/main.py:110
+#: src/main.py:126
 msgid "Choose light, dark, or follow system"
 msgstr "Açık, koyu ya da sistemi izle seçeneğini seçin"
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "System"
 msgstr "Sistem"
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "Dark"
 msgstr "Koyu"
 
-#: src/main.py:123
+#: src/main.py:139
 msgid "Cycle Tracking"
 msgstr "Döngü Takibi"
 
 # Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
-#: src/main.py:127
+#: src/main.py:143
 msgid "Luteal Phase Length (days)"
 msgstr "Yumurtlamadan Sonraki Evre Uzunluğu (gün)"
 
-#: src/main.py:133
+#: src/main.py:149
 msgid "Cycle Length (days)"
 msgstr "Döngü Uzunluğu (gün)"
 
-#: src/main.py:139
+#: src/main.py:155
 msgid "Period Length (days)"
 msgstr "Adet Uzunluğu (gün)"
 
