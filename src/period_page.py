@@ -17,7 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from __future__ import annotations
+from __future__ import annotations, print_function
 
 from datetime import datetime, timedelta
 from gettext import gettext as gettext_
@@ -98,61 +98,47 @@ class PeriodPage(Adw.NavigationPage):
             new_start = datetime.strptime(self.start_date.get_text(), "%Y-%m-%d").date()
         except ValueError:
             toast = Adw.Toast.new(gettext_("Invalid date format"))
-
-            window = self.get_native()
-            window.toast_overlay.add_toast(toast)
+            self.get_native().toast_overlay.add_toast(toast)
             return
 
         self.cycle.start_date = new_start
         self.cycle.duration = int(self.duration.get_value())
-
         latest_cycle = self.store.get_active_cycle()
 
-        if self.cycle is not latest_cycle:
-            # If editing an older cycle, force pregnancy OFF
-            self.cycle.pregnancy = None
-            self.cycle.pregnancy_id = None
-        else:
-            # Editing latest cycle normally
+        if latest_cycle and self.cycle.id == latest_cycle.id:
             if self.pregnancy_toggle.get_active():
-
-                # Create pregnancy if none exists
                 if not self.cycle.pregnancy:
                     preg = Pregnancy(start_date=new_start)
-                    self.cycle.pregnancy = preg
                     self.store.add_pregnancy(preg)
-
-                # If pregnancy already exists, update start date
+                    self.cycle.pregnancy = preg
                 else:
                     self.cycle.pregnancy.start_date = new_start
-                    self.store.pregnancies.save()
-
+                    self.store.update_pregnancy(self.cycle.pregnancy)
             else:
-                # Toggle off on latest cycle → remove pregnancy
+                if self.cycle.pregnancy:
+                    self.store.delete_pregnancy(self.cycle.pregnancy)
                 self.cycle.pregnancy = None
-                self.cycle.pregnancy_id = None
 
         new_days = []
         for i, day in enumerate(self.days):
             row = self.days_list.get_row_at_index(i)
 
-            flow_model = row.flow.get_model()
-            day.flow = flow_model.get_string(row.flow.get_selected())
-
-            mood_model = row.mood.get_model()
-            day.mood = mood_model.get_string(row.mood.get_selected())
-
+            day.flow = row.flow.get_model().get_string(row.flow.get_selected())
+            day.mood = row.mood.get_model().get_string(row.mood.get_selected())
             t = row.temp.get_text().strip()
             day.temperature = float(t) if t else None
-
             sym = row.symptoms.get_text().strip()
             day.symptoms = [s.strip() for s in sym.split(",")] if sym else []
-
             day.notes = row.notes.get_text().strip() or None
 
             new_days.append(day)
 
         self.cycle.days = new_days
+
+        if self.cycle.id is None:
+            self.store.add_cycle(self.cycle)
+        else:
+            self.store.update_cycle(self.cycle)
 
         self.emit("period-edited", self.cycle)
 

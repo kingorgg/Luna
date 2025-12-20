@@ -24,6 +24,7 @@ import gzip
 import json
 import logging
 import os
+import warnings
 from pathlib import Path
 from typing import List, Optional, Type, TypeVar
 
@@ -32,6 +33,25 @@ from gi.repository import GLib  # type: ignore
 from .models import Cycle, Pregnancy
 
 T = TypeVar("T")  # model type (Cycle, Pregnancy)
+
+
+def deprecated(message: str):
+    """Decorator to mark functions or methods as deprecated."""
+    import functools
+
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            warnings.warn(
+                f"{func.__name__} is deprecated: {message}",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            return func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
 
 
 class BaseStore:
@@ -46,6 +66,7 @@ class BaseStore:
     filename: str
     model_class: Type[T]
 
+    @deprecated("Use SQLiteStore instead. Will be removed in version 49.10.")
     def __init__(self, app_id: str) -> None:
         self.app_id = app_id
         self.items: List[T] = []
@@ -60,8 +81,12 @@ class BaseStore:
 
         self.load()
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def load(self) -> None:
-        """Loads JSON data from a gzip file. Corrupt files return empty list."""
+        """
+        DEPRECATED: This function loads cycles from JSON files.
+        Use SQLiteStore methods instead. Will be removed in version 49.10.
+        """
         self.items = []
 
         if not self.file_path.exists():
@@ -78,8 +103,12 @@ class BaseStore:
             self.logger.error(f"Failed to load {self.filename}: {e}")
             self.items = []
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def save(self) -> None:
-        """Saves items atomically using flock + temp file + gzip."""
+        """
+        DEPRECATED: This function saves cycles to JSON files.
+        Use SQLiteStore methods instead. Will be removed in version 49.10.
+        """
         tmp_path = self.file_path.with_name(self.file_path.name + ".tmp")
 
         with open(self.lock_path, "w") as lock_file:
@@ -97,21 +126,27 @@ class BaseStore:
                 except Exception:
                     pass
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def add(self, item: T) -> None:
         self.items.append(item)
         self.save()
 
 
 class CycleStore(BaseStore):
-    """Handles persistent storage of Cycle objects as JSON."""
+    """
+    DEPRECATED: This class handles persistent storage of Cycle objects as JSON.
+    Use SQLiteStore instead. Will be removed in version 49.10.
+    """
 
     filename = "cycles.json.gz"
     model_class = Cycle
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def add_cycle(self, cycle: Cycle) -> None:
         """Add a new cycle and persist it."""
         self.add(cycle)
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def delete_cycle(self, cycle: Cycle) -> None:
         """Delete a cycle and persist changes."""
         try:
@@ -122,12 +157,14 @@ class CycleStore(BaseStore):
 
         self.save()
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def get_active_cycle(self) -> Optional[Cycle]:
         """Return the most recent (active) cycle."""
         if not self.items:
             return None
         return max(self.items, key=lambda c: c.start_date)
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def has_active_pregnancy(self) -> bool:
         """Return True if the active cycle has a linked pregnancy."""
         active_cycle = self.get_active_cycle()
@@ -135,6 +172,7 @@ class CycleStore(BaseStore):
             return False
         return active_cycle.pregnancy is not None
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def get_active_pregnancy(self) -> Optional[Pregnancy]:
         """Return the pregnancy linked to the active cycle, if any."""
         active_cycle = self.get_active_cycle()
@@ -144,15 +182,20 @@ class CycleStore(BaseStore):
 
 
 class PregnancyStore(BaseStore):
-    """Handles persistent storage of Pregnancy objects as JSON."""
+    """
+    DEPRECATED: This class handles persistent storage of Pregnancy objects as JSON.
+    Use SQLiteStore instead. Will be removed in version 49.10.
+    """
 
     filename = "pregnancies.json.gz"
     model_class = Pregnancy
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def add_pregnancy(self, pregnancy: Pregnancy) -> None:
         """Add a new pregnancy and persist it."""
         self.add(pregnancy)
 
+    @deprecated("Use SQLiteStore methods instead. Will be removed in version 49.10.")
     def get_active_pregnancy(self) -> Optional[Pregnancy]:
         """Return the currently active pregnancy, if any."""
         if not self.items:

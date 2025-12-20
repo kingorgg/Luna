@@ -112,8 +112,9 @@ class Pregnancy:
 class Cycle:
     """Represents a complete menstrual cycle and its tracked data."""
 
-    start_date: date
-    duration: int  # bleeding days
+    id: Optional[int] = None
+    start_date: date = field(default_factory=date.today)
+    duration: int = 0  # bleeding days
     pregnancy_id: Optional[str] = None  # link to pregnancy
     days: List[DayEntry] = field(default_factory=list)
 
