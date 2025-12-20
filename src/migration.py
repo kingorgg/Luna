@@ -55,7 +55,7 @@ def migrate_json_to_sqlite(
                 )
             else:
                 print(
-                    f"[Migration] WARNING: Cycle {cycle.start_date} has pregnancy {old_preg_id} not found"
+                    f"[Migration] WARNING: Cycle {cycle.start_date} has a pregnancy reference that was not found"
                 )
 
         # Insert cycle
