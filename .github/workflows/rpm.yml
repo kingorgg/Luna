@@ -53,7 +53,7 @@ jobs:
       - name: Generate spec file
         run: |
           VERSION="${{ steps.version.outputs.version }}"
-          sed "s/@VERSION@/$VERSION/g" packaging/luna.spec.in > ~/rpmbuild/SPECS/luna.spec
+          sed "s/@VERSION@/$VERSION/g" packaging/rpm/luna.spec.in > ~/rpmbuild/SPECS/luna.spec
 
       - name: Build RPM
         run: |
