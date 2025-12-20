@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-12 23:04+0000\n"
+"POT-Creation-Date: 2025-12-20 17:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/day_row.py:54 src/main.py:111
+#: src/day_row.py:54 src/main.py:127
 msgid "Light"
 msgstr ""
 
@@ -277,50 +277,50 @@ msgstr ""
 msgid "Sensitive"
 msgstr ""
 
-#: src/main.py:85
+#: src/main.py:101
 msgid ""
 "A simple utility to keep track of your menstrual cycle and to predict "
 "ovulation dates. Also helps track your estimated due date and trimester, if "
 "you are pregnant."
 msgstr ""
 
-#: src/main.py:93
+#: src/main.py:109
 msgid "translator-credits"
 msgstr ""
 
-#: src/main.py:105
+#: src/main.py:121
 msgid "Appearance"
 msgstr ""
 
-#: src/main.py:109
+#: src/main.py:125
 msgid "Colour Scheme"
 msgstr ""
 
-#: src/main.py:110
+#: src/main.py:126
 msgid "Choose light, dark, or follow system"
 msgstr ""
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "System"
 msgstr ""
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "Dark"
 msgstr ""
 
-#: src/main.py:123
+#: src/main.py:139
 msgid "Cycle Tracking"
 msgstr ""
 
-#: src/main.py:127
+#: src/main.py:143
 msgid "Luteal Phase Length (days)"
 msgstr ""
 
-#: src/main.py:133
+#: src/main.py:149
 msgid "Cycle Length (days)"
 msgstr ""
 
-#: src/main.py:139
+#: src/main.py:155
 msgid "Period Length (days)"
 msgstr ""
 

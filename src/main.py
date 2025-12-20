@@ -46,6 +46,10 @@ class LunaApplication(Adw.Application):
         self.version = version
         self.settings = Gio.Settings.new(self.application_id)
 
+        from .data_store import DataStore
+
+        self.data_store = DataStore()
+
         self.apply_color_scheme()
 
         self.settings.connect(
@@ -59,7 +63,19 @@ class LunaApplication(Adw.Application):
         self.create_action("preferences", self.on_preferences_action)
 
     def do_activate(self) -> None:
+        """Activate the application."""
         self.new_window()
+
+    def do_shutdown(self) -> None:
+        """Close the SQLite connection."""
+        try:
+            if hasattr(self, "data_store") and self.data_store:
+                self.data_store.close()
+                self.data_store = None
+        except Exception as e:
+            import logging
+
+            logging.exception("Error during shutdown: %s", e)
 
     def new_window(self) -> None:
         win = LunaWindow(application=self)

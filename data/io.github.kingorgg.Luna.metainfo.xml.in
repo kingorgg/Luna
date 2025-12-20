@@ -73,20 +73,15 @@
   </screenshots>
 
   <releases>
-    <release version="49.7" date="2025-12-12">
-        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.7</url>
+    <release version="49.8" date="2025-12-20">
+        <url type="details">https://github.com/kingorgg/Luna/releases/tag/v49.8</url>
         <description translate="no">
-          <p>Added</p>
-          <ul>
-            <li>The current phase of the cycle to the UI and logic.</li>
-          </ul>
           <p>Changed</p>
           <ul>
-            <li>Updated all screenshots to show current UI and added some more dark mode screenshots.</li>
-            <li>Updated all translations to add the new strings.</li>
+            <li>Moved all cycle and pregnancy data from json files to an sqlite database. This will be automatically migrated on startup.</li>
           </ul>
         </description>
     </release>
   </releases>
-
 </component>
+

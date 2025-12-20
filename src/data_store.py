@@ -19,19 +19,21 @@
 
 from __future__ import annotations
 
+import json
 import logging
-from datetime import date
-from typing import Dict, List, Optional
+from pathlib import Path
+from typing import List, Optional
 
-from gi.repository import GObject  # type: ignore
+from gi.repository import GLib, GObject  # type: ignore
 
 from .constants import APP_ID
+from .migration import migrate_json_to_sqlite
 from .models import Cycle, Pregnancy
+from .sqlite_store import SQLiteStore
 from .storage import CycleStore, PregnancyStore
 
 
 class DataStore(GObject.GObject):
-
     __gsignals__ = {
         "changed": (GObject.SIGNAL_RUN_FIRST, None, ()),
     }
@@ -41,119 +43,101 @@ class DataStore(GObject.GObject):
         super().__init__()
         self.logger = logging.getLogger(__name__)
 
-        self.cycles = CycleStore(app_id=APP_ID)
-        self.pregnancies = PregnancyStore(app_id=APP_ID)
+        self.data_dir = Path(GLib.get_user_data_dir()) / APP_ID
+        self.data_dir.mkdir(parents=True, exist_ok=True)
 
-        self._restore_links()
+        self.sqlite = SQLiteStore(app_id=APP_ID)
 
-    def _restore_links(self) -> None:
-        """Restore links between cycles and pregnancies after loading from storage."""
-        preg_dict: Dict[str, Pregnancy] = {
-            preg.id: preg for preg in self.pregnancies.items
-        }
+        if self._get_storage_version() == 1:
+            self._migrate_from_json()
 
-        for cycle in self.cycles.items:
-            if cycle.pregnancy_id:
-                cycle.pregnancy = preg_dict.get(cycle.pregnancy_id, None)
-
-    def _auto_link_all(self) -> None:
-        """Automatically link all pregnancies to their appropriate cycles."""
-        if not self.pregnancies.items or not self.cycles.items:
-            return
-
-        self.cycles.items.sort(key=lambda c: c.start_date)
-
-        for cycle in self.cycles.items:
-            cycle.pregnancy = None
-
-        for preg in self.pregnancies.items:
-            self._link_single_pregnancy(preg)
-
-    def _link_single_pregnancy(self, pregnancy: Pregnancy) -> None:
-        """Link a single pregnancy to the appropriate cycle based on start dates."""
-        if not self.cycles.items:
-            return
-
-        self.cycles.items.sort(key=lambda c: c.start_date)
-
-        # link to the first cycle if pregnancy starts before it
-        if pregnancy.start_date < self.cycles.items[0].start_date:
-            self.cycles.items[0].pregnancy = pregnancy
-            return
-
-        for i, cycle in enumerate(self.cycles.items):
-            start = cycle.start_date
-
-            if i + 1 < len(self.cycles.items):
-                end = self.cycles.items[i + 1].start_date
-            else:
-                end = date.today()
-
-            if start <= pregnancy.start_date < end:
-                self.logger.debug(
-                    f"Linking pregnancy {pregnancy.start_date} to cycle {cycle.start_date}"
-                )
-                cycle.pregnancy = pregnancy
-                return
+    def close(self) -> None:
+        """Close the SQLite connection."""
+        if hasattr(self, "sqlite") and self.sqlite:
+            self.sqlite.close()
 
     def get_cycles(self) -> List[Cycle]:
         """Return all stored cycles."""
-        return self.cycles.items
+        return self.sqlite.get_cycles()
 
     def get_active_cycle(self) -> Optional[Cycle]:
         """Return the most recent (active) cycle, or None if none exist."""
         try:
-            return self.cycles.get_active_cycle()
+            return self.sqlite.get_active_cycle()
         except ValueError:
             return None
 
     def add_cycle(self, cycle: Cycle) -> None:
         """Add a new cycle and update all links."""
-        self.cycles.add_cycle(cycle)
-        self._auto_link_all()
+        self.sqlite.insert_cycle(cycle)
+        self.emit("changed")
 
-        # Persist links
-        self.cycles.save()
-        self.pregnancies.save()
+    def update_cycle(self, cycle: Cycle) -> None:
+        """Update an existing cycle and update all links."""
+        self.sqlite.update_cycle(cycle)
         self.emit("changed")
 
     def delete_cycle(self, cycle: Cycle) -> None:
         """Delete a cycle and update all links."""
-        self.cycles.delete_cycle(cycle)
-
-        # After deleting a cycle, all pregnancy links may have changed
-        self._auto_link_all()
-
-        # Persist
-        self.cycles.save()
-        self.pregnancies.save()
+        self.sqlite.delete_cycle(cycle)
         self.emit("changed")
 
     def get_pregnancies(self) -> List[Pregnancy]:
         """Return all stored pregnancies."""
-        return self.pregnancies.items
+        return self.sqlite.get_pregnancies()
 
     def get_active_pregnancy(self) -> Optional[Pregnancy]:
         """Return the currently active pregnancy, if any."""
-        return self.pregnancies.get_active_pregnancy()
+        try:
+            return self.sqlite.get_active_pregnancy()
+        except ValueError:
+            return None
 
     def add_pregnancy(self, pregnancy: Pregnancy) -> None:
         """Add a new pregnancy and link it to the appropriate cycle."""
-        self.pregnancies.add_pregnancy(pregnancy)
-        self._link_single_pregnancy(pregnancy)
+        self.sqlite.insert_pregnancy(pregnancy)
+        self.emit("changed")
 
-        # Persist links
-        self.cycles.save()
-        self.pregnancies.save()
+    def update_pregnancy(self, pregnancy: Pregnancy) -> None:
+        """Update an existing pregnancy and update all links."""
+        self.sqlite.update_pregnancy(pregnancy)
+        self.emit("changed")
+
+    def delete_pregnancy(self, pregnancy: Pregnancy) -> None:
+        """Delete a pregnancy and update all links."""
+        self.sqlite.delete_pregnancy(pregnancy)
         self.emit("changed")
 
     def save_all(self) -> None:
-        """Persist all data to storage."""
-        self.cycles.save()
-        self.pregnancies.save()
+        """No-op: SQLite writes are immediate."""
+        pass
 
     def reload(self) -> None:
-        """Reload all data from storage."""
-        self.cycles.load()
-        self.pregnancies.load()
-        self._restore_links()
+        """Reload data from SQLite."""
+        pass
+
+    def _metadata_path(self) -> Path:
+        return self.data_dir / "metadata.json"
+
+    def _get_storage_version(self) -> int:
+        path = self._metadata_path()
+        if not path.exists():
+            return 1
+        return json.loads(path.read_text()).get("storage_version", 1)
+
+    def _set_storage_version(self, version: int) -> None:
+        self._metadata_path().write_text(json.dumps({"storage_version": version}))
+
+    def _migrate_from_json(self) -> None:
+        self.logger.info("Migrating JSON storage to SQLite")
+
+        old_cycles = CycleStore(app_id=APP_ID)
+        old_pregnancies = PregnancyStore(app_id=APP_ID)
+
+        migrate_json_to_sqlite(
+            old_cycles.items,
+            old_pregnancies.items,
+            self.sqlite,
+        )
+
+        self._set_storage_version(2)
