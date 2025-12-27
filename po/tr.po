@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: io.github.kingorgg.Luna master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 17:44+0000\n"
-"PO-Revision-Date: 2025-12-06 15:10+0000\n"
+"PO-Revision-Date: 2025-12-21 20:00+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/luna/luna/tr/>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 "X-DamnedLies-Scope: partial\n"
 
 #: data/ui/day_row.blp:5
@@ -197,29 +197,24 @@ msgid "Main Window"
 msgstr "Ana Pencere"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:55
-#, fuzzy
 msgid "Main Window (Dark Mode)"
-msgstr "Ana Pencere"
+msgstr "Ana Pencere (Koyu Kip)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:59
-#, fuzzy
 msgid "Preferences (Dark Mode)"
-msgstr "Tercihler"
+msgstr "Tercihler (Koyu Kip)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:63
-#, fuzzy
 msgid "New Period (Dark Mode)"
-msgstr "Yeni adet kaydedildi"
+msgstr "Yeni Adet (Koyu Kip)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:67
-#, fuzzy
 msgid "Edit Period (Dark Mode)"
-msgstr "Adeti Düzenle"
+msgstr "Adeti Düzenle (Koyu Kip)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:71
-#, fuzzy
 msgid "Pregnancy Mode (Dark Mode)"
-msgstr "Hamilelik Kipi"
+msgstr "Hamilelik Kipi (Koyu Kip)"
 
 # Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
 #: data/io.github.kingorgg.Luna.gschema.xml:6
@@ -347,15 +342,15 @@ msgstr "Adet Uzunluğu (gün)"
 #. No cycles recorded, phase is unknown
 #: src/logic.py:104 src/logic.py:117
 msgid "Unknown"
-msgstr ""
+msgstr "Bilinmiyor"
 
 #: src/logic.py:121
 msgid "Menstruation"
-msgstr ""
+msgstr "Adet görme"
 
 #: src/logic.py:123
 msgid "Follicular"
-msgstr ""
+msgstr "Folikül"
 
 #: src/logic.py:125 src/window.py:180
 msgid "Ovulation"
@@ -363,7 +358,7 @@ msgstr "Yumurtlama"
 
 #: src/logic.py:127
 msgid "Luteal"
-msgstr ""
+msgstr "Yumurlamadan sonraki evre"
 
 #: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
@@ -426,9 +421,8 @@ msgid "3rd trimester"
 msgstr "Üçüncü, üç aylık dönem"
 
 #: src/window.py:216
-#, fuzzy
 msgid "Pregnancy"
-msgstr "Hamilelik Kipi"
+msgstr "Hamilelik"
 
 #: src/window.py:247 src/window.py:250
 msgid "Not Available"
