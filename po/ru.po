@@ -1,186 +1,185 @@
-# Turkish translation for io.github.kingorgg.Luna.
-# Copyright (C) 2015-2024 io.github.kingorgg.Luna's COPYRIGHT HOLDER
-# This file is distributed under the same license as the io.github.kingorgg.Luna package.
-#
-# Sabri Ünal <yakushabb@gmail.com>, 2019, 2022-2024.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: io.github.kingorgg.Luna master\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 17:44+0000\n"
-"PO-Revision-Date: 2025-12-21 20:00+0000\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/luna/luna/tr/>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2025-12-31 23:15+0000\n"
+"Last-Translator: Daniel Taylor <kingorgg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/luna/luna/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.15.1\n"
-"X-DamnedLies-Scope: partial\n"
 
 #: data/ui/day_row.blp:5
 msgid "Day details"
-msgstr "Gün ayrıntıları"
+msgstr "Подробности о дне"
 
 #: data/ui/day_row.blp:8
 msgid "Flow"
-msgstr "Akış"
+msgstr "Менструальные выделения"
 
 #: data/ui/day_row.blp:12
 msgid "Mood"
-msgstr "Ruh Hali"
+msgstr "Настроение"
 
 #: data/ui/day_row.blp:16
 msgid "Temperature (°C)"
-msgstr "Sıcaklık (°C)"
+msgstr "Температура (°C)"
 
 #: data/ui/day_row.blp:21
 msgid "Symptoms (comma-separated)"
-msgstr "Semptomlar (virgülle ayrılmış)"
+msgstr "Симптомы (через запятую)"
 
 #: data/ui/day_row.blp:25
 msgid "Notes"
-msgstr "Notlar"
+msgstr "Заметки"
 
 #: data/ui/delete_period_dialog.blp:6
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Отменить"
 
 #: data/ui/delete_period_dialog.blp:7
 msgid "Delete"
-msgstr "Sil"
+msgstr "Удалить"
 
 #: data/ui/delete_period_dialog.blp:10 data/ui/period_page.blp:22
 msgid "Delete Period"
-msgstr "Adeti Sil"
+msgstr "Удалить менструацию"
 
 #: data/ui/delete_period_dialog.blp:11
 msgid ""
 "Are you sure you want to delete this period? This action cannot be undone."
-msgstr "Bu adeti silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+msgstr "Вы уверены, что хотите удалить эти месячные? Это действие невозвратно."
 
 #: data/ui/new_period.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:42
 msgid "New Period"
-msgstr "Yeni Adet"
+msgstr "Новая менструация"
 
 #: data/ui/new_period.blp:15 data/ui/period_page.blp:15
 msgid "Save Period"
-msgstr "Adeti Kaydet"
+msgstr "Сохранить менструацию"
 
 #: data/ui/new_period.blp:32 data/ui/period_page.blp:44
 msgid "Period Details"
-msgstr "Adet Ayrıntıları"
+msgstr "Подробности менструации"
 
 #: data/ui/new_period.blp:35 data/ui/period_page.blp:47
 msgid "Start Date (YYYY-MM-DD)"
-msgstr "Başlangıç Tarihi (YYYY-AA-GG)"
+msgstr "Начальная дата (ГГГГ-ММ-ДД)"
 
 #: data/ui/new_period.blp:39 data/ui/period_page.blp:51
 msgid "Duration (days)"
-msgstr "Süre (gün)"
+msgstr "Продолжительность (дней)"
 
 #: data/ui/new_period.blp:40 data/ui/period_page.blp:52
 msgid "Number of days your period lasted"
-msgstr "Adet sürenizin kaç gün sürdüğü"
+msgstr "Количество дней, в течение которых длились ваши месячные"
 
 #: data/ui/period_page.blp:5 data/io.github.kingorgg.Luna.metainfo.xml.in:46
 msgid "Edit Period"
-msgstr "Adeti Düzenle"
+msgstr "Изменить менструацию"
 
 #: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
-msgstr "Hamilelik Kipi"
+msgstr "Режим беременности"
 
 #: data/ui/period_page.blp:63
 msgid "Mark as the last period before pregnancy"
-msgstr "Hamilelik öncesi son adet olarak işaretle"
+msgstr "Отметить как последний период перед беременностью"
 
 #: data/ui/period_page.blp:68
 msgid "Daily Details"
-msgstr "Günlük Ayrıntılar"
+msgstr "Детали о дне"
 
 #: data/ui/window.blp:5 data/io.github.kingorgg.Luna.desktop.in:2
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:7
 msgid "Luna"
-msgstr "Luna"
+msgstr "Луна"
 
 #: data/ui/window.blp:34
 msgid "Period Tracker"
-msgstr "Adet Takipçisi"
+msgstr "Календарь менструаций"
 
 #: data/ui/window.blp:41
 msgid "Main Menu"
-msgstr "Ana Menü"
+msgstr "Главное меню"
 
 #: data/ui/window.blp:47
 msgid "Add New Period"
-msgstr "Yeni Adet Ekle"
+msgstr "Добавить новую менструацию"
 
 #: data/ui/window.blp:69
 msgid "Current Phase"
-msgstr ""
+msgstr "Текущая фаза"
 
 #: data/ui/window.blp:76
 msgid "Predictions"
-msgstr "Tahminler"
+msgstr "Прогноз"
 
 #: data/ui/window.blp:79 src/window.py:233
 msgid "Ovulation Date"
-msgstr "Yumurtlama Tarihi"
+msgstr "Дата овуляции"
 
 #: data/ui/window.blp:85 src/window.py:179 src/window.py:232
 msgid "Next Period"
-msgstr "Sonraki Adet"
+msgstr "Следующая менструация"
 
 #: data/ui/window.blp:92
 msgid "Statistics"
-msgstr "İstatistikler"
+msgstr "Статистика"
 
 #: data/ui/window.blp:94 src/window.py:181 src/window.py:234
 msgid "Average Length"
-msgstr "Ortalama Uzunluk"
+msgstr "Средняя продолжительность"
 
 #: data/ui/window.blp:100
 msgid "Range"
-msgstr "Aralık"
+msgstr "Диапазон"
 
 #: data/ui/window.blp:106
 msgid "Standard Deviation"
-msgstr "Standart Sapma"
+msgstr "Стандартное отклонение"
 
 #: data/ui/window.blp:113 data/ui/window.blp:127 data/ui/window.blp:131
 msgid "History"
-msgstr "Geçmiş"
+msgstr "История"
 
 #: data/ui/window.blp:142
 msgid "Empty History"
-msgstr "Geçmiş Boş"
+msgstr "Пустая история"
 
 #: data/ui/window.blp:143
 msgid ""
 "Your history is empty. Press the '+' icon, or Ctrl+N to create a new entry."
 msgstr ""
-"Geçmiş boş. Yeni giriş oluşturmak için '+' simgesine tıklayın ya da Ctrl+N "
-"kısayolunu kullanın."
+"Ваша история пуста. Нажмите значок \"+\" или Ctrl+N, чтобы создать новую "
+"запись."
 
 #: data/ui/window.blp:189 data/io.github.kingorgg.Luna.metainfo.xml.in:38
 msgid "Preferences"
-msgstr "Tercihler"
+msgstr "Предпочтения"
 
 #: data/ui/window.blp:193
 msgid "About Luna"
-msgstr "Luna Hakkında"
+msgstr "О Луне"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.github.kingorgg.Luna.desktop.in:9
 msgid "Luna;Menstrual;Pregnancy;Ovulation;Cycle;Tracker;"
-msgstr "Luna;Menstrual;Pregnancy;Ovulation;Cycle;Tracker;Adet;Hamilelik;Yumurtlama;Döngü;Takip;"
+msgstr "Луна;Менструация;Беременность;Овуляция;Цикл;Отслеживание;"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:8
 msgid "Period and pregnancy tracker"
-msgstr "Adet ve hamilelik takipçisi"
+msgstr "Отслеживание менструаций и беременности"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:10
 msgid ""
@@ -188,105 +187,103 @@ msgid ""
 "ovulation dates. Calculate your due date and follow your pregnancy's "
 "progress."
 msgstr ""
-"Adet döngünüzü takip edin ve bir sonraki adet ve yumurtlama tarihlerinizi "
-"tahmin edin. Doğum tarihini hesaplayın ve hamileliğinizin ilerleyişini takip "
-"edin."
+"Прослеживайте свой менструальный цикл и прогнозируйте даты следующих "
+"месячных и овуляции. Рассчитайте срок родов и следите за ходом беременности."
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:34
 msgid "Main Window"
-msgstr "Ana Pencere"
+msgstr "Главное окно"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:55
 msgid "Main Window (Dark Mode)"
-msgstr "Ana Pencere (Koyu Kip)"
+msgstr "Главное окно (темный режим)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:59
 msgid "Preferences (Dark Mode)"
-msgstr "Tercihler (Koyu Kip)"
+msgstr "Предпочтения (темный режим)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:63
 msgid "New Period (Dark Mode)"
-msgstr "Yeni Adet (Koyu Kip)"
+msgstr "Новая менструация (темный режим)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:67
 msgid "Edit Period (Dark Mode)"
-msgstr "Adeti Düzenle (Koyu Kip)"
+msgstr "Изменить менструацию (темный режим)"
 
 #: data/io.github.kingorgg.Luna.metainfo.xml.in:71
 msgid "Pregnancy Mode (Dark Mode)"
-msgstr "Hamilelik Kipi (Koyu Kip)"
+msgstr "Режим беременности (темный режим)"
 
-# Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
 #: data/io.github.kingorgg.Luna.gschema.xml:6
 msgid "Luteal phase length"
-msgstr "Yumurtlamadan sonraki evre uzunluğu"
+msgstr "Продолжительность лютеиновой фазы"
 
-# Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
 #: data/io.github.kingorgg.Luna.gschema.xml:7
 msgid "Number of days for the luteal phase (9–16 typical)"
-msgstr "Yumurtlamadan sonraki evrenin gün sayısı (tipik olarak 9–16)"
+msgstr "Количество дней лютеиновой фазы (обычно 9-16)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:12
 msgid "Default menstrual cycle length (21-35 typical)"
-msgstr "Öntanımlı adet döngüsü süresi (tipik olarak 21-35 gün)"
+msgstr "Стандартная продолжительность менструального цикла (обычно 21-35 дней)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:17
 msgid "Average duration of period bleeding (2-8 typical)"
-msgstr "Ortalama adet kanaması süresi (2-8 gün tipik)"
+msgstr "Средняя продолжительность менструальных кровотечений (обычно 2-8)"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:18
 msgid ""
 "Used for predictions and initial estimates before enough data is collected."
 msgstr ""
-"Yeterli veri toplanmadan önce tahminler ve ilk tahminler için kullanılır."
+"Используется для прогнозирования и первоначальных оценок до того, как будет "
+"собрано достаточно данных."
 
 #: data/io.github.kingorgg.Luna.gschema.xml:22
 msgid "Preferred color scheme"
-msgstr "Yeğlenen Renk Şeması"
+msgstr "Предпочитаемая цветовая тема"
 
 #: data/io.github.kingorgg.Luna.gschema.xml:23
 msgid "0 = system default 1 = light 2 = dark"
-msgstr "0 = sistem öntanımlısı, 1 = açık, 2 = koyu"
+msgstr "0 = по умолчанию 1 = светлая 2 = темная"
 
 #: src/day_row.py:53
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Ничего"
 
 #: src/day_row.py:54 src/main.py:127
 msgid "Light"
-msgstr "Açık"
+msgstr "Немного"
 
 #: src/day_row.py:55
 msgid "Medium"
-msgstr "Orta"
+msgstr "Умеренно"
 
 #: src/day_row.py:56
 msgid "Heavy"
-msgstr "Ağır"
+msgstr "Обильно"
 
 #: src/day_row.py:68
 msgid "Neutral"
-msgstr "Doğal"
+msgstr "Нейтральное"
 
 #: src/day_row.py:69
 msgid "Calm"
-msgstr "Sakin"
+msgstr "Спокойное"
 
 #: src/day_row.py:70
 msgid "Sad"
-msgstr "Üzgün"
+msgstr "Грустное"
 
 #: src/day_row.py:71
 msgid "Irritable"
-msgstr "Asabi"
+msgstr "Раздражительное"
 
 #: src/day_row.py:72
 msgid "Tired"
-msgstr "Yorgun"
+msgstr "Усталое"
 
 #: src/day_row.py:73
 msgid "Sensitive"
-msgstr "Alıngan"
+msgstr "Чувствительное"
 
 #: src/main.py:101
 msgid ""
@@ -294,145 +291,135 @@ msgid ""
 "ovulation dates. Also helps track your estimated due date and trimester, if "
 "you are pregnant."
 msgstr ""
-"Adet döngünüzü takip etmek ve yumurtlama tarihlerini tahmin etmek için basit "
-"bir araç. Hamileyseniz, tahmini doğum tarihini ve üç aylık dönemleri takip "
-"etmenizi de sağlar."
+"Простое приложение для отслеживания вашего менструального цикла и "
+"прогнозирования даты овуляции. Также помогает отслеживать предполагаемую "
+"дату родов и триместр, если вы беременны."
 
 #: src/main.py:109
 msgid "translator-credits"
-msgstr "Sabri Ünal <yakushabb@gmail.com>"
+msgstr "Morsik Barsik <barsikote@proton.me>"
 
 #: src/main.py:121
 msgid "Appearance"
-msgstr "Görünüm"
+msgstr "Внешний вид"
 
 #: src/main.py:125
 msgid "Colour Scheme"
-msgstr "Renk Şeması"
+msgstr "Цветовая гамма"
 
 #: src/main.py:126
 msgid "Choose light, dark, or follow system"
-msgstr "Açık, koyu ya da sistemi izle seçeneğini seçin"
+msgstr "Выберите светлое, темное или как в системе"
 
 #: src/main.py:127
 msgid "System"
-msgstr "Sistem"
+msgstr "Система"
 
 #: src/main.py:127
 msgid "Dark"
-msgstr "Koyu"
+msgstr "Темная"
 
 #: src/main.py:139
 msgid "Cycle Tracking"
-msgstr "Döngü Takibi"
+msgstr "Отслеживание цикла"
 
-# Luteal Phase: adet döngüsünün yumurtlamadan sonra gelen ikinci evresi.
 #: src/main.py:143
 msgid "Luteal Phase Length (days)"
-msgstr "Yumurtlamadan Sonraki Evre Uzunluğu (gün)"
+msgstr "Продолжительность лютеиновой фазы (дни)"
 
 #: src/main.py:149
 msgid "Cycle Length (days)"
-msgstr "Döngü Uzunluğu (gün)"
+msgstr "Продолжительность цикла (дни)"
 
 #: src/main.py:155
 msgid "Period Length (days)"
-msgstr "Adet Uzunluğu (gün)"
+msgstr "Продолжительность менструации (дни)"
 
 #. No cycles recorded, phase is unknown
 #: src/logic.py:104 src/logic.py:117
 msgid "Unknown"
-msgstr "Bilinmiyor"
+msgstr "Неизвестно"
 
 #: src/logic.py:121
 msgid "Menstruation"
-msgstr "Adet görme"
+msgstr "Менструация"
 
 #: src/logic.py:123
 msgid "Follicular"
-msgstr "Folikül"
+msgstr "Фолликулярная"
 
 #: src/logic.py:125 src/window.py:180
 msgid "Ovulation"
-msgstr "Yumurtlama"
+msgstr "Овуляция"
 
 #: src/logic.py:127
 msgid "Luteal"
-msgstr "Yumurlamadan sonraki evre"
+msgstr "Лютеиновая"
 
 #: src/new_period.py:69
 msgid "Invalid date format (use YYYY-MM-DD)"
-msgstr "Geçersiz tarih biçimi(YYYY-AA-GG kullan)"
+msgstr "Недопустимый формат даты (используйте ГГГГ-ММ-ДД)"
 
 #: src/period_page.py:100
 msgid "Invalid date format"
-msgstr "Geçersiz tarih biçimi"
+msgstr "Недопустимый формат даты"
 
 #: src/window.py:84
 msgid "Error reloading data."
-msgstr "Veriler yeniden yüklenirken hata."
+msgstr "Ошибка при перезагрузке данных."
 
 #: src/window.py:121
 msgid " - Pregnancy started"
-msgstr " - Hamilelik başladı"
+msgstr " - Началась беременность"
 
 #: src/window.py:128
 msgid "View Period"
-msgstr "Adeti Görüntüle"
+msgstr "Просмотр менструации"
 
 #: src/window.py:157
 msgid "New period saved"
-msgstr "Yeni adet kaydedildi"
+msgstr "Новая менструация сохранена"
 
 #: src/window.py:168
 msgid "Period deleted"
-msgstr "Adet silindi"
+msgstr "Менструация удалена"
 
 #: src/window.py:183 src/window.py:184
 msgid "No data yet"
-msgstr "Henüz tarih yok"
+msgstr "Данных пока нет"
 
 #: src/window.py:193
 msgid "Add your first period to see predictions."
-msgstr "Tahminleri görmek için ilk adeti ekleyin."
+msgstr "Добавьте свою первую менструацию, чтобы увидеть прогноз."
 
 #: src/window.py:201
 msgid "Due Date"
-msgstr "Doğum Tarihi"
+msgstr "Срок"
 
 #: src/window.py:204
 msgid "Pregnancy Progress"
-msgstr "Hamilelik Süreci"
+msgstr "Развитие беременности"
 
 #: src/window.py:207
 msgid "Trimester"
-msgstr "Üç aylık dönem"
+msgstr "Триместр"
 
 #: src/window.py:209
 msgid "1st trimester"
-msgstr "Birinci, üç aylık dönem"
+msgstr "1-й триместр"
 
 #: src/window.py:211
 msgid "2nd trimester"
-msgstr "İkinci, üç aylık dönem"
+msgstr "2-й триместр"
 
 #: src/window.py:213
 msgid "3rd trimester"
-msgstr "Üçüncü, üç aylık dönem"
+msgstr "3-й триместр"
 
 #: src/window.py:216
 msgid "Pregnancy"
-msgstr "Hamilelik"
+msgstr "Беременность"
 
 #: src/window.py:247 src/window.py:250
 msgid "Not Available"
-msgstr "Kullanılabilir Değil"
-
-#~ msgid "Daniel Taylor"
-#~ msgstr "Daniel Taylor"
-
-#~ msgid "Dark Mode"
-#~ msgstr "Koyu Kip"
-
-#~ msgid "luna"
-#~ msgstr "luna"
+msgstr "Недоступно"
