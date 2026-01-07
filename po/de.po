@@ -8,18 +8,19 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 17:44+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-01-08 14:01+0000\n"
+"Last-Translator: SynthSlayer <yaghrujhu@startmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/luna/luna/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: data/ui/day_row.blp:5
 msgid "Day details"
-msgstr ""
+msgstr "Tagesdetails"
 
 #: data/ui/day_row.blp:8
 msgid "Flow"
@@ -27,31 +28,31 @@ msgstr ""
 
 #: data/ui/day_row.blp:12
 msgid "Mood"
-msgstr ""
+msgstr "Stimmung"
 
 #: data/ui/day_row.blp:16
 msgid "Temperature (°C)"
-msgstr ""
+msgstr "Temperatur (°C)"
 
 #: data/ui/day_row.blp:21
 msgid "Symptoms (comma-separated)"
-msgstr ""
+msgstr "Symptome (Komma getrennt)"
 
 #: data/ui/day_row.blp:25
 msgid "Notes"
-msgstr ""
+msgstr "Notizen"
 
 #: data/ui/delete_period_dialog.blp:6
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: data/ui/delete_period_dialog.blp:7
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: data/ui/delete_period_dialog.blp:10 data/ui/period_page.blp:22
 msgid "Delete Period"
-msgstr ""
+msgstr "Periode Löschen"
 
 #: data/ui/delete_period_dialog.blp:11
 msgid ""
