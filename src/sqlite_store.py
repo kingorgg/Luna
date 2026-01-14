@@ -52,16 +52,19 @@ class SQLiteStore:
         self._init_schema()
 
     def _init_schema(self):
-        self.cursor.execute("""
+        self.cursor.execute(
+            """
             CREATE TABLE IF NOT EXISTS cycles (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 start_date TEXT UNIQUE NOT NULL,
                 duration INTEGER NOT NULL,
                 pregnancy_id TEXT
             )
-        """)
+        """
+        )
 
-        self.cursor.execute("""
+        self.cursor.execute(
+            """
             CREATE TABLE IF NOT EXISTS day_entries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 cycle_id INTEGER NOT NULL,
@@ -74,9 +77,11 @@ class SQLiteStore:
                 FOREIGN KEY (cycle_id) REFERENCES cycles(id) ON DELETE CASCADE,
                 UNIQUE (cycle_id, date)
             )
-        """)
+        """
+        )
 
-        self.cursor.execute("""
+        self.cursor.execute(
+            """
             CREATE TABLE IF NOT EXISTS pregnancies (
                 id TEXT PRIMARY KEY,
                 start_date TEXT UNIQUE NOT NULL,
@@ -85,7 +90,8 @@ class SQLiteStore:
                 notes TEXT,
                 custom_due_date TEXT
             )
-        """)
+        """
+        )
 
         self.conn.commit()
 
@@ -196,12 +202,14 @@ class SQLiteStore:
                 id=row["id"],
                 start_date=date.fromisoformat(row["start_date"]),
                 confirmed=row["confirmed"],
-                end_date=date.fromisoformat(row["end_date"])
-                if row["end_date"]
-                else None,
-                custom_due_date=date.fromisoformat(row["custom_due_date"])
-                if row["custom_due_date"]
-                else None,
+                end_date=(
+                    date.fromisoformat(row["end_date"]) if row["end_date"] else None
+                ),
+                custom_due_date=(
+                    date.fromisoformat(row["custom_due_date"])
+                    if row["custom_due_date"]
+                    else None
+                ),
                 notes=row["notes"],
             )
             pregnancies.append(pregnancy)
@@ -222,9 +230,11 @@ class SQLiteStore:
                     int(pregnancy.confirmed),
                     pregnancy.end_date.isoformat() if pregnancy.end_date else None,
                     pregnancy.notes,
-                    pregnancy.custom_due_date.isoformat()
-                    if pregnancy.custom_due_date
-                    else None,
+                    (
+                        pregnancy.custom_due_date.isoformat()
+                        if pregnancy.custom_due_date
+                        else None
+                    ),
                 ),
             )
 
@@ -242,9 +252,11 @@ class SQLiteStore:
                     int(pregnancy.confirmed),
                     pregnancy.end_date.isoformat() if pregnancy.end_date else None,
                     pregnancy.notes,
-                    pregnancy.custom_due_date.isoformat()
-                    if pregnancy.custom_due_date
-                    else None,
+                    (
+                        pregnancy.custom_due_date.isoformat()
+                        if pregnancy.custom_due_date
+                        else None
+                    ),
                     pregnancy.id,
                 ),
             )

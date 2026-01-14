@@ -65,7 +65,6 @@ luna_sources = [
      'new_period.py',
      'period_page.py',
      'sqlite_store.py',
-     'storage.py',
      'window.py'
 ]
 

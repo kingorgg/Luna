@@ -44,9 +44,11 @@ def get_gestation(preg):
 def get_due_date(preg):
     return preg.start_date + timedelta(days=280)
 
+
 def get_effective_due_date(preg: Pregnancy) -> date:
     """Return custom due date if set, otherwise calculated EDD."""
     return preg.custom_due_date or (preg.start_date + timedelta(days=280))
+
 
 def format_edd_window(due: date) -> str:
     """Format the EDD window as: 37w ← EDD → 41w"""

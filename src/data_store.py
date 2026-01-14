@@ -30,7 +30,6 @@ from .constants import APP_ID
 from .migration import migrate_json_to_sqlite
 from .models import Cycle, Pregnancy
 from .sqlite_store import SQLiteStore
-from .storage import CycleStore, PregnancyStore
 
 
 class DataStore(GObject.GObject):
@@ -48,8 +47,8 @@ class DataStore(GObject.GObject):
 
         self.sqlite = SQLiteStore(app_id=APP_ID)
 
-        if self._get_storage_version() == 1:
-            self._migrate_from_json()
+        if self._get_storage_version() != 3:
+            self._set_storage_version(3)
 
     def close(self) -> None:
         """Close the SQLite connection."""
@@ -128,16 +127,3 @@ class DataStore(GObject.GObject):
     def _set_storage_version(self, version: int) -> None:
         self._metadata_path().write_text(json.dumps({"storage_version": version}))
 
-    def _migrate_from_json(self) -> None:
-        self.logger.info("Migrating JSON storage to SQLite")
-
-        old_cycles = CycleStore(app_id=APP_ID)
-        old_pregnancies = PregnancyStore(app_id=APP_ID)
-
-        migrate_json_to_sqlite(
-            old_cycles.items,
-            old_pregnancies.items,
-            self.sqlite,
-        )
-
-        self._set_storage_version(2)
