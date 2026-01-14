@@ -44,6 +44,16 @@ def get_gestation(preg):
 def get_due_date(preg):
     return preg.start_date + timedelta(days=280)
 
+def get_effective_due_date(preg: Pregnancy) -> date:
+    """Return custom due date if set, otherwise calculated EDD."""
+    return preg.custom_due_date or (preg.start_date + timedelta(days=280))
+
+def format_edd_window(due: date) -> str:
+    """Format the EDD window as: 37w ← EDD → 41w"""
+    early = due - timedelta(weeks=3)
+    late = due + timedelta(weeks=1)
+    return f"{early.isoformat()} ← <u><b>{due.isoformat()}</b></u> → {late.isoformat()}"
+
 
 @Gtk.Template(resource_path="/io/github/kingorgg/Luna/window.ui")
 class LunaWindow(Adw.ApplicationWindow):
@@ -196,10 +206,10 @@ class LunaWindow(Adw.ApplicationWindow):
     def _show_pregnancy_state(self, pregnancy: Pregnancy, cycles: List[Cycle]) -> None:
         """Show pregnancy information and pause predictions."""
         weeks, days = get_gestation(pregnancy)
-        due = get_due_date(pregnancy)
+        due = get_effective_due_date(pregnancy)
 
-        self.predicted_period.set_title(_("Due Date"))
-        self.predicted_period.set_subtitle(due.isoformat())
+        self.predicted_period.set_title(_("Estimated Due Date (EDD)"))
+        self.predicted_period.set_subtitle(format_edd_window(due))
 
         self.ovulation.set_title(_("Pregnancy Progress"))
         self.ovulation.set_subtitle(f"{weeks} weeks, {days} days")

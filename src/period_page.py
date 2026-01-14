@@ -42,6 +42,7 @@ class PeriodPage(Adw.NavigationPage):
     start_date: Adw.EntryRow = Gtk.Template.Child()
     duration: Adw.SpinRow = Gtk.Template.Child()
     pregnancy_toggle: Adw.SwitchRow = Gtk.Template.Child()
+    edd_date: Adw.EntryRow = Gtk.Template.Child()
 
     days_list: Gtk.ListBox = Gtk.Template.Child()
     save_button: Gtk.Button = Gtk.Template.Child()
@@ -59,7 +60,14 @@ class PeriodPage(Adw.NavigationPage):
 
         self.start_date.set_text(self.cycle.start_date.isoformat())
         self.duration.set_value(self.cycle.duration)
-        self.pregnancy_toggle.set_active(self.cycle.pregnancy is not None)
+
+        pregnancy = self.cycle.pregnancy
+        self.pregnancy_toggle.set_active(pregnancy is not None)
+
+        if pregnancy and pregnancy.custom_due_date:
+            self.edd_date.set_text(pregnancy.custom_due_date.isoformat())
+        else:
+            self.edd_date.set_text("")
 
         self.days = list(self.cycle.days)
         self.rebuild_days()
@@ -97,7 +105,7 @@ class PeriodPage(Adw.NavigationPage):
         try:
             new_start = datetime.strptime(self.start_date.get_text(), "%Y-%m-%d").date()
         except ValueError:
-            toast = Adw.Toast.new(gettext_("Invalid date format"))
+            toast = Adw.Toast.new(gettext_("Invalid start date format"))
             self.get_native().toast_overlay.add_toast(toast)
             return
 
@@ -105,19 +113,36 @@ class PeriodPage(Adw.NavigationPage):
         self.cycle.duration = int(self.duration.get_value())
         latest_cycle = self.store.get_active_cycle()
 
-        if latest_cycle and self.cycle.id == latest_cycle.id:
-            if self.pregnancy_toggle.get_active():
-                if not self.cycle.pregnancy:
-                    preg = Pregnancy(start_date=new_start)
-                    self.store.add_pregnancy(preg)
-                    self.cycle.pregnancy = preg
-                else:
-                    self.cycle.pregnancy.start_date = new_start
-                    self.store.update_pregnancy(self.cycle.pregnancy)
-            else:
-                if self.cycle.pregnancy:
-                    self.store.delete_pregnancy(self.cycle.pregnancy)
-                self.cycle.pregnancy = None
+        if not (latest_cycle and self.cycle.id == latest_cycle.id):
+            return
+
+        if not self.pregnancy_toggle.get_active():
+            if self.cycle.pregnancy:
+                self.store.delete_pregnancy(self.cycle.pregnancy)
+            self.cycle.pregnancy = None
+            return
+
+        if not self.cycle.pregnancy:
+            preg = Pregnancy(start_date=new_start)
+            self.store.add_pregnancy(preg)
+            self.cycle.pregnancy = preg
+        else:
+            self.cycle.pregnancy.start_date = new_start
+
+        edd_text = self.edd_date.get_text().strip()
+        if edd_text:
+            try:
+                self.cycle.pregnancy.custom_due_date = datetime.strptime(
+                    edd_text, "%Y-%m-%d"
+                ).date()
+            except ValueError:
+                toast = Adw.Toast.new(gettext_("Invalid EDD format"))
+                self.get_native().toast_overlay.add_toast(toast)
+                return
+        else:
+            self.cycle.pregnancy.custom_due_date = None
+
+        self.store.update_pregnancy(self.cycle.pregnancy)
 
         new_days = []
         for i, day in enumerate(self.days):

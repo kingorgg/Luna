@@ -57,10 +57,18 @@ template $PeriodPage : Adw.NavigationPage {
                                 value: 5;
                             };
                         }
+                    }
+
+                    Adw.PreferencesGroup {
+                        title: _("Pregnancy Details");
 
                         Adw.SwitchRow pregnancy_toggle {
                             title: _("Pregnancy Mode");
                             subtitle: _("Mark as the last period before pregnancy");
+                        }
+
+                        Adw.EntryRow edd_date {
+                            title: _("EDD from Ultrasound (YYYY-MM-DD)");
                         }
                     }
 
