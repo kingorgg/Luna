@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 17:44+0000\n"
+"POT-Creation-Date: 2026-01-14 13:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -86,15 +86,23 @@ msgstr ""
 msgid "Edit Period"
 msgstr ""
 
-#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+#: data/ui/period_page.blp:63
+msgid "Pregnancy Details"
+msgstr ""
+
+#: data/ui/period_page.blp:66 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
 msgstr ""
 
-#: data/ui/period_page.blp:63
+#: data/ui/period_page.blp:67
 msgid "Mark as the last period before pregnancy"
 msgstr ""
 
-#: data/ui/period_page.blp:68
+#: data/ui/period_page.blp:71
+msgid "EDD from Ultrasound (YYYY-MM-DD)"
+msgstr ""
+
+#: data/ui/period_page.blp:76
 msgid "Daily Details"
 msgstr ""
 
@@ -123,11 +131,11 @@ msgstr ""
 msgid "Predictions"
 msgstr ""
 
-#: data/ui/window.blp:79 src/window.py:233
+#: data/ui/window.blp:79 src/window.py:245
 msgid "Ovulation Date"
 msgstr ""
 
-#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
+#: data/ui/window.blp:85 src/window.py:191 src/window.py:244
 msgid "Next Period"
 msgstr ""
 
@@ -135,7 +143,7 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
+#: data/ui/window.blp:94 src/window.py:193 src/window.py:246
 msgid "Average Length"
 msgstr ""
 
@@ -337,7 +345,7 @@ msgstr ""
 msgid "Follicular"
 msgstr ""
 
-#: src/logic.py:125 src/window.py:180
+#: src/logic.py:125 src/window.py:192
 msgid "Ovulation"
 msgstr ""
 
@@ -349,66 +357,70 @@ msgstr ""
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr ""
 
-#: src/period_page.py:100
-msgid "Invalid date format"
+#: src/period_page.py:108
+msgid "Invalid start date format"
 msgstr ""
 
-#: src/window.py:84
+#: src/period_page.py:139
+msgid "Invalid EDD format"
+msgstr ""
+
+#: src/window.py:96
 msgid "Error reloading data."
 msgstr ""
 
-#: src/window.py:121
+#: src/window.py:133
 msgid " - Pregnancy started"
 msgstr ""
 
-#: src/window.py:128
+#: src/window.py:140
 msgid "View Period"
 msgstr ""
 
-#: src/window.py:157
+#: src/window.py:169
 msgid "New period saved"
 msgstr ""
 
-#: src/window.py:168
+#: src/window.py:180
 msgid "Period deleted"
 msgstr ""
 
-#: src/window.py:183 src/window.py:184
+#: src/window.py:195 src/window.py:196
 msgid "No data yet"
 msgstr ""
 
-#: src/window.py:193
+#: src/window.py:205
 msgid "Add your first period to see predictions."
 msgstr ""
 
-#: src/window.py:201
-msgid "Due Date"
-msgstr ""
-
-#: src/window.py:204
-msgid "Pregnancy Progress"
-msgstr ""
-
-#: src/window.py:207
-msgid "Trimester"
-msgstr ""
-
-#: src/window.py:209
-msgid "1st trimester"
-msgstr ""
-
-#: src/window.py:211
-msgid "2nd trimester"
-msgstr ""
-
 #: src/window.py:213
-msgid "3rd trimester"
+msgid "Estimated Due Date (EDD)"
 msgstr ""
 
 #: src/window.py:216
+msgid "Pregnancy Progress"
+msgstr ""
+
+#: src/window.py:219
+msgid "Trimester"
+msgstr ""
+
+#: src/window.py:221
+msgid "1st trimester"
+msgstr ""
+
+#: src/window.py:223
+msgid "2nd trimester"
+msgstr ""
+
+#: src/window.py:225
+msgid "3rd trimester"
+msgstr ""
+
+#: src/window.py:228
 msgid "Pregnancy"
 msgstr ""
 
-#: src/window.py:247 src/window.py:250
+#: src/window.py:259 src/window.py:262
 msgid "Not Available"
 msgstr ""

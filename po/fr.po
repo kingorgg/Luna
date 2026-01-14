@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 17:44+0000\n"
+"POT-Creation-Date: 2026-01-14 13:43+0000\n"
 "PO-Revision-Date: 2025-12-04 14:53+0000\n"
 "Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/luna/luna/fr/>\n"
@@ -88,15 +88,24 @@ msgstr "Nombre de jours que votre cycle a duré"
 msgid "Edit Period"
 msgstr "Modifier le cycle"
 
-#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+#: data/ui/period_page.blp:63
+#, fuzzy
+msgid "Pregnancy Details"
+msgstr "Mode grossesse"
+
+#: data/ui/period_page.blp:66 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
 msgstr "Mode grossesse"
 
-#: data/ui/period_page.blp:63
+#: data/ui/period_page.blp:67
 msgid "Mark as the last period before pregnancy"
 msgstr "Marquer comme le dernier cycle avant la grossesse"
 
-#: data/ui/period_page.blp:68
+#: data/ui/period_page.blp:71
+msgid "EDD from Ultrasound (YYYY-MM-DD)"
+msgstr ""
+
+#: data/ui/period_page.blp:76
 msgid "Daily Details"
 msgstr "Détails journaliers"
 
@@ -125,11 +134,11 @@ msgstr ""
 msgid "Predictions"
 msgstr "Prévisions"
 
-#: data/ui/window.blp:79 src/window.py:233
+#: data/ui/window.blp:79 src/window.py:245
 msgid "Ovulation Date"
 msgstr "Date d'ovulation"
 
-#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
+#: data/ui/window.blp:85 src/window.py:191 src/window.py:244
 msgid "Next Period"
 msgstr "Prochain cycle"
 
@@ -137,7 +146,7 @@ msgstr "Prochain cycle"
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
+#: data/ui/window.blp:94 src/window.py:193 src/window.py:246
 msgid "Average Length"
 msgstr "Durée moyenne"
 
@@ -354,7 +363,7 @@ msgstr ""
 msgid "Follicular"
 msgstr ""
 
-#: src/logic.py:125 src/window.py:180
+#: src/logic.py:125 src/window.py:192
 msgid "Ovulation"
 msgstr "Ovulation"
 
@@ -366,70 +375,79 @@ msgstr ""
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Format de date invalide (utilisez AAAA-MM-JJ)"
 
-#: src/period_page.py:100
-msgid "Invalid date format"
+#: src/period_page.py:108
+#, fuzzy
+msgid "Invalid start date format"
 msgstr "Format de date invalide"
 
-#: src/window.py:84
+#: src/period_page.py:139
+#, fuzzy
+msgid "Invalid EDD format"
+msgstr "Format de date invalide"
+
+#: src/window.py:96
 msgid "Error reloading data."
 msgstr "Erreur en rechargeant les données."
 
-#: src/window.py:121
+#: src/window.py:133
 msgid " - Pregnancy started"
 msgstr " - La grossesse a commencé"
 
-#: src/window.py:128
+#: src/window.py:140
 msgid "View Period"
 msgstr "Voir le cycle"
 
-#: src/window.py:157
+#: src/window.py:169
 msgid "New period saved"
 msgstr "Nouveau cycle enregistré"
 
-#: src/window.py:168
+#: src/window.py:180
 msgid "Period deleted"
 msgstr "Cycle supprimé"
 
-#: src/window.py:183 src/window.py:184
+#: src/window.py:195 src/window.py:196
 msgid "No data yet"
 msgstr "Encore aucune donnée"
 
-#: src/window.py:193
+#: src/window.py:205
 msgid "Add your first period to see predictions."
 msgstr "Ajoutez votre premier cycle pour voir les prévisions."
 
-#: src/window.py:201
-msgid "Due Date"
-msgstr "Date du terme"
+#: src/window.py:213
+msgid "Estimated Due Date (EDD)"
+msgstr ""
 
-#: src/window.py:204
+#: src/window.py:216
 msgid "Pregnancy Progress"
 msgstr "Progression de la grossesse"
 
-#: src/window.py:207
+#: src/window.py:219
 msgid "Trimester"
 msgstr "Trimestre"
 
-#: src/window.py:209
+#: src/window.py:221
 msgid "1st trimester"
 msgstr "1er trimestre"
 
-#: src/window.py:211
+#: src/window.py:223
 msgid "2nd trimester"
 msgstr "2e trimestre"
 
-#: src/window.py:213
+#: src/window.py:225
 msgid "3rd trimester"
 msgstr "3e trimestre"
 
-#: src/window.py:216
+#: src/window.py:228
 #, fuzzy
 msgid "Pregnancy"
 msgstr "Mode grossesse"
 
-#: src/window.py:247 src/window.py:250
+#: src/window.py:259 src/window.py:262
 msgid "Not Available"
 msgstr "Non disponible"
+
+#~ msgid "Due Date"
+#~ msgstr "Date du terme"
 
 #~ msgid "Daniel Taylor"
 #~ msgstr "Daniel Taylor"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.github.kingorgg.Luna master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 17:44+0000\n"
+"POT-Creation-Date: 2026-01-14 13:43+0000\n"
 "PO-Revision-Date: 2025-12-21 20:00+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/luna/luna/tr/>\n"
@@ -89,15 +89,24 @@ msgstr "Adet sürenizin kaç gün sürdüğü"
 msgid "Edit Period"
 msgstr "Adeti Düzenle"
 
-#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+#: data/ui/period_page.blp:63
+#, fuzzy
+msgid "Pregnancy Details"
+msgstr "Hamilelik Kipi"
+
+#: data/ui/period_page.blp:66 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
 msgstr "Hamilelik Kipi"
 
-#: data/ui/period_page.blp:63
+#: data/ui/period_page.blp:67
 msgid "Mark as the last period before pregnancy"
 msgstr "Hamilelik öncesi son adet olarak işaretle"
 
-#: data/ui/period_page.blp:68
+#: data/ui/period_page.blp:71
+msgid "EDD from Ultrasound (YYYY-MM-DD)"
+msgstr ""
+
+#: data/ui/period_page.blp:76
 msgid "Daily Details"
 msgstr "Günlük Ayrıntılar"
 
@@ -126,11 +135,11 @@ msgstr ""
 msgid "Predictions"
 msgstr "Tahminler"
 
-#: data/ui/window.blp:79 src/window.py:233
+#: data/ui/window.blp:79 src/window.py:245
 msgid "Ovulation Date"
 msgstr "Yumurtlama Tarihi"
 
-#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
+#: data/ui/window.blp:85 src/window.py:191 src/window.py:244
 msgid "Next Period"
 msgstr "Sonraki Adet"
 
@@ -138,7 +147,7 @@ msgstr "Sonraki Adet"
 msgid "Statistics"
 msgstr "İstatistikler"
 
-#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
+#: data/ui/window.blp:94 src/window.py:193 src/window.py:246
 msgid "Average Length"
 msgstr "Ortalama Uzunluk"
 
@@ -352,7 +361,7 @@ msgstr "Adet görme"
 msgid "Follicular"
 msgstr "Folikül"
 
-#: src/logic.py:125 src/window.py:180
+#: src/logic.py:125 src/window.py:192
 msgid "Ovulation"
 msgstr "Yumurtlama"
 
@@ -364,69 +373,78 @@ msgstr "Yumurlamadan sonraki evre"
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Geçersiz tarih biçimi(YYYY-AA-GG kullan)"
 
-#: src/period_page.py:100
-msgid "Invalid date format"
+#: src/period_page.py:108
+#, fuzzy
+msgid "Invalid start date format"
 msgstr "Geçersiz tarih biçimi"
 
-#: src/window.py:84
+#: src/period_page.py:139
+#, fuzzy
+msgid "Invalid EDD format"
+msgstr "Geçersiz tarih biçimi"
+
+#: src/window.py:96
 msgid "Error reloading data."
 msgstr "Veriler yeniden yüklenirken hata."
 
-#: src/window.py:121
+#: src/window.py:133
 msgid " - Pregnancy started"
 msgstr " - Hamilelik başladı"
 
-#: src/window.py:128
+#: src/window.py:140
 msgid "View Period"
 msgstr "Adeti Görüntüle"
 
-#: src/window.py:157
+#: src/window.py:169
 msgid "New period saved"
 msgstr "Yeni adet kaydedildi"
 
-#: src/window.py:168
+#: src/window.py:180
 msgid "Period deleted"
 msgstr "Adet silindi"
 
-#: src/window.py:183 src/window.py:184
+#: src/window.py:195 src/window.py:196
 msgid "No data yet"
 msgstr "Henüz tarih yok"
 
-#: src/window.py:193
+#: src/window.py:205
 msgid "Add your first period to see predictions."
 msgstr "Tahminleri görmek için ilk adeti ekleyin."
 
-#: src/window.py:201
-msgid "Due Date"
-msgstr "Doğum Tarihi"
+#: src/window.py:213
+msgid "Estimated Due Date (EDD)"
+msgstr ""
 
-#: src/window.py:204
+#: src/window.py:216
 msgid "Pregnancy Progress"
 msgstr "Hamilelik Süreci"
 
-#: src/window.py:207
+#: src/window.py:219
 msgid "Trimester"
 msgstr "Üç aylık dönem"
 
-#: src/window.py:209
+#: src/window.py:221
 msgid "1st trimester"
 msgstr "Birinci, üç aylık dönem"
 
-#: src/window.py:211
+#: src/window.py:223
 msgid "2nd trimester"
 msgstr "İkinci, üç aylık dönem"
 
-#: src/window.py:213
+#: src/window.py:225
 msgid "3rd trimester"
 msgstr "Üçüncü, üç aylık dönem"
 
-#: src/window.py:216
+#: src/window.py:228
 msgid "Pregnancy"
 msgstr "Hamilelik"
 
-#: src/window.py:247 src/window.py:250
+#: src/window.py:259 src/window.py:262
 msgid "Not Available"
 msgstr "Kullanılabilir Değil"
+
+#~ msgid "Due Date"
+#~ msgstr "Doğum Tarihi"
 
 #~ msgid "Daniel Taylor"
 #~ msgstr "Daniel Taylor"

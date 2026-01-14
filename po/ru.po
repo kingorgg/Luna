@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 17:44+0000\n"
+"POT-Creation-Date: 2026-01-14 13:43+0000\n"
 "PO-Revision-Date: 2025-12-31 23:15+0000\n"
 "Last-Translator: Daniel Taylor <kingorgg@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/luna/luna/ru/>\n"
@@ -88,15 +88,24 @@ msgstr "Количество дней, в течение которых длил
 msgid "Edit Period"
 msgstr "Изменить менструацию"
 
-#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+#: data/ui/period_page.blp:63
+#, fuzzy
+msgid "Pregnancy Details"
+msgstr "Режим беременности"
+
+#: data/ui/period_page.blp:66 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
 msgstr "Режим беременности"
 
-#: data/ui/period_page.blp:63
+#: data/ui/period_page.blp:67
 msgid "Mark as the last period before pregnancy"
 msgstr "Отметить как последний период перед беременностью"
 
-#: data/ui/period_page.blp:68
+#: data/ui/period_page.blp:71
+msgid "EDD from Ultrasound (YYYY-MM-DD)"
+msgstr ""
+
+#: data/ui/period_page.blp:76
 msgid "Daily Details"
 msgstr "Детали о дне"
 
@@ -125,11 +134,11 @@ msgstr "Текущая фаза"
 msgid "Predictions"
 msgstr "Прогноз"
 
-#: data/ui/window.blp:79 src/window.py:233
+#: data/ui/window.blp:79 src/window.py:245
 msgid "Ovulation Date"
 msgstr "Дата овуляции"
 
-#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
+#: data/ui/window.blp:85 src/window.py:191 src/window.py:244
 msgid "Next Period"
 msgstr "Следующая менструация"
 
@@ -137,7 +146,7 @@ msgstr "Следующая менструация"
 msgid "Statistics"
 msgstr "Статистика"
 
-#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
+#: data/ui/window.blp:94 src/window.py:193 src/window.py:246
 msgid "Average Length"
 msgstr "Средняя продолжительность"
 
@@ -348,7 +357,7 @@ msgstr "Менструация"
 msgid "Follicular"
 msgstr "Фолликулярная"
 
-#: src/logic.py:125 src/window.py:180
+#: src/logic.py:125 src/window.py:192
 msgid "Ovulation"
 msgstr "Овуляция"
 
@@ -360,66 +369,75 @@ msgstr "Лютеиновая"
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Недопустимый формат даты (используйте ГГГГ-ММ-ДД)"
 
-#: src/period_page.py:100
-msgid "Invalid date format"
+#: src/period_page.py:108
+#, fuzzy
+msgid "Invalid start date format"
 msgstr "Недопустимый формат даты"
 
-#: src/window.py:84
+#: src/period_page.py:139
+#, fuzzy
+msgid "Invalid EDD format"
+msgstr "Недопустимый формат даты"
+
+#: src/window.py:96
 msgid "Error reloading data."
 msgstr "Ошибка при перезагрузке данных."
 
-#: src/window.py:121
+#: src/window.py:133
 msgid " - Pregnancy started"
 msgstr " - Началась беременность"
 
-#: src/window.py:128
+#: src/window.py:140
 msgid "View Period"
 msgstr "Просмотр менструации"
 
-#: src/window.py:157
+#: src/window.py:169
 msgid "New period saved"
 msgstr "Новая менструация сохранена"
 
-#: src/window.py:168
+#: src/window.py:180
 msgid "Period deleted"
 msgstr "Менструация удалена"
 
-#: src/window.py:183 src/window.py:184
+#: src/window.py:195 src/window.py:196
 msgid "No data yet"
 msgstr "Данных пока нет"
 
-#: src/window.py:193
+#: src/window.py:205
 msgid "Add your first period to see predictions."
 msgstr "Добавьте свою первую менструацию, чтобы увидеть прогноз."
 
-#: src/window.py:201
-msgid "Due Date"
-msgstr "Срок"
+#: src/window.py:213
+msgid "Estimated Due Date (EDD)"
+msgstr ""
 
-#: src/window.py:204
+#: src/window.py:216
 msgid "Pregnancy Progress"
 msgstr "Развитие беременности"
 
-#: src/window.py:207
+#: src/window.py:219
 msgid "Trimester"
 msgstr "Триместр"
 
-#: src/window.py:209
+#: src/window.py:221
 msgid "1st trimester"
 msgstr "1-й триместр"
 
-#: src/window.py:211
+#: src/window.py:223
 msgid "2nd trimester"
 msgstr "2-й триместр"
 
-#: src/window.py:213
+#: src/window.py:225
 msgid "3rd trimester"
 msgstr "3-й триместр"
 
-#: src/window.py:216
+#: src/window.py:228
 msgid "Pregnancy"
 msgstr "Беременность"
 
-#: src/window.py:247 src/window.py:250
+#: src/window.py:259 src/window.py:262
 msgid "Not Available"
 msgstr "Недоступно"
+
+#~ msgid "Due Date"
+#~ msgstr "Срок"

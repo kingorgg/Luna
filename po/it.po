@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-12 23:04+0000\n"
+"POT-Creation-Date: 2026-01-14 13:43+0000\n"
 "PO-Revision-Date: 2025-12-13 13:14+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/luna/luna/it/>\n"
@@ -89,15 +89,24 @@ msgstr "Numero di giorni in cui è durato il tuo ciclo"
 msgid "Edit Period"
 msgstr "Modifica periodo"
 
-#: data/ui/period_page.blp:62 data/io.github.kingorgg.Luna.metainfo.xml.in:50
+#: data/ui/period_page.blp:63
+#, fuzzy
+msgid "Pregnancy Details"
+msgstr "Modalità gravidanza"
+
+#: data/ui/period_page.blp:66 data/io.github.kingorgg.Luna.metainfo.xml.in:50
 msgid "Pregnancy Mode"
 msgstr "Modalità gravidanza"
 
-#: data/ui/period_page.blp:63
+#: data/ui/period_page.blp:67
 msgid "Mark as the last period before pregnancy"
 msgstr "Segna come ultimo periodo prima della gravidanza"
 
-#: data/ui/period_page.blp:68
+#: data/ui/period_page.blp:71
+msgid "EDD from Ultrasound (YYYY-MM-DD)"
+msgstr ""
+
+#: data/ui/period_page.blp:76
 msgid "Daily Details"
 msgstr "Dettagli giornalieri"
 
@@ -126,11 +135,11 @@ msgstr "Fase attuale"
 msgid "Predictions"
 msgstr "Previsioni"
 
-#: data/ui/window.blp:79 src/window.py:233
+#: data/ui/window.blp:79 src/window.py:245
 msgid "Ovulation Date"
 msgstr "Data di ovulazione"
 
-#: data/ui/window.blp:85 src/window.py:179 src/window.py:232
+#: data/ui/window.blp:85 src/window.py:191 src/window.py:244
 msgid "Next Period"
 msgstr "Prossimo periodo"
 
@@ -138,7 +147,7 @@ msgstr "Prossimo periodo"
 msgid "Statistics"
 msgstr "Statistiche"
 
-#: data/ui/window.blp:94 src/window.py:181 src/window.py:234
+#: data/ui/window.blp:94 src/window.py:193 src/window.py:246
 msgid "Average Length"
 msgstr "Lunghezza media"
 
@@ -250,7 +259,7 @@ msgstr "0 = predefinito del sistema 1 = chiaro 2 = scuro"
 msgid "None"
 msgstr "Nessuno"
 
-#: src/day_row.py:54 src/main.py:111
+#: src/day_row.py:54 src/main.py:127
 msgid "Light"
 msgstr "Leggero"
 
@@ -286,7 +295,7 @@ msgstr "Stanca"
 msgid "Sensitive"
 msgstr "Sensibile"
 
-#: src/main.py:85
+#: src/main.py:101
 msgid ""
 "A simple utility to keep track of your menstrual cycle and to predict "
 "ovulation dates. Also helps track your estimated due date and trimester, if "
@@ -296,43 +305,43 @@ msgstr ""
 "dell'ovulazione. Aiuta anche a tenere traccia della data presunta del parto "
 "e del trimestre, se sei incinta."
 
-#: src/main.py:93
+#: src/main.py:109
 msgid "translator-credits"
 msgstr "Albano Battistella"
 
-#: src/main.py:105
+#: src/main.py:121
 msgid "Appearance"
 msgstr "Aspetto"
 
-#: src/main.py:109
+#: src/main.py:125
 msgid "Colour Scheme"
 msgstr "Schema dei colori"
 
-#: src/main.py:110
+#: src/main.py:126
 msgid "Choose light, dark, or follow system"
 msgstr "Scegli chiaro, scuro, o seguire il sistema"
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "System"
 msgstr "Sistema"
 
-#: src/main.py:111
+#: src/main.py:127
 msgid "Dark"
 msgstr "Scuro"
 
-#: src/main.py:123
+#: src/main.py:139
 msgid "Cycle Tracking"
 msgstr "Monitoraggio del ciclo"
 
-#: src/main.py:127
+#: src/main.py:143
 msgid "Luteal Phase Length (days)"
 msgstr "Durata della fase luteale (giorni)"
 
-#: src/main.py:133
+#: src/main.py:149
 msgid "Cycle Length (days)"
 msgstr "Durata del ciclo (giorni)"
 
-#: src/main.py:139
+#: src/main.py:155
 msgid "Period Length (days)"
 msgstr "Durata del periodo (giorni)"
 
@@ -349,7 +358,7 @@ msgstr "Mestruazioni"
 msgid "Follicular"
 msgstr "Follicolare"
 
-#: src/logic.py:125 src/window.py:180
+#: src/logic.py:125 src/window.py:192
 msgid "Ovulation"
 msgstr "Ovulazione"
 
@@ -361,66 +370,75 @@ msgstr "Luteale"
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Formato data non valido (utilizzare AAAA-MM-GG)"
 
-#: src/period_page.py:100
-msgid "Invalid date format"
+#: src/period_page.py:108
+#, fuzzy
+msgid "Invalid start date format"
 msgstr "Formato data non valido"
 
-#: src/window.py:84
+#: src/period_page.py:139
+#, fuzzy
+msgid "Invalid EDD format"
+msgstr "Formato data non valido"
+
+#: src/window.py:96
 msgid "Error reloading data."
 msgstr "Errore durante il ricaricamento dei dati."
 
-#: src/window.py:121
+#: src/window.py:133
 msgid " - Pregnancy started"
 msgstr " - Gravidanza iniziata"
 
-#: src/window.py:128
+#: src/window.py:140
 msgid "View Period"
 msgstr "Visualizza periodo"
 
-#: src/window.py:157
+#: src/window.py:169
 msgid "New period saved"
 msgstr "Nuovo periodo salvato"
 
-#: src/window.py:168
+#: src/window.py:180
 msgid "Period deleted"
 msgstr "Periodo cancellato"
 
-#: src/window.py:183 src/window.py:184
+#: src/window.py:195 src/window.py:196
 msgid "No data yet"
 msgstr "Nessun dato ancora"
 
-#: src/window.py:193
+#: src/window.py:205
 msgid "Add your first period to see predictions."
 msgstr "Aggiungi il tuo primo ciclo mestruale per vedere le previsioni."
 
-#: src/window.py:201
-msgid "Due Date"
-msgstr "Scadenza"
+#: src/window.py:213
+msgid "Estimated Due Date (EDD)"
+msgstr ""
 
-#: src/window.py:204
+#: src/window.py:216
 msgid "Pregnancy Progress"
 msgstr "Progressi della gravidanza"
 
-#: src/window.py:207
+#: src/window.py:219
 msgid "Trimester"
 msgstr "Trimestre"
 
-#: src/window.py:209
+#: src/window.py:221
 msgid "1st trimester"
 msgstr "1° trimestre"
 
-#: src/window.py:211
+#: src/window.py:223
 msgid "2nd trimester"
 msgstr "2° trimestre"
 
-#: src/window.py:213
+#: src/window.py:225
 msgid "3rd trimester"
 msgstr "3° trimestre"
 
-#: src/window.py:216
+#: src/window.py:228
 msgid "Pregnancy"
 msgstr "Gravidanza"
 
-#: src/window.py:247 src/window.py:250
+#: src/window.py:259 src/window.py:262
 msgid "Not Available"
 msgstr "Non disponibile"
+
+#~ msgid "Due Date"
+#~ msgstr "Scadenza"
