@@ -34,6 +34,12 @@ Designed to look and feel at home on GNOME.
 
 ---
 
+## Screenshot
+
+![main_window](https://github.com/kingorgg/Luna/blob/main/data/screenshots/main_window.png?raw=true)
+
+---
+
 ## Features
 
 ### Cycle Tracking
