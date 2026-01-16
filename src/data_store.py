@@ -125,4 +125,3 @@ class DataStore(GObject.GObject):
 
     def _set_storage_version(self, version: int) -> None:
         self._metadata_path().write_text(json.dumps({"storage_version": version}))
-

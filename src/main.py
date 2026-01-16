@@ -20,20 +20,17 @@
 from __future__ import annotations
 
 import sys
+from gettext import gettext as _
 from typing import Any, Callable, Iterable, Optional
 
 import gi
+from gi.repository import Adw, Gio, Gtk  # type: ignore
 
 from .constants import ColorSchemeMode
+from .window import LunaWindow
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
-
-from gettext import gettext as _
-
-from gi.repository import Adw, Gio, Gtk  # type: ignore
-
-from .window import LunaWindow
 
 MAIN_DEVELOPER = "Daniel Taylor"
 
