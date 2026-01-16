@@ -22,7 +22,7 @@ from __future__ import annotations, print_function
 from datetime import date as DateType
 from datetime import datetime, timedelta
 from gettext import gettext as gettext_
-from typing import Optional, Union
+from typing import Optional
 
 from gi.repository import Adw, GObject, Gtk  # type: ignore
 
@@ -178,7 +178,7 @@ class PeriodPage(Adw.NavigationPage):
             gettext_("Invalid start date format"),
         )
 
-    def _get_valid_due_date(self) -> Union[Optional[DateType], _InvalidDueDate]:
+    def _get_valid_due_date(self) -> Optional[DateType] | _InvalidDueDate:
         """Get a valid due date."""
         result = self._get_valid_date(
             self.edd_date.get_text(),
