@@ -27,7 +27,6 @@ from typing import List, Optional
 from gi.repository import GLib, GObject  # type: ignore
 
 from .constants import APP_ID
-from .migration import migrate_json_to_sqlite
 from .models import Cycle, Pregnancy
 from .sqlite_store import SQLiteStore
 
