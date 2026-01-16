@@ -60,7 +60,6 @@ luna_sources = [
      'delete_period_dialog.py',
      'logic.py',
      'main.py',
-     'migration.py',
      'models.py',
      'new_period.py',
      'period_page.py',
