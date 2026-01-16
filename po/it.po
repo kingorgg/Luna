@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 13:43+0000\n"
+"POT-Creation-Date: 2026-01-16 14:07+0000\n"
 "PO-Revision-Date: 2025-12-13 13:14+0000\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/luna/luna/it/>\n"
@@ -370,12 +370,12 @@ msgstr "Luteale"
 msgid "Invalid date format (use YYYY-MM-DD)"
 msgstr "Formato data non valido (utilizzare AAAA-MM-GG)"
 
-#: src/period_page.py:108
+#: src/period_page.py:178
 #, fuzzy
 msgid "Invalid start date format"
 msgstr "Formato data non valido"
 
-#: src/period_page.py:139
+#: src/period_page.py:185
 #, fuzzy
 msgid "Invalid EDD format"
 msgstr "Formato data non valido"
