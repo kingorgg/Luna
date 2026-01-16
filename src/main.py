@@ -35,6 +35,8 @@ from gi.repository import Adw, Gio, Gtk  # type: ignore
 
 from .window import LunaWindow
 
+MAIN_DEVELOPER = "Daniel Taylor"
+
 
 class LunaApplication(Adw.Application):
     """The main application singleton class."""
@@ -92,7 +94,7 @@ class LunaApplication(Adw.Application):
         about = Adw.AboutDialog(
             application_name="luna",
             application_icon=self.application_id,
-            developer_name="Daniel Taylor",
+            developer_name=MAIN_DEVELOPER,
             version=self.version,
             website="https://github.com/kingorgg/Luna",
             issue_url="https://github.com/kingorgg/Luna/issues",
@@ -100,14 +102,14 @@ class LunaApplication(Adw.Application):
             comments=_(
                 "A simple utility to keep track of your menstrual cycle and to predict ovulation dates. Also helps track your estimated due date and trimester, if you are pregnant."
             ),
-            developers=["Daniel Taylor"],
-            designers=["Daniel Taylor"],
-            copyright="© 2025 Daniel Taylor",
+            developers=[MAIN_DEVELOPER],
+            designers=[MAIN_DEVELOPER],
+            copyright="© 2025 " + MAIN_DEVELOPER,
             support_url="https://github.com/kingorgg/Luna/discussions",
         )
 
         about.set_translator_credits(_("translator-credits"))
-        about.set_artists(["Daniel Taylor"])
+        about.set_artists([MAIN_DEVELOPER])
         about.present(self.props.active_window)
 
     def on_preferences_action(self, *args: Any) -> None:
